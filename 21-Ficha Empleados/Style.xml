@@ -1,0 +1,96 @@
+<blockTableStyle id="TablaTitulo">
+ <lineStyle kind="GRID" colorName="#000" start="0,0" stop="0,0" />
+</blockTableStyle>
+
+<blockTableStyle id="marc_photo">
+    <!-- Estilo de línea solo para la segunda celda -->
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="parrafo">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="red_header">
+<blockValign value="TOP"/>
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#E4FFFE"  start="0,0" stop="-1,0"/>
+</blockTableStyle>
+
+
+<blockTableStyle id="table_sub1_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="3,0" stop="3,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_sub2_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="6,0" stop="6,-1"/>  
+</blockTableStyle>
+
+<blockTableStyle id="table_sub3_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="6,0" stop="6,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="8,-1"/>  
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="10,0" stop="10,-1"/>   
+</blockTableStyle>
+
+<blockTableStyle id="table_sub4_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="3,0" stop="3,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="5,-1"/>  
+</blockTableStyle>
+
+<blockTableStyle id="table_sub5_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_sub6_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="3,0" stop="3,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="5,-1"/>  
+</blockTableStyle>
+
+<blockTableStyle id="table_sub7_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,-1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="6,0" stop="6,-1"/> 
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="8,-1"/>   
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Montserrat-Bold" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosll" fontName="Montserrat" fontSize="7" leading="5" alignment="center" />
+<paraStyle name="dataB" fontName="Montserrat" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataBB" fontName="Montserrat-Bold" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="datosTitulo" fontName="Montserrat-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosSubtitulo" fontName="Montserrat-Bold" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Montserrat" fontSize="8" leading="4" alignment="center" />
+<paraStyle name="text1" fontName="Montserrat-Bold" fontSize="9" leading="12" alignment="left" />
+<paraStyle name="text2" fontName="Montserrat-Regular" fontSize="9" leading="12" alignment="left" />
+<paraStyle name="text3" fontName="Montserrat-Bold" fontSize="9" leading="12" alignment="right" />
+<paraStyle name="text4" fontName="Montserrat-Regular" fontSize="9" leading="12" alignment="center" />
+

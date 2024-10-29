@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+      <template  title="Selecom" author="LinkaForm" pageSize="(21cm,27.5cm)">
+        <pageTemplate id="first" pageSize="(21cm,27.5cm)">
+            <frame id="first"    x1="1.5cm"   y1="1.5cm" width="18cm"   height="24.5cm"/>
+            <pageGraphics>
+                <setFont name="Montserrat-Regular" size="7.5"/>
+                <drawCenteredString x="10.5cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Montserrat-Regular" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+
+    <story>
+  <spacer length="0.5cm"/>
+  <blockTable colWidths="5cm,4cm,5cm,4cm" style = "table_sub1_two">
+    <tr>
+      <td><para style="datos"><b>TIPO DE SOLICITUD: </b></para></td>
+      <td><para style="datosRC">{{ answers.633b117f29aa0a83de95abbc }} </para></td>
+      <td><para style="datos"><b>FECHA DE SOLICITUD: </b></para></td>
+      <td><para style="datosRC">{{ answers.60edfe347b4c30d3b6acae75 }}</para></td>
+    </tr>  
+  </blockTable>
+
+  <spacer length="0.5cm"/>
+        <blockTable colWidths="10cm, 8cm">  
+            <tr>
+                <td>
+                    <blockTable colWidths="5cm, 5cm" style="table_sub1_two">
+                    <tr>
+                      <td><para style="datos"><b>TIPO DE SOLICITUD: </b></para></td>
+                    </tr>  
+                    </blockTable>
+                </td>
+                
+                <td>
+                    <blockTable colWidths="4cm, 4cm" style="table_sub1_two">
+                    <tr>
+                      <td><para style="datos"><b>TIPO DE SOLICITUD: </b></para></td>
+                    </tr>
+                    </blockTable> 
+                </td>   
+            </tr> 
+        </blockTable>
+
+ 
+
+</story>
+</document>
+
+
+{$match: {
+ form_id:{$in:[72695]} ,  
+        deleted_at:{$exists:false},
+    }},
+
+ {$unwind: "$answers.60edff07ea56ede46cd48f00"},
+ {$unwind:"$answers.6335cc3f76d708a3a7df9aa2"},   
+
+    {$project:{
+'_id':1,
+
+'folio':'$folio',	
+            
+    'Fecha Solicitud':"$answers.60edfe347b4c30d3b6acae75",                             
+            
+            'JobID':"$answers.6335cc3f76d708a3a7df9aa2.60edf7509292403756acaef2.60f1261fe58ff965ba6f0250",
+
+                'Job-Descripcion':"$answers.6335cc3f76d708a3a7df9aa2.60edf7509292403756acaef2.60f1261fe58ff965ba6f0251",
+                                                                                                                                                                                                    
+                        'Area Operativa':{$ifNull: ["$answers.60007ca59253268e682b875e.60007ca59253268e682b8760","N/A "]},
+
+                            'Sitio':{$ifNull: ["$answers.62d97080960181ee4a5c7489","N/A"]},
+				
+				                'ODT Extra':{$ifNull: ["$answers.60f58c26d35445d0b7ce672f","N/A "]},
+
+				                    'Tipo de solicitud':{$ifNull: ["$answers.633b117f29aa0a83de95abbc", "materiales"]},   
+
+                                'Tecnico':{$ifNull: ["$answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f","N/A"]},                                                
+
+                            'Codigo Producto':"$answers.60edff07ea56ede46cd48f00.60edf790526d066a536f0255.60f1286f9f87230582acae68",
+
+                        'Descripcion de Producto':"$answers.60edff07ea56ede46cd48f00.60edf790526d066a536f0255.60f1286f9f87230582acae69",
+    
+                    'Cantidad':"$answers.60edff07ea56ede46cd48f00.60edff14790e7fd21f6f0240",
+
+			    'Medida':"$answers.60edff07ea56ede46cd48f00.60edf790526d066a536f0255.60f129279f87230582acae72",
+
+            'Status':{$ifNull: ["$answers.61044c61e93f72ce6e303e7b","N/A"]},                                                                                                       
+
+        'Observaciones':{$ifNull: ["$answers.62d96ff1dd3474ced27e5ca7","N/A"]},
+	
+    'Accion':{$ifNull: ["$answers.635007f6042724f271fa555f","Solicitud"]},
+    }
+}

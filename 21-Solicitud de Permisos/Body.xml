@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story> 
+    <spacer length="1.5cm" /> 
+    <blockTable colWidths="8cm, 6cm, 4cm" style="table_sub2_two">
+      <tr>
+        <td><para style="text1"> <b> Señor (a) Jefe de Área: </b></para> </td>
+        <td>   </td>     
+        <td>   </td>        
+      </tr>
+      <tr>
+        <td>
+          <para style="text1"> {{ answers.60007ca59253268e682b875e.635a92e4e854845805275c64 }}</para></td>      
+          <td><para style="dataB"> <b> G u a t e m a l a, </b></para></td>     
+          <td><para style="dfecha"> {{ answers.6603b82d35a69e33040df517 }} </para></td>  
+      </tr>
+    </blockTable>
+
+    <spacer length="0.3cm" />
+    <blockTable colWidths="18cm">
+      <tr>
+        <td><para style="text1"> <b>Observaciones: </b></para> </td>     
+      </tr>
+      <tr>
+        <td><para style="parrafolll">*El permiso se otorgará si es justificado y con 2 días de anticipación.</para></td>       
+      </tr>
+      <tr>
+        <td><para style="parrafolll">*A continuación, se le solicita la siguiente información para poder solicitar un permiso de ausencia laboral.</para></td>       
+      </tr>
+    </blockTable>
+
+ <spacer length="0.2cm" />
+  <blockTable colWidths="3cm,6cm,2cm,7cm" style="table_sub7_two">
+    <tr>
+      <td><para style="text1"><b>Colaborador: </b></para></td>
+      <td><para style="text1"> {{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f }} </para> </td> 
+      <td><para style="text1"><b>Area: </b></para></td>
+      <td><para style="text1"> {% for  select in   answers.60007ca59253268e682b875e.60007ca59253268e682b8760 %} {{ select }} {% endfor %} </para> </td> 
+    </tr>
+  </blockTable>
+
+    <spacer length="0.3cm" />
+    <blockTable colWidths="18cm">
+          <tr>
+        <td><para style="parrafoll">Amablemente solicito que me concedan permiso para no asistir a mis labores en las siguientes fechas, horarios y motivos que detallo a continuación: <b> </b></para> </td>     
+      </tr>
+    </blockTable>
+
+    <spacer length="0.2cm" />
+    <blockTable colWidths="2cm,2cm,2cm,2cm,2cm,3cm,5cm" style="table_sub3_two">
+      <tr>
+        <td><para style="text1"> <b>Días </b></para> </td>
+        <td><para style="text1"> {{ answers.6603bbc9a6f4cca5f4e9cf02 }} </para> </td>
+        <td>   </td>       
+        <td><para style="text1"> <b>Horas </b></para> </td>
+        <td><para style="text1"> {{ answers.6603bbc9a6f4cca5f4e9cf03 }} </para> </td>
+        <td><para style="text1"> <b>Tipo de Permiso: </b></para> </td>
+        <td><para style="text1"> {{ answers.6603bfb02eae9b3e310df517 }} </para> </td>                     
+      </tr>
+    </blockTable>
+
+<spacer length="0.5cm" />
+<blockTable colWidths="3cm,3cm,4cm,8cm" style="table_sub7_two">
+  <tr>
+    <td><para style="text1"><b>Año: </b></para></td>
+    <td><para style="text1"> {{ answers.6603c150728d69be73e9cf9a }} </para> </td> 
+    <td><para style="text1"><b>Empresa donde labora: </b></para></td>
+    <td><para style="text1"> {{ answers.6657bfc75b6f546a5a1c0c0e }} </para> </td> 
+  </tr>
+</blockTable>
+
+   <spacer length="0.5cm" />
+<blockTable colWidths="18cm" style="table_sub4_two">
+  <tr>
+  <td><para style="parrafoll"><b>Otros (Especificar): </b> {{ answers.6603c1bb06bce18b64d09bd0 }}</para> 
+ </td>
+  </tr>
+</blockTable>    
+
+{% set consueldo_si = "" %}
+{% set consueldo_no = " " %} <!-- Modificar Check List -->
+{% set sinsueldo_si = "" %}
+{% set sinsueldo_no = " " %} <!-- Modificar Check List -->
+{% set ctavacaciones_si = "" %}
+{% set ctavacaciones_no = " " %} <!-- Modificar Check List -->
+
+ {% for list_item in answers.6603c5b999aca2234fd09c50 %}
+    {% if list_item == "Con Goce de Sueldo" %}
+      {% set consueldo_si  = "✓" %}
+      {% set consueldo_no = "" %}
+     {% endif %}
+
+    {% if list_item == "Sin Goce de Sueldo" %}
+      {% set sinsueldo_si = "✓" %}
+      {% set sinsueldo_no = "" %}
+    {% endif %}
+
+    {% if list_item == "A Cuenta de Vacaciones" %}
+      {% set ctavacaciones_si = "✓" %}
+      {% set ctavacaciones_no = "" %}
+    {% endif %}
+    {% endfor %}
+
+   <spacer length="0.5cm" />
+<blockTable colWidths="4cm,14cm" style="table_sub3_two">
+  <tr>
+  <td><para style="text1"><b>Dicho Permiso es: </b></para> </td>
+  <td><para style="text1"> {% for select in answers.6603c5b999aca2234fd09c50 %} {{ select }}. {% endfor %} </para> </td>
+  </tr>
+</blockTable>
+
+   <spacer length="0.5cm" />
+<blockTable colWidths="4cm,2cm,3.5cm,2cm,4.5cm,2cm" style="table_sub5_two">
+  <tr>
+    <td><para style="text1"><b>Con Goce de Sueldo: </b></para></td>
+    <td>{{consueldo_si}} {{consueldo_no}}</td>
+    <td><para style="text1"><b>Sin Goce de Sueldo: </b></para></td>
+    <td>{{sinsueldo_si}} {{sinsueldo_no}}</td>
+    <td><para style="text1"><b>A Cuenta de Vacaciones: </b></para></td>
+    <td>{{ctavacaciones_si}} {{ctavacaciones_no}}</td>
+  </tr>
+</blockTable>
+
+   <spacer length="0.5cm" />
+<blockTable colWidths="1.6cm,2cm,1.6cm,2cm,1.6cm,2cm,1.6cm,2cm,1.6cm,2cm" style="table_sub6_two">
+  <tr>
+    <td><para style="text1"><b>Del: </b></para></td>
+    <td>{{answers.6603c6b5385b2acf1edc3ae2}}</td>
+    <td><para style="text1"><b>De:</b></para></td>
+    <td>{{answers.6603c6b5385b2acf1edc3ae3}}</td>
+    <td><para style="text1"><b>Al:</b></para></td>
+    <td>{{answers.6603c6f9aa0a1dfefae9cf16}}</td>
+    <td><para style="text1"><b>De:</b></para></td>
+    <td>{{answers.6603c6f9aa0a1dfefae9cf17}}</td>
+    <td><para style="text1"><b>Del:</b></para></td>
+    <td>{{answers.6603c78e06bce18b64d09be4}}</td>
+  </tr>
+</blockTable>
+
+   <spacer length="0.5cm" />
+<blockTable colWidths="8.8cm,2cm,1.6cm,2cm,1.6cm,2cm" style="table_sub5_two">
+  <tr>
+    <td><para style="text1"><b>Debiendo Presentarme a mis labores el: </b></para></td>
+    <td>{{answers.66048a9d3fc1fac5950df5b1}}</td>
+    <td><para style="text1"><b>De: </b></para></td>
+    <td>{{answers.66048a9d3fc1fac5950df5b2}}</td>
+    <td><para style="text1"><b>De:  </b></para></td>
+    <td>{{answers.66048a9d3fc1fac5950df5b3}}</td>
+  </tr>
+</blockTable>
+
+<spacer length="0.4cm" />
+<blockTable colWidths="18cm" >
+  <tr>
+  <td><para style="parrafoll"><b>Importante: </b>Presentar constancia del matrimonio civil en un plazo de 15 días a partir de la fecha en que contrajo matrimonio, fotocopia de la partida de nacimiento en un plazo de 15 días a partir de la fecha en que ocurrió el nacimiento y constancia de visita al Instituto Guatemalteco de Seguridad Social.  </para> 
+ </td>
+  </tr>
+</blockTable>
+
+  <blockTable colWidths="18cm">
+  <tr>
+    <td><para style="firmall"><b>Antes de firmar este documento, compruebe que el contenido que va a firmar es correcto.</b></para></td>
+  </tr>
+  </blockTable>
+
+    <spacer length="1.3cm" />
+    <blockTable colWidths="8cm,2cm,8cm" style="table_firma">
+      <tr>
+        <td><para style="text1"><b>F.</b></para></td>   
+        <td>   </td>       
+        <td><para style="text1"><b>F.</b></para></td>                   
+      </tr>
+      <tr>
+    <td><para style="firma"><b>FIRMA DE SOLICITANTE </b></para></td>
+        <td>   </td>       
+    <td><para style="firma"><b>AUTORIZADO POR JEFE DE ÁREA </b></para></td>        
+      </tr>
+    </blockTable>
+
+    <spacer length="1cm" />
+    <blockTable colWidths="5cm,8cm,5cm" style="table_firmall">
+      <tr>
+      <td>   </td>   
+      <td><para style="text1"><b>F.</b></para></td>       
+      <td>   </td>                   
+      </tr>
+      <tr>
+      <td>   </td>
+    <td><para style="firma"><b>RECURSOS HUMANOS (Vo. Bo.) </b></para></td>    
+      <td>   </td>       
+      </tr>
+    </blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+

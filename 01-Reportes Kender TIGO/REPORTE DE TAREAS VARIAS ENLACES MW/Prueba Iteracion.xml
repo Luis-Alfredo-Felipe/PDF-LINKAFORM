@@ -1,0 +1,208 @@
+{% set cantidad = 0 %}
+  <blockTable colWidths="2cm,1.8cm" style="contenido">
+      <tr>
+        {% for ls in answers.646e411799488056461d3615 %}
+          <td><para style="tableRB">Serie</para></td>
+          <td><para style="tableRB">Modelo</para></td>
+        {% endfor %}
+      </tr> <tr>        
+            {% for ls in answers.646e411799488056461d3615 %}                
+                    <td><para style="tableR">{{ ls.646e4139aad02bd5821d3618 }}</para></td>
+                    <td><para style="tableR">{{ ls.646e4139aad02bd5821d3619 }}</para></td>          
+            {% endfor %}      
+      </tr>
+  </blockTable>
+
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <template  title="Selecom" author="LinkaForm">
+    <docinit>
+        <registerTTFont faceName="Helvetica" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Helvetica.ttf" />
+        <registerTTFont faceName="Helvetica-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Helvetica-Bold.ttf" />
+        <registerTTFont faceName="Helvetica-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Helvetica-BoldItalic.ttf" />
+        <registerTTFont faceName="Helvetica-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Helvetica-SemiBoldItalic.ttf" />
+    </docinit>
+
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+       <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+          <!--        Cabecera de documento  -->
+<image x="2cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="4.5cm" height="2cm" />
+<image x="15.5cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/660f3b2c677ff625693e6234.jpg" width="4cm" height="2cm" />
+        <setFont name="Helvetica-Bold" size="8"/>
+          <!--        Pie del documento  -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+    <pageTemplate id="second">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="260mm"/>
+        <pageGraphics>
+          <setFont name="Helvetica" size="5"/>
+          <setFont name="Helvetica-Bold" size="5"/>
+          {% Footer user form Template meta %}
+        </pageGraphics>
+    </pageTemplate>   
+
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+    <story firstPageTemplate="first">        
+        <spacer length="1cm"/>
+        <blockTable colWidths="10cm, 8cm">  
+            <tr>
+                <td>
+                    <blockTable colWidths="5cm, 5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Nombre del Técnico:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f %}{{ select }}{% endfor %}</para></td>
+                        </tr> 
+                        <tr>
+                            <td><para style="text1"><b>NO. DPI:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534d %}{{ select }}{% endfor %}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Área:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007ca59253268e682b875f%}{{ select }}{% endfor %}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Departamento:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760%}{{ select }}{% endfor %}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Fecha de Revisión:</b> </para></td>
+                            <td><para style="text2"> {{answers.660c79edf1bef9f45353998c}}</para></td>
+                        </tr> 
+                        <tr>
+                            <td><para style="text1"><b>Próxima Revisión:</b> </para></td>
+                            <td><para style="text2"> {{answers.660c8602700fa143d33e6232}}</para></td>
+                        </tr> 
+                        <tr>
+                            <td><para style="text1"><b>Fecha de Entrega de Bodega:</b> </para></td>
+                            <td><para style="text2"> {{answers.660d6873fb23916c04e9cf0f}}</para></td>
+                        </tr>  
+                    </blockTable>
+                </td>
+                <td>
+                   {% set fotoA1 = "" %}
+                    {% set count = 0 %}
+                    {% if answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534e %}
+                        {% for item in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534e %}
+                            {% if count  == 0 %}
+                                {% set fotoA1 = item.file_url %}
+                            {% endif %}
+                            {% add_total 'count' 1 %}
+                        {% endfor %}
+                    {% endif %}
+                    <blockTable colWidths="3cm, 4cm" style="marc_photo">
+                        <tr>
+                            <td> </td>
+                            <td>
+                                {% if fotoA1 %}
+                                    <imageAndFlowables imageName="{% get_thumbnail fotoA1 %}"  imageWidth="3cm" imageHeight="3cm" />
+                                {% endif %}
+                            </td> 
+                        </tr>  
+                    </blockTable> 
+                </td>   
+            </tr> 
+        </blockTable>
+
+
+        <spacer length="1cm"/>
+        <blockTable colWidths="1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,2cm" style="contenido">
+            <tr>
+                <td background="#DBEDF0"><para style="negrita"> Tipo EPP </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Color </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Marca </para></td>
+                <td background="#DBEDF0"><para style="negrita"> No. Serie </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Existen Daños S/N </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Cambio Equipo </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Fecha Cambio </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Entrega por Persona </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Detalles </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Acciones Tomadas </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Fotografía del EPP </para></td>
+            </tr>
+            {% for item in answers.660c7b1093bea623ad0df625 %}
+                {% set img = ''%}
+                {% if item.660c7bb9ed2d8ff5e2e9cf9b.0.file_url %}
+                    {% set img = item.660c7bb9ed2d8ff5e2e9cf9b.0.file_url %}
+                {% endif%}
+                <tr>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399a8}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399a9}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399aa}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399ab}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399ac}}</para></td>
+                    <td><para style = "datos">{{item.66183fcad60863735dca0ca7}}</para></td>
+                    <td><para style = "datos">{{item.66183fcad60863735dca0ca8}}</para></td>
+                    <td><para style = "datos">{{item.66183fcad60863735dca0ca9}}</para></td>
+                    <td><para style = "datos">{{item.660f34a0bab78f0d20e9cf20}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399ae}}</para></td>
+                    {% if img %}  
+                        <td href="{{ img }}">
+                            <imageAndFlowables
+                            imageName="{% get_thumbnail img  %}"
+                            imageWidth="2cm" imageHeight="2cm" imageSide="left"/>
+                        </td> 
+                    {% else %}
+                        <td> ITEMS {{ item.660c7bb9ed2d8ff5e2e9cf9b }}</td> 
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </blockTable>
+
+        <spacer length="6cm"/>
+        <blockTable colWidths="5cm, 1cm, 5cm, 1cm, 5cm">
+        <tr>
+            <td><para style="firma">_____________________________</para></td>
+            <td> </td>
+            <td><para style="firma">_____________________________</para></td>
+            <td> </td>
+            <td><para style="firma">_____________________________</para></td>
+        </tr> 
+        <tr>
+            <td><para style="firma"> Firma Técnico </para></td>
+            <td> </td>
+            <td><para style="firma"> Firma de Bodega </para></td>
+            <td> </td>
+            <td><para style="firma"> Firma de Inspector CSS </para></td>
+        </tr>     
+        </blockTable>
+
+        <spacer length="0.5cm"/>
+        <blockTable colWidths="17cm">
+        <tr>
+            <td><para style="parrafo">El uso adecuado y mantenimiento del Equipo de Protección Personal (EPP) es esencial para prevenir accidentes laborales y proteger la integridad física del Técnico.</para></td>
+        </tr>   
+        </blockTable>
+
+    </story>
+</document>
+
+
+
+<paraStyle name="titulo" fontName="Helvetica" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Helvetica" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="dfecha" fontName="Helvetica" fontSize="10" leading="5" alignment="center" />
+<paraStyle name="dataB" fontName="Helvetica" fontSize="10" leading="7" alignment="right"/>
+<paraStyle name="datosTitulo" fontName="Helvetica" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosSubtitulo" fontName="Helvetica" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Helvetica-Bold" fontSize="8" leading="1" alignment="center" />
+<paraStyle name="text1" fontName="Helvetica-Bold" fontSize="8" leading="8" alignment="right" />
+<paraStyle name="text2" fontName="Helvetica" fontSize="6.5" leading="8" alignment="left" />
+<paraStyle name="parrafo" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="justify" />
+
+<paraStyle name="negrita" fontName="Helvetica" fontSize="6" leading="7" alignment="center" />

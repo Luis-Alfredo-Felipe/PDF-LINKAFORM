@@ -1,0 +1,133 @@
+<blockTableStyle id="TablaTitulo">
+ <lineStyle kind="GRID" colorName="#000" start="0,0" stop="0,0" />
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="tabla_modo" align="RIGHT">
+   <lineStyle kind="LINEBEFORE" colorName="#424242" thickness="0.5" start="0,0" stop="0,-1" />
+    <!--    <lineStyle kind="LINEAFTER" colorName="#424242" thickness="0.5" start="1,0" stop="1,-1" />-->
+    <!--    <lineStyle kind="LINEBEFORE" colorName="#424242" thickness="0.5" start="1,0" stop="1,-1" />-->
+    <lineStyle kind="LINEAFTER" colorName="#424242" thickness="0.5" start="2,0" stop="2,-1" />
+    <!--    <lineStyle kind="LINEBEFORE" colorName="#424242" thickness="0.5" start="2,0" stop="2,-1" />-->
+    <!--    <lineStyle kind="LINEAFTER" colorName="#424242" thickness="0.5" start="3,0" stop="3,-1" /> -->   
+    <!-- Línea superior del encabezado -->
+    <lineStyle kind="LINEABOVE" colorName="#424242" thickness="0.5" start="0,0" stop="-1,0" />
+    <!-- Línea inferior del encabezado -->
+    <lineStyle kind="LINEBELOW" colorName="#424242" thickness="0.5" start="0,0" stop="-1,0" />
+    <!-- Línea superior -->
+    <lineStyle kind="LINEABOVE" colorName="#424242" thickness="0.5" start="0,1" stop="-1,1" />
+    <!-- Línea inferior -->
+<lineStyle kind="LINEBELOW" colorName="#424242" thickness="0.5" start="0,-1" stop="-1,-1" />
+</blockTableStyle>
+
+<blockTableStyle id="table_firma">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,-1" stop="0,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="2,-1" stop="2,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="4,-1" stop="4,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="red_header">
+<blockValign value="TOP"/>
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#E4FFFE"  start="0,0" stop="-1,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="red_headerll">
+ <blockValign value="TOP"/>
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/> 
+<blockBackground colorName="#FFFFFF"  start="0,0" stop="-1,0"/>
+</blockTableStyle>
+    <!--
+<blockTableStyle id="table_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="center" start="0,0" stop="-1, -1" />
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/>
+<blockBackground colorName="#a7a7a7"  start="0,1" stop="1,0"/> 
+</blockTableStyle>
+-->
+<blockTableStyle id="table_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1"/>
+    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="0,0" stop="-1,-1"/>
+    <!-- Define el color de fondo solo para la primera columna -->
+    <blockBackground colorName="#bababa" start="0,0" stop="0,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_sub1_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="center" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,0"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_sub3_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="center" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="3,0" stop="3,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="5,0"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_sub2_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="left" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,1"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="3,0" stop="3,3"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="5,0" stop="5,5"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="7,0" stop="7,7"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="9,0" stop="9,0"/>  
+</blockTableStyle>
+
+<blockTableStyle id="table_sub4_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="left" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="7,0" stop="7,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="9,0" stop="9,0"/>  
+</blockTableStyle>
+
+<blockTableStyle id="table_sub5_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="left" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="3,0" stop="3,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="6,0" stop="6,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="8,0"/>  
+</blockTableStyle>
+
+<blockTableStyle id="table_sub6_two">
+ <blockValign value="TOP"/>
+ <blockAlignment value="center" start="0,0" stop="-1, -1" />
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="2,0" stop="2,0"/> 
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="4,0" stop="4,0"/>
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="6,0" stop="6,0"/>  
+ <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="8,0" stop="8,0"/>  
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Helvetica Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosll" fontName="Helvetica" fontSize="7" leading="5" alignment="center" />
+<paraStyle name="dataB" fontName="Helvetica" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataBB" fontName="Helvetica-Bold" fontSize="8.0" leading="7" alignment="LEFT"/>
+<paraStyle name="datosTitulo" fontName="Helvetica-Bold" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosSubtitulo" fontName="Helvetica-Bold" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Helvetica" fontSize="8" leading="4" alignment="center" />
+<paraStyle name="text1" fontName="Helvetica" fontSize="9" leading="7" alignment="left" />
+<paraStyle name="text2" fontName="Helvetica" fontSize="9" leading="7" alignment="left" />
+<paraStyle name="text3" fontName="Helvetica" fontSize="9" leading="7" alignment="right" />
+<paraStyle name="text4" fontName="Helvetica" fontSize="9" leading="7" alignment="center" />
+
+<blockTableStyle id="mtto_data">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="#00000" start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#E8FFFE"  start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="1,0" stop="1,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="3,0" stop="3,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="5,0" stop="5,-1"/>
+ <blockBackground colorName="#E8FFFE"  start="2,0" stop="2,-1"/>
+ <blockBackground colorName="#E8FFFE"  start="4,0" stop="4,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="6,0" stop="6,-1"/>
+</blockTableStyle>

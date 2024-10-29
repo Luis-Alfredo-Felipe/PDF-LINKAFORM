@@ -1,0 +1,15 @@
+<image x="0.5cm" y="26.8cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.2cm" />
+
+<image x="19.3cm" y="26.3cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/65f0b74613d038b02ae6ac09.jpg " width="1.2cm" height="1.2cm" />
+
+<setFont name="Helvetica-Bold" size="10" color="#00008B"/>
+<drawRightString x="20.5cm" y="28.2cm"> INVENTARIO EQUIPO DE COMPUTO  </drawRightString>
+<drawRightString x="20.5cm" y="27.8cm"> DEPARTAMENTO DE IT </drawRightString>
+<lines>0.5cm 26cm 20.5cm 26cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<drawCentredString x="10.5cm" y="26.8cm"> INVENTARIO EQUIPO DE COMPUTO 2024 </drawCentredString>
+<lines>0.5cm 17.5cm 20.5cm 17.5cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<lines>0.5cm 4.5cm 20.5cm 4.5cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+

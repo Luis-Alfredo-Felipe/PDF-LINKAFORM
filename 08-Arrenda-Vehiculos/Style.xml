@@ -1,0 +1,48 @@
+<paraStyle name="encabezado" fontName="Helvetica" fontSize="8" leading="10" alignment="right" />
+<paraStyle name="Titulo" fontName="Helvetica" fontSize="10" leading="12" alignment="LEFT" />
+<paraStyle name="folio" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="LEFT" textColor="#e53935" />
+<paraStyle name="Ques" fontName="Helvetica" fontSize="8" leading="10" alignment="LEFT" />
+<paraStyle name="ans" fontName="Helvetica" fontSize="8" leading="10" alignment="LEFT" />
+<paraStyle name="firma" fontName="Helvetica" fontSize="6" leading="8" alignment="center" />
+<paraStyle name="prec" fontName="Helvetica" fontSize="6" leading="8" alignment="justify" />
+
+<blockTableStyle id="TableHeader">
+ <lineStyle kind="GRID"  colorName="#424242" start="1,0" stop="2,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="TableCont">
+ <lineStyle kind="GRID"  colorName="#424242" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="TableTrat">
+ <lineStyle kind="GRID"  colorName="#424242" start="0,0" stop="-1,-1"/>
+ <blockSpan start = "0,0" stop = "0,1" />
+</blockTableStyle>
+
+
+
+<blockTableStyle id="tabla 1">
+ <lineStyle kind="GRID" colorName="#f5f5f5" start="0,0" stop="-1,-1" />
+</blockTableStyle>
+<blockTableStyle id="tabla 2">
+ <lineStyle kind="GRID" colorName="#f5f5f5" start="1,0" stop="-1,-1" />
+</blockTableStyle>
+<blockTableStyle id="tabla 3">
+ <lineStyle kind="GRID" colorName="#f5f5f5" start="0,0" stop="-1,-1" />
+</blockTableStyle>
+<blockTableStyle id="imags">
+ <lineStyle kind="GRID" colorName="#f5f5f5" start="0,0" stop="-1,-1" />
+</blockTableStyle>
+
+<paraStyle name="folio2" fontName="Helvetica-Bold" fontSize="6" leading="8" alignment="right" />
+<paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" textColor="#FFFFFF" />
+<paraStyle name="subtitulo" fontName="Helvetica-Bold" fontSize="9" leading="12" alignment="center"  />
+<paraStyle name="subtitulo1" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="left" />
+<paraStyle name="subtitul" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="left" textColor="#FFFFFF" />
+<paraStyle name="subtitul2" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="center" />
+<paraStyle name="subtitulNO" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="center" textColor="#DF081" />
+<paraStyle name="subtitul3" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="left" />
+<paraStyle name="datos" fontName="Helvetica" fontSize="8" leading="10" alignment="left" />
+<paraStyle name="datos4" fontName="Helvetica" fontSize="8" leading="10" alignment="right" />
+<paraStyle name="not" fontName="Helvetica" fontSize="8" leading="10" alignment="justify" />
+<paraStyle name="datGas" fontName="Helvetica-Bold" fontSize="8" leading="10" alignment="center" textColor="#FE4D4D"/>

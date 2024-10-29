@@ -1,0 +1,7 @@
+<image x="1cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/66b2b540d915d6d9f53d9178.jpg " width="4cm" height="3.5cm" />
+<image x="15.8cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/66b2b54fdeb5fbe21210ea10.png " width="3.5cm" height="3cm" />
+<image x="1.2cm" y="2.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/66ba97b769a7875807794afe.png " width="18cm" height="0.7cm" />
+
+<setFont name="Helvetica-Bold" size="14" lineMode="single" />
+<drawCentredString x="10.5cm" y="27.5cm"> REPORTE DE INSTALACIÓN </drawCentredString> 
+<lines>7cm 27.3cm 14cm 27.3cm</lines>

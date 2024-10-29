@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Arrendacar" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+    <spacer length="0.5cm"/>
+
+<story>  
+
+  <blockTable colWidths="9.5cm">
+    <tr>
+      <td><para style="datosll"> Reparacion de Vehiculos </para></td>
+      <td></td>
+    </tr>  
+  </blockTable>
+
+    <spacer length="0.5cm"/>
+
+      <blockTable colWidths="2.5cm,4cm,4cm,4cm,4cm" style="contenido">
+
+        <tr>
+          <td background="#E8FFFE"><para style="datosTitulo"> Fecha de Incidencia </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Tipo de Incidencia  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Area de Trabajo </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Placa de Vehiculos </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Suma Asegurada </para></td>
+        </tr>
+   
+        <tr>
+          <td><para style="datos"> {{ answers.63c9c3bb5a47a4f64104fae1}} </para></td>
+          <td><para style="datos"> {{ answers.63c9c50d1b7d47b1d604fb1d }} </para></td>
+          <td><para style="datos"> {{ answers.60007ca59253268e682b875e.60007ca59253268e682b8760 }} </para></td>
+          <td><para style="datos"> {{ answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a4 }} </para></td>
+          <td><para style="datos"> {{ answers.63c9d0422a2cf54e8604fa81 }} </para></td>
+    </tr>
+    </blockTable>
+
+  <spacer length="0.5cm" />
+
+  {% set fotoA1 = "" %}
+  {% set fotoA2 = "" %}
+  {% set fotoA3 = "" %}
+
+  {% set count = 0 %}
+    {% for item in answers.63d153c494cd1e08eea4c8c2 %}
+  {% if count  == 0 %}
+    {% set fotoA1 = item.file_url %}
+  {% endif %}
+    {% if count  == 1 %}
+     {% set fotoA2 = item.file_url %}
+  {% endif %}
+    {% if count  == 2 %}
+      {% set fotoA3 = item.file_url %}
+  {% endif %}
+      {% add_total 'count' 1 %}
+  {% endfor %}
+
+<blockTable colWidths="18.6cm" colHeights="1cm">
+    <tr>
+        <td><para style="dataBB">FOTOGRAFIAS DE ACCIDENTE :</para></td>
+    </tr>
+</blockTable>
+
+<blockTable style="red_headerll" colWidths="6.2cm,6.2cm,6.2cm">
+    <tr>
+        <td>
+          {% if fotoA1 %}
+        <imageAndFlowables imageName="{% get_thumbnail fotoA1 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td> 
+        <td>
+          {% if fotoA2 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoA2 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>        
+        <td>
+          {% if fotoA3 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoA3 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>
+        </tr>
+</blockTable>
+
+    <blockTable style="mtto_data" colWidths="5cm,13.6cm">
+      <tr>
+        <td><para style="dataBB">Lugar de Incidente:</para> </td>
+        <td><para style="dataB">{{ answers.63d153e365cf6cbdffc0216a }}</para> </td>                                   
+        </tr>
+    </blockTable>
+
+    <blockTable style="mtto_data" colWidths="3.6cm,8cm,3cm,4cm">
+      <tr>
+        <td><para style="dataBB">Descripción de Incidente:</para> </td>
+        <td><para style="dataB">{{ answers.63d1543211d2b3c69bf562ca }}</para> </td>     
+        <td><para style="dataBB">Piloto Responsable:</para> </td>
+        <td><para style="dataB">{{ answers.6154ca157d665404bfb2e1bc.6154ca157d665404bfb2e1bd }}</para> </td>                                 
+        </tr>  
+    </blockTable>
+
+  <spacer length="0.5cm" />
+
+    <blockTable colWidths="18.6cm">
+      <tr>
+        <td><para style="dataBB">Gastos Generales de Reparación: </para> </td>                    
+        </tr>
+    </blockTable>
+
+      <blockTable colWidths="2.1cm,2cm,2cm,1.7cm,2.2cm,2.5cm,2cm,1.9cm,2.2cm" style="contenido">
+
+        <tr>
+          <td background="#E8FFFE"><para style="datosTitulo"> Daño/Terceros </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Perdida/Total  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Perdida/Parcial </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Pago/Multa </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Arreglo/Terceros  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Arreglo/Autoridades </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Multa/Transito </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Gastos/Varios  </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Timbres/Fiscales </para></td>
+        </tr>
+   
+        {% for item in answers.63d156f53e0b1d3a80a4c6ec %}     
+        <tr>
+          <td><para style="datos"> {{ item.63d15759a610e268e7f5625a }} </para></td>
+          <td><para style="datos"> {{ item.63d15759a610e268e7f5625b }} </para></td>
+          <td><para style="datos"> {{ item.63d15759a610e268e7f5625c }} </para></td>
+          <td><para style="datos"> {{ item.63d15a9821311b6666cc7f27 }} </para></td>
+          <td><para style="datos"> {{ item.63d15a9821311b6666cc7f28 }} </para></td>
+          <td><para style="datos"> {{ item.63d15a9821311b6666cc7f29 }} </para></td>
+          <td><para style="datos"> {{ item.63d15b17ad9af4d36f1b2199 }} </para></td>
+          <td><para style="datos"> {{ item.63d15b17ad9af4d36f1b219a }} </para></td>
+          <td><para style="datos"> {{ item.63d15b17ad9af4d36f1b219b }} </para></td>
+    </tr>
+    {% endfor %}
+    </blockTable>
+
+    <blockTable style="mtto_data" colWidths="7cm,11.6cm">
+      <tr>
+        <td><para style="dataBB">Fecha de Entrega de Vehiculo Reparado :</para> </td>
+        <td><para style="dataB">{{ answers.63d16b568fd6a7b4c931a29 }}</para> </td>                                   
+        </tr>
+    </blockTable>
+
+  <spacer length="0.5cm" />
+
+  {% set fotoAl = "" %}
+  {% set fotoAll = "" %}
+  {% set fotoAlll = "" %}
+
+  {% set count = 0 %}
+    {% for item in answers.63d16b568fd6a7b4c931a297 %}
+  {% if count  == 0 %}
+    {% set fotoAl = item.file_url %}
+  {% endif %}
+    {% if count  == 1 %}
+     {% set fotoAll = item.file_url %}
+  {% endif %}
+    {% if count  == 2 %}
+     {% set fotoAlll = item.file_url %}
+  {% endif %}
+      {% add_total 'count' 1 %}
+  {% endfor %}
+
+<blockTable colWidths="18.6cm" colHeights="1cm">
+    <tr>
+        <td><para style="dataBB">FOTOGRAFIAS DE REPARACIÓN :</para></td>
+    </tr>
+</blockTable>
+
+<blockTable style="red_headerll" colWidths="6.2cm,6.2cm,6.2cm">
+    <tr>
+        <td>
+          {% if fotoAl %}
+        <imageAndFlowables imageName="{% get_thumbnail fotoAl %}"  imageWidth="6cm" imageHeight="4.2cm" />
+          {% endif %}
+        </td> 
+        <td>
+          {% if fotoAll %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoAll %}"  imageWidth="6cm" imageHeight="4.2cm" />
+          {% endif %}
+        </td> 
+        <td>
+          {% if fotoAlll %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoAlll %}"  imageWidth="6cm" imageHeight="4.2cm" />
+          {% endif %}
+        </td>         
+        </tr>
+  </blockTable>
+
+  <spacer length="0.5cm" />
+    <blockTable style="mtto_data" colWidths="4.6cm,4.6cm,4.6cm,4.6cm">
+      <tr>
+        <td><para style="dataBB">Descuento Personal:</para> </td>
+        <td><para style="dataB">{% money_format answers.63d1701f9e65227f0ccc7f2e 2 "Q " %}</para> </td>   
+        <td><para style="dataBB">Descuento de Proyecto:</para> </td>
+        <td><para style="dataB">{% money_format answers.63d1701f9e65227f0ccc7f2f 2 "Q " %}</para> </td>                                 
+        </tr>  
+    </blockTable>
+
+  {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

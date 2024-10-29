@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+    <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="260mm"/>
+
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="10"/>
+<drawCentredString  x="13cm" y="26.2cm"> SOLICITUD DE {{answers.670965cd3d62826b7ca17241}} </drawCentredString>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+<story>
+    {% for select in answers.6670965cd3d62826b7ca17241 %}
+     {{ select }}
+     {% endfor %}
+
+  <spacer length="2.5cm" />
+   <blockTable colWidths="17cm" >
+    <tr>
+      <td>
+       <blockTable colWidths="3.5cm,7cm,2.6cm,3.4cm" style="contenidolll">
+          <tr>
+            <td><para style="titulo">COLABORADOR</para></td>
+            <td><para style="datos">{{answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para></td>
+            <td><para style="titulo">FECHA</para></td>
+            <td><para style="datos">{{answers.67094f96789851f79f811778}}</para></td>
+          </tr>
+       </blockTable>
+      <blockTable colWidths="3.5cm,3.5cm,3.5cm,6cm" style="contenidolll">
+          <tr>
+            <td><para style="titulo">NO.AREA</para></td>
+            <td><para style="datos">{% for select in answers.60007c5194d9a63b1caf534c.60007ca59253268e682b875f%}{{ select }}{% endfor %}</para></td>
+            <td><para style="titulo">COMPAÑIA</para></td>
+            <td><para style="datos">{{answers.67094f96789851f79f811779}}</para></td>
+          </tr>
+       </blockTable>       
+    </td>
+    </tr>
+  </blockTable>
+       
+      {% set convenio = '' %}
+      {% set quincena = '' %}
+            
+      {% if answers.6709500e6c1933b9fed25e96 == "CONVENIO DE PAGOS" %}
+        {% set convenio = '✓' %}
+      {% elif answers.6709500e6c1933b9fed25e96 == "QUINCENA ACTUAL" %}
+        {% set quincena = '✓' %}
+      {% endif %}        
+
+    <spacer length="0.1cm" />      
+      <blockTable colWidths="3.5cm,3.5cm,3.5cm,1.3cm,3.4cm,1.3cm" style="contenidolV">
+        <tr>
+          <td><para style="titulo">MONTO SOLICITADO</para></td>                  
+          {% set monto_solicitado = answers.670965cd3d62826b7ca17240 %}
+            {% if monto_solicitado %} 
+                <td>
+                    <para style="datos">Q {{monto_solicitado|floatformat:2}}</para>
+                </td>
+            {% endif %}                  
+                <td><para style="titulo">CONVENIO PAGOS</para></td>
+                <td>{{convenio}}</td>
+                <td> <para style="titulo">QUINCENA ACTUAL</para></td>
+                <td>{{quincena}}</td>
+          </tr>
+      </blockTable>
+
+    
+    <spacer length="0.1cm" /> 
+    <blockTable colWidths="17cm">
+      <tr>
+          <td><para style="parrafo"> Observaciones: </para></td>  
+      </tr>
+      <tr>
+          <td><para style="datosll"> Si desea que su descuento se efectúe en cuotas, indicar la cantidad de cuotas a descontar, solo se podrán realizar descuentos en cuotas pares. Ej. 2,4,6, etc. Si desea que el descuento se efectué en una sola cuota indicar fecha. Ej. 1ra o 2da. Quincena del mes en curso.  </para></td>
+      </tr>
+    </blockTable>
+
+    <spacer length="0.1cm" />      
+    <blockTable colWidths="17cm">
+        <tr>
+          <td>
+            <blockTable colWidths="6.5cm,2cm,5cm,3cm" style="contenidolll">
+              <tr>
+                <td><para style="titulo">NO. CUOTAS DE DESCUENTOS</para></td>
+                <td><para style="datos">{{answers.670974278704c94e77547202}} </para></td>
+                <td><para style="titulo">FECHAS DE DESCUENTOS</para></td>
+                <td><para style="datos">{{answers.670974278704c94e77547203}} </para></td>
+              </tr>
+            </blockTable>
+          </td>
+        </tr>
+    </blockTable>
+    
+    <spacer length="0.1cm" />      
+    <blockTable colWidths="16.5cm" style="table">
+      <tr>
+        <td><para style="datosll">{{answers.67095e89951b7409fe89571e}} </para></td>
+      </tr>
+    </blockTable>
+          
+  <spacer length="0.1cm" />
+      <blockTable colWidths="17cm">
+        <tr>
+          <td>
+            <blockTable colWidths="3cm,5cm,5cm,3cm" style="Encabezado">
+              <tr>
+                <td></td>
+                <td><para style="datoslll">FECHA DESCUENTO</para></td>
+                <td><para style="datoslll">MONTO DE DESCUENTO</para></td>
+                <td></td>
+              </tr>
+            </blockTable>
+          </td>
+        </tr>
+    </blockTable>        
+    <blockTable colWidths="17cm">
+        <tr>
+          <td>
+          {%for item in answers.67096a12fb1d5fae9a811785%}
+            <blockTable colWidths="3cm,5cm,5cm,3cm" style="Tabla_Repeat">
+              <tr>
+                <td></td>
+                <td><para style="parrafoll">  {{item.67096a313b2cf15364393d8a}} </para></td>
+                <td><para style="parrafoll">Q {{item.67096a313b2cf15364393d8b|floatformat:2}} </para></td>
+                <td></td>
+              </tr>
+            </blockTable>
+          {% endfor %}  
+          </td>
+        </tr>
+    </blockTable>       
+
+    <blockTable colWidths="0.1cm,16.8cm">
+        <tr>
+        <td></td>
+          <td>
+            <blockTable colWidths="15.9cm">
+              <tr>
+                <td><para style="parrafoll">Antes de firmar este documento, compruebe que el contenido que va a firmar es correcto</para></td>
+              </tr>
+            </blockTable>
+          </td>
+        </tr>
+    </blockTable>      
+   
+<spacer length="0.6cm" />
+  <blockTable colWidths="5cm,6cm,5cm" colHeights=".5cm, 5cm, .5cm">
+  <spacer length="0.5cm" />
+    <tr>
+      <td><para style="firma">F.________________________</para></td>
+      <td></td>
+      <td><para style="firma">F.________________________</para></td>
+  </tr>         
+  <tr>
+      <td><para style="firma">FIRMA DEL SOLICITANTE</para></td>
+      <td></td>
+      <td><para style="firma">RECURSOS HUMANOS</para></td>
+    </tr>
+  <tr>
+      <td><para style="firma">EDDY FERNANDO PIRIR PIRIR</para></td>
+      <td></td>
+      <td></td>
+  </tr>  
+  </blockTable>
+  <spacer length="0.5cm" />   
+  <blockTable colWidths="5cm,6cm, 5cm" colHeights=".5cm, 5cm, .5cm">
+  <tr>
+      <td></td>
+      <td><para style="firma">F. ________________________</para></td>
+      <td></td>
+  </tr>     
+  <tr>
+      <td></td>
+      <td><para style="firma">AUTORIZADO POR. (Vo.Bo.)</para></td>
+      <td></td>
+  </tr> 
+  </blockTable>
+
+</story>
+</document>

@@ -1,0 +1,45 @@
+<blockTableStyle id="contenido">
+    <!-- Estilo de línea solo para la segunda celda -->
+<!--    <lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> -->
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="marc_photo">
+    <!-- Estilo de línea solo para la segunda celda -->
+<lineStyle thickness="0.5" kind="GRID" colorName="#000" start="1,0" stop="1,-1"/> 
+</blockTableStyle>
+
+<blockTableStyle id="table_firma">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,-1" stop="0,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="2,-1" stop="2,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="4,-1" stop="4,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_firmall">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="1,-1" stop="1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_sub1_two">
+    <blockValign value="TOP"/>
+    <blockAlignment value="center" start="0,0" stop="-1, -1" />
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,0" stop="1,0"/> <!-- Línea en la primera celda -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,1" stop="1,1"/> <!-- Línea en la segunda celda -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,2" stop="1,2"/> <!-- Línea en la tercera celda -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,3" stop="1,3"/> <!-- Línea en la cuarta celda -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,4" stop="1,4"/> <!-- Línea en la quinta celda -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,5" stop="1,5"/> <!-- Línea en la sexta celda -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000" start="1,6" stop="1,6"/> <!-- Línea en la septima celda -->
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Montserrat" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Regular" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="dfecha" fontName="Montserrat" fontSize="10" leading="5" alignment="center" />
+<paraStyle name="dataB" fontName="Montserrat" fontSize="10" leading="7" alignment="right"/>
+<paraStyle name="datosTitulo" fontName="Montserrat-Regular" fontSize="6" leading="7" alignment="center" />
+<paraStyle name="datosSubtitulo" fontName="Montserrat" fontSize="6.0" leading="7" alignment="center"/>
+<paraStyle name="firma" fontName="Montserrat-Bold" fontSize="8" leading="1" alignment="center" />
+<paraStyle name="text1" fontName="Montserrat-Bold" fontSize="8" leading="8" alignment="right" />
+<paraStyle name="text2" fontName="Montserrat-Regular" fontSize="6.5" leading="8" alignment="left" />
+<paraStyle name="parrafo" fontName="Montserrat-Bold" fontSize="8" leading="10" alignment="justify" />
+
+<paraStyle name="negrita" fontName="Montserrat-Bold" fontSize="6" leading="7" alignment="center" />

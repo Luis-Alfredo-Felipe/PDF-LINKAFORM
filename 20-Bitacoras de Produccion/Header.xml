@@ -1,0 +1,5 @@
+<image x="1.5cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="4.5cm" height="2cm" />
+
+<setFont name="Helvetica-Bold" size="12" lineMode="single" />
+<drawCentredString x="11cm" y="27.7cm"> REPORTE BITACORAS DE PRODUCCIÓN </drawCentredString>
+<lines>6.7cm 27.6cm 15.3cm 27.6cm</lines>

@@ -1,0 +1,114 @@
+  <blockTable colWidths="0.5cm,19.5cm">
+    <tr>
+      <td>
+             <blockTable colWidths="0.5cm,19.5cm" style="mtto_data">
+             <tr> <td><para style="datosTitulo"> SOLICITANTE </para> </td>
+             <td>  </td>
+             </tr>           
+            </blockTable>
+
+            <blockTable colWidths="0.5cm,4.8cm,4.8cm,4.8cm,4.8cm" style="mtto_data">
+            <tr>
+            <td>  </td>
+            <td><para style="datos">a. Nombre Jefe que Solicita Personal: </para></td>
+            <td><para style="datosll">{{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para></td>
+            </tr>           
+            </blockTable>
+        </td> 
+    </tr>  
+  </blockTable>
+
+
+
+  {% set sub_two = '_Solicitante' %}
+     <blockTable colWidths="1cm, 18cm" style="table_two">
+        <tr>
+          <td>
+            {% for letter in sub_two %}
+              {% if letter == '_' %}
+                <spacer length="0.2cm" />
+              {% else %}
+                <para style="datosSubtitulo">{{letter}}</para>
+              {% endif %}
+            {% endfor %}
+          </td>
+
+            <blockTable colWidths="18cm">
+                <tr>
+                  <td>
+                    <spacer length="0.4cm" />
+                    <td><para style="text1"> <b>a. Jefatura que Solicita Personal: </b>{{answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para> </td>
+                    <spacer length="0.4cm" />
+                    <td><para style="text1"><b>{for select in answers.60007c5194d9a63b1caf534c.602d929fbd3a1dba1fff5ee4}
+                    {{ select }} 
+                    {% endfor %}           
+                    </para></td>
+                    <spacer length="0.4cm" />
+                    <td><para style="text1"><b>{for select in  answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760} 
+                    {{ select }} 
+                    {% endfor %}    
+                    </para></td>
+                    <spacer length="0.4cm" />
+                    <td><para style="text1"><b>d. Autorización Jefe Supervisor Inmediato: </b>{{answers.65d397f0bee354a975617e6e}} </para></td>
+                    <spacer length="0.4cm" />
+                  </td>
+                </tr>
+             </blockTable>
+        </td>
+      </tr>
+    </blockTable>
+
+<spacer length="0.2cm"/>
+  <nextFrame/>
+  {% set subAlternos_si = "✓" %}
+  {% set subAlternos_no = "X" %}
+
+   {% for list_item in answers.65d39b54d5c62d6e6cfaa28c %}
+      {% if list_item == "Subalternos" %}
+        {% set subAlternos_si = "✓" %}
+        {% set subAlternos_no = "" %}
+      {% endif %}
+  {% endfor %}
+
+
+
+{% if answers.65d39b54d5c62d6e6cfaa28c %}
+    {% set subAlternos_no = "" %}
+{% else %}
+    {% set subAlternos_no = "X" %}
+{% endif %}
+
+
+<blockTable colWidths="4cm, 2cm, 2cm, 2cm, 2cm, 6cm, 2.5cm" style="table_sub1_two">
+  <tr>
+    <td><para style="text3"><b>g. Subalternos:  </b></para></td>
+    <td><para style="text3"><b>SI </b> {{ answers.65d39b54d5c62d6e6cfaa28c }} </para></td>
+    <td></td>
+    <td><para style="text3"><b>NO </b> {{ subAlternos_no }} </para></td>
+    <td></td>
+    <td><para style="text1"><b>No. Personas a Cargo: </b>{{answers.65d39ba32479112e49faa34b}} </para></td>
+    <td></td>
+  </tr>
+</blockTable>
+
+
+<blockTable colWidths="7cm,1cm,1cm" style="tabla 3">
+  <tr>
+    <td><para style="subtitul3">Subalternos </para></td>
+    <td><para style="Ques"> {{ subAlternos_si }}</para></td>
+    <td><para style="Ques"> {{ subAlternos_no }}</para></td>
+  </tr>
+</blockTable>
+
+
+
+{% if answers.600af6368a30f26675c22e37 %}
+    {% set gasasignacion_no = "" %}
+{% else %}
+    {% set gasasignacion_no = "X" %}
+{% endif %}
+    <tr>
+      <td><para style="subtitul3">Nivel de Combustible Asignacion </para></td>
+      <td><para style="Ques"> {{answers.600af6368a30f26675c22e37 }}</para></td>
+      <td><para style="Ques"> {{ gasasignacion_no }}</para></td>
+    </tr>

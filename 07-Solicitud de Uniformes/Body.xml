@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>  
+<spacer length="2cm"/>
+<blockTable colWidths="7cm, 9cm">  
+  <tr>
+    <td>
+      <blockTable colWidths="9cm">
+        <tr>
+          <td><para style="datosll">NOMBRE DEL COLABORADOR: </para></td>
+        </tr>  
+      </blockTable>
+    </td> 
+    <td>
+      <blockTable colWidths="8.5cm" style="contenido">
+        <tr>
+          <td><para style="datos"> {{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f }} </para></td>
+        </tr>  
+      </blockTable>
+    </td>      
+  </tr> 
+</blockTable>
+
+<spacer length="0.1cm"/>
+
+<blockTable colWidths="2cm,8cm,2cm,4cm">  
+  <tr>
+    <td>
+      <blockTable colWidths="3cm">
+        <tr>
+          <td><para style="datosll">AREA: </para></td>
+        </tr>  
+      </blockTable>
+    </td> 
+    <td>
+      <blockTable colWidths="8cm" style="contenido">
+        <tr>
+          <td><para style="datos"> {{ answers.60007ca59253268e682b875e.60007ca59253268e682b8760 }} </para></td>
+        </tr>  
+      </blockTable>
+    </td> 
+    <td>
+      <blockTable colWidths="2cm">
+        <tr>
+          <td><para style="datosll">FECHA: </para></td>
+        </tr>  
+      </blockTable>
+    </td> 
+    <td>
+      <blockTable colWidths="3.5cm" style="contenido">
+        <tr>
+          <td><para style="datos"> {{ answers.60edfe347b4c30d3b6acae75 }} </para></td>
+        </tr>  
+      </blockTable>
+    </td>      
+  </tr> 
+</blockTable>
+
+<spacer length="0.1cm"/>
+<blockTable colWidths="7cm, 9cm">  
+  <tr>
+    <td>
+      <blockTable colWidths="9cm">
+        <tr>
+          <td><para style="datosll">NOMBRE DEL JEFE DE ÁREA: </para></td>
+        </tr>  
+      </blockTable>
+    </td> 
+    <td>
+      <blockTable colWidths="8.5cm" style="contenido">
+        <tr>
+          <td><para style="datos">
+            {% for select in answers.60007ca59253268e682b875e.635a92e4e854845805275c64 %}
+              {{ select }} 
+              {% endfor %}    
+            </para></td>
+        </tr>  
+      </blockTable>
+    </td>      
+  </tr> 
+</blockTable>
+
+<spacer length="1cm"/>
+<blockTable colWidths="3.5cm,8.5cm,3.5cm" style="contenido" >
+  <tr>
+    <td background="#DCDCDC"><para style="detalle"> CÓDIGO </para></td>
+    <td background="#DCDCDC"><para style="detalle"> DESCRIPCIÓN DE PRODUCTO </para></td>
+    <td background="#DCDCDC"><para style="detalle"> CANTIDAD </para></td>
+  </tr>
+  {% for item in answers.60edff07ea56ede46cd48f00 %}
+      <tr>
+        <td><para style="datos"> {{ item.60edf790526d066a536f0255.60f1286f9f87230582acae68 }} </para></td>
+        <td><para style="datos"> {{ item.60edf790526d066a536f0255.60f1286f9f87230582acae69.0 }} </para></td>
+        <td><para style="datos"> {{ item.60edff14790e7fd21f6f0240 }} </para></td>
+      </tr>
+  {% endfor %}
+</blockTable>
+
+<spacer length="1cm"/>
+  <blockTable colWidths="15.5cm">
+   <tr>
+     <td><para style="datosll">OBSERVACIONES:</para></td>
+     </tr>
+  </blockTable>
+
+  <blockTable colWidths="15.5cm" style="contenido">
+   <tr>
+     <td><para style="datoslll">{{ answers.62d96ff1dd3474ced27e5ca7 }}</para></td>
+     </tr>
+  </blockTable>
+
+  <spacer length="2cm"/>
+  <blockTable colWidths="4.5cm,1cm,4.5cm,1cm,4.5cm">
+      <tr>
+        {% set url1 = answers.634d70ee58411e58f051c5f2.file_url %}
+        {% set url2 = answers.635007f7042724f271fa5560.file_url %}
+        <td>
+          {% if url1 %}
+            <imageAndFlowables imageName="{% get_thumbnail url1 %}"  imageWidth="4cm" imageHeight="1.5cm" hAlign="CENTER" style="margin-top: 30px;" />
+          {% endif %}
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          {% if url2 %}
+            <imageAndFlowables imageName="{% get_thumbnail url2 %}"  imageWidth="4cm" imageHeight="1.5cm" hAlign="CENTER" style="margin-top: 30px;"/>
+          {% endif %}
+        </td>
+      </tr>
+  </blockTable>
+
+  <blockTable colWidths="4.5cm,1cm,4.5cm,1cm,4.5cm">
+    <tr>
+      <td > <para style="datoslll"> __________________ </para></td>
+      <td > </td>
+      <td > <para style="datoslll"> __________________ </para></td>
+      <td > </td>
+      <td > <para style="datoslll"> __________________ </para></td>
+    </tr>
+  </blockTable>
+
+  <blockTable colWidths="4.5cm,1cm,4.5cm,1cm,4.5cm">
+    <tr>
+      <td > <para style="firma"> COLABORADOR </para></td>
+      <td > </td>
+      <td > <para style="firma"> Vo. Bo. RRHH </para></td>
+      <td > </td>
+      <td > <para style="firma"> JEFE DE ÁREA </para></td>
+    </tr>
+  </blockTable>
+
+  <spacer length="1cm"/>
+  <blockTable colWidths="15.5cm">
+    <tr>
+      <td > <para style="datosll">_____________________________________________________________________</para></td>
+    </tr>
+  </blockTable>
+
+  <spacer length="1cm"/>
+  <blockTable colWidths="4.2cm,0.1cm,3.6cm,0.1cm,3.6cm,0.1cm,3.6cm">
+    <tr>
+      <td > <para style="detallell"> RECIBIDO POR:  </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+    </tr>
+  </blockTable>
+
+  <spacer length="0.8cm"/>
+  <blockTable colWidths="4.2cm,0.1cm,3.6cm,0.1cm,3.6cm,0.1cm,3.6cm">
+    <tr>
+      <td > <para style="detallell"> DESPACHADO POR:  </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+    </tr>
+  </blockTable>
+
+  <spacer length="0.8cm"/>
+  <blockTable colWidths="4.2cm,0.1cm,3.6cm,0.1cm,3.6cm,0.1cm,3.6cm">
+    <tr>
+      <td > <para style="detallell"> CONTABILIZADO POR:  </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+      <td > </td>
+      <td > <para style="detallell"> _________________ </para></td>
+    </tr>
+  </blockTable>
+
+  {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

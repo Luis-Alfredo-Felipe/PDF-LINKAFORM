@@ -1,0 +1,13 @@
+<image x="1.5cm" y="26.6cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="4cm" height="2cm" />
+<image x="3cm" y="26.2cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/6631d99add71c8b8a7036d81.png " width="1cm" height="1cm" />
+
+<setFont name="Montserrat-Regular" size="10" lineMode="single" />                        
+<drawString x="16.8cm" y="28cm">
+ {{ folio }} 
+</drawString>
+<setFont name="Montserrat-Bold" size="10" lineMode="single" />
+<drawRightString x="16.5cm" y="28cm"> No. Solicitud: </drawRightString>
+<setFont name="Montserrat-Bold" size="20" lineMode="single" />
+ <!--<drawCentredString x="10.5cm" y="26.5cm"> de  M a t e r i a l e s </drawCentredString>-->
+<lines>4.2cm 26.3cm 16.8cm 26.3cm</lines>
+<setFont name="Montserrat-Bold" size="15"/>

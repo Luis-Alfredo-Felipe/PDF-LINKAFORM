@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>  
+<spacer length="0.5cm"/>
+    <blockTable colWidths="4cm,4cm,4cm,7cm">
+      <tr>
+        <td><para style="text1"><b>Fecha de Registro:</b></para> </td>
+        <td><para style="text3">{{ answers.65ef509d844b6cb18d8df7fc }}</para> </td>    
+        <td><para style="text1"><b>Departamento:</b></para> </td>
+        <td><para style="text3">{{ answers.60007ca59253268e682b875e.60007ca59253268e682b8760 }}</para> </td>           
+        </tr>  
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    {% set escritorio_si = "" %}
+    {% set escritorio_no = "x" %}
+    {% set laptop_si = "" %}
+    {% set lapotp_no = "x" %}
+      
+    {% set hp_si = "" %}
+    {% set hp_no = "x" %}
+    {% set dell_si = "" %}
+    {% set dell_no = "x" %}
+    {% set clon_si = "" %}
+    {% set clon_no = "x" %}
+
+    {% set server_si = "" %}
+    {% set server_no = "x" %}
+    {% set ubuntu_si = "" %}
+    {% set ubuntu_no = "x" %}
+    {% set seven_si = "" %}
+    {% set seven_no = "x" %}
+    {% set eight_si = "" %}
+    {% set eight_no = "x" %}
+    {% set ten_si = "" %}
+    {% set ten_no = "x" %}
+    {% set eleven_si = "" %}
+    {% set eleven_no = "x" %}
+
+    {% set discoDuro_si = "" %}
+    {% set discoDuro_no = "x" %}
+    {% set Solido_si = "" %}
+    {% set Solido_no = "x" %}
+
+    {% set sage_si = "" %}
+    {% set sage_no = "x" %}
+    {% set cristal_si = "" %}
+    {% set cristal_no = "x" %}
+    {% set off16_si = "" %}
+    {% set off16_no = "x" %}
+    {% set off19_si = "" %}
+    {% set off19_no = "x" %}
+    {% set off21 = "" %}
+    {% set off21 = "x" %}
+    {% set vispro_si = "" %}
+    {% set vispro_no = "x" %}
+    {% set project_si = "" %}
+    {% set project_no = "x" %}
+    {% set appCompr_si = "" %}
+    {% set appCompr_no = "x" %}
+    {% set applani_si = "" %}
+    {% set applani_no = "x" %}
+    {% set oapli_si = "" %}
+    {% set oapli_no = "x" %}
+    {% set autocad_si = "" %}
+    {% set autocad_no = "x" %}
+    {% set revit_si = "" %}
+    {% set revit_no = "x" %}
+    {% set vectorWorks_si = "" %}
+    {% set vectorWorks_no = "x" %}          
+
+    {% set canella_si = "" %}
+    {% set canella_no = "x" %}
+    {% set epson_si = "" %}
+    {% set epson_no = "x" %}
+    {% set canon_si = "" %}
+    {% set canon_no = "x" %}
+
+    {% set monhp_si = "" %}
+    {% set monhp_no = "x" %}
+    {% set mondell_si = "" %}
+    {% set mondell_no = "x" %}
+    {% set monclon_si = "" %}
+    {% set monclon_no = "x" %}
+
+{% for list_item in answers.65ef5295f3b0e91a193d6226 %}
+    {% if list_item == "Escritorio" %}
+      {% set escritorio_si = "✓" %}
+      {% set escritorio_no = "" %}
+     {% endif %}
+    {% if list_item == "Laptop" %}
+      {% set laptop_si = "✓" %}
+      {% set laptop_no = "" %}
+    {% endif %}
+{% endfor %}
+
+        <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 7cm" style="table_sub1_two">
+             <tr>
+               <td><para style="text1"><b>TIPO DE COMPUTADORA:  </b></para></td>
+               <td><para style="text2"> Escritorio: </para></td>
+               <td><para style="text3">{{ escritorio_si }} </para></td>
+               <td><para style="text2">Laptop: </para></td>
+               <td><para style="text3">{{ laptop_si   }} </para></td>
+               <td></td>
+             </tr>
+        </blockTable>
+
+{% for list_item in answers.65f1d73e3c48df2449952718 %}
+    {% if list_item == "HP" %}
+      {% set monhp_si = "✓" %}
+      {% set monhp_no = "" %}
+     {% endif %}
+    {% if list_item == "DELL" %}
+      {% set mondell_si = "✓" %}
+      {% set mondell_no = "" %}
+    {% endif %}
+    {% if list_item == "Otra Marca" %}
+      {% set monclon_si = "✓" %}
+      {% set monclon_no = "" %}
+    {% endif %}
+{% endfor %}
+
+<spacer length="1cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>
+               <td><para style="text1"><b>TIPO DE MONITOR:  </b></para></td>
+               <td><para style="text2">HP </para></td>
+               <td><para style="text3">{{ monhp_si }} </para></td>
+               <td><para style="text2">DELL </para></td>
+               <td><para style="text3">{{ mondell_si   }} </para></td>
+               <td><para style="text2">OTRA MARCA </para></td>
+               <td><para style="text3">{{ monclon_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+{% for list_item in answers.65ef52d037f8974d9e504a18 %}
+    {% if list_item == "HP" %}
+      {% set hp_si = "✓" %}
+      {% set hp_no = "" %}
+     {% endif %}
+    {% if list_item == "DELL" %}
+      {% set dell_si = "✓" %}
+      {% set dell_no = "" %}
+    {% endif %}
+    {% if list_item == "CLON" %}
+      {% set clon_si = "✓" %}
+      {% set clon_no = "" %}
+    {% endif %}
+{% endfor %}
+
+<spacer length="1cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>
+               <td><para style="text1"><b>MARCA DE COMPUTADORA:  </b></para></td>
+               <td><para style="text2">HP </para></td>
+               <td><para style="text3">{{ hp_si }} </para></td>
+               <td><para style="text2">DELL </para></td>
+               <td><para style="text3">{{ dell_si   }} </para></td>
+               <td><para style="text2">CLON </para></td>
+               <td><para style="text3">{{ clon_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+{% for list_item in answers.65ef532203d24638e4a1cf6c %}
+    {% if list_item == "Windows Server" %}
+      {% set server_si = "✓" %}
+      {% set server_no = "" %}
+     {% endif %}
+    {% if list_item == "Ubuntu" %}
+      {% set ubuntu_si = "✓" %}
+      {% set ubuntu_no = "" %}
+    {% endif %}
+    {% if list_item == "Windows 7" %}
+      {% set seven_si = "✓" %}
+      {% set seven_no = "" %}
+    {% endif %}
+    {% if list_item == "Windows 8" %}
+      {% set eight_si = "✓" %}
+      {% set eight_no = "" %}
+     {% endif %}
+    {% if list_item == "Windows 10" %}
+      {% set ten_si = "✓" %}
+      {% set ten_no = "" %}
+    {% endif %}
+    {% if list_item == "Windows 11" %}
+      {% set eleven_si = "✓" %}
+      {% set eleven_no = "" %}
+    {% endif %}
+{% endfor %}
+
+<spacer length="1cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>
+               <td><para style="text1"><b>SISTEMA OPERATIVO:  </b></para></td>
+               <td><para style="text2">Server: </para></td>
+               <td><para style="text3">{{ server_si }} </para></td>
+               <td><para style="text2">Ubuntu:</para></td>
+               <td><para style="text3">{{ ubuntu_si   }} </para></td>
+               <td><para style="text2">Win 7: </para></td>
+               <td><para style="text3">{{ seven_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+<spacer length="0.5cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>               
+               <td></td>
+               <td><para style="text2">Win 8:</para></td>
+               <td><para style="text3">{{ eight_si }} </para></td>
+               <td><para style="text2">Win 10:</para></td>
+               <td><para style="text3">{{ ten_si   }} </para></td>
+               <td><para style="text2">Win 11: </para></td>
+               <td><para style="text3">{{ eleven_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+<spacer length="1cm"/>
+    <blockTable colWidths="1.3cm,1.7cm,2.3cm,4cm,2.3cm,2cm,2.5cm,3cm">
+      <tr>
+        <td><para style="text1"><b>RAM:</b></para> </td>
+        <td><para style="text3">{{ answers.65ef67b7c09adcaec1e41469 }} GB </para> </td>    
+        <td><para style="text1"><b>Procesador:</b></para> </td>
+        <td><para style="text3">{{ answers.65ef67b7c09adcaec1e4146a }}</para> </td>
+        <td><para style="text1"><b>Disco Duro:</b></para> </td>
+        <td><para style="text3">{{ answers.65ef53917fdb017c07e6abad }} GB </para> </td>
+        <td><para style="text1"><b>Dirección IP:</b></para> </td>
+        <td><para style="text3">{{ answers.65ef68793df9caf80ea1ced8 }}</para> </td>      
+        </tr>  
+    </blockTable>
+
+<spacer length="1cm"/>
+{% for list_item in answers.65ef53917fdb017c07e6abac %}
+    {% if list_item == "HHDD" %}
+      {% set discoDuro_si = "✓" %}
+      {% set discoDuro_no = "" %}
+     {% endif %}
+    {% if list_item == "SSD" %}
+      {% set solido_si = "✓" %}
+      {% set solido_no = "" %}
+    {% endif %}
+{% endfor %}
+
+        <blockTable colWidths="4cm, 4cm, 1cm, 2cm, 1cm, 7cm" style="table_sub1_two">
+             <tr>
+               <td><para style="text1"><b>TIPO DE DISCO DURO:  </b></para></td>
+               <td><para style="text2">Rígido HHDD:</para></td>
+               <td><para style="text3">{{ discoDuro_si }} </para></td>
+               <td><para style="text2">SSD Solido: </para></td>
+               <td><para style="text3">{{ solido_si   }} </para></td>
+               <td></td>
+             </tr>
+        </blockTable>
+
+{% for list_item in answers.65ef54037edc9a6eaee6aad8 %}
+    {% if list_item == "Sage 50" %}
+      {% set sage_si = "✓" %}
+      {% set sage_no = "" %}
+     {% endif %}
+    {% if list_item == "Crystal Reports" %}
+      {% set cristal_si = "✓" %}
+      {% set cristal_no = "" %}
+    {% endif %}
+    {% if list_item == "Office 2016" %}
+      {% set off16_si = "✓" %}
+      {% set off16_no = "" %}
+    {% endif %}
+    {% if list_item == "Office 2019" %}
+      {% set off19_si = "✓" %}
+      {% set off19_no = "" %}
+     {% endif %}
+    {% if list_item == "Office 2021" %}
+      {% set off21_si = "✓" %}
+      {% set off21_no = "" %}
+    {% endif %}
+    {% if list_item == "Visio Professional" %}
+      {% set vispro_si = "✓" %}
+      {% set vispro_no = "" %}
+    {% endif %}
+    {% if list_item == "Project" %}
+      {% set project_si = "✓" %}
+      {% set project_no = "" %}
+    {% endif %}
+    {% if list_item == "Aplicación Compras" %}
+      {% set appCompr_si = "✓" %}
+      {% set appCompr_no = "" %}
+     {% endif %}
+    {% if list_item == "Aplicación Planillas" %}
+      {% set applani_si = "✓" %}
+      {% set applani_no = "" %}
+    {% endif %}
+    {% if list_item == "Autocad" %}
+      {% set autocad_si = "✓" %}
+      {% set autocad_no = "" %}
+    {% endif %}
+    {% if list_item == "Revit" %}
+      {% set revit_si = "✓" %}
+      {% set revit_no = "" %}
+    {% endif %}
+    {% if list_item == "Vector Works" %}
+      {% set vectorWorks_si = "✓" %}
+      {% set vectorWorks_no = "" %}
+    {% endif %}
+
+{% endfor %}
+
+<spacer length="0.5cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>
+               <td><para style="text1"><b>PROGRAMAS:  </b></para></td>
+               <td><para style="text2">Sage:</para></td>
+               <td><para style="text3">{{ sage_si }} </para></td>
+               <td><para style="text2">Crystal: </para></td>
+               <td><para style="text3">{{ cristal_si   }} </para></td>
+               <td><para style="text2">Office 2016:</para></td>
+               <td><para style="text3">{{ off16_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+<spacer length="0.5cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>               
+               <td></td>
+               <td><para style="text2">Office 2019:</para></td>
+               <td><para style="text3">{{ off19_si }} </para></td>
+               <td><para style="text2">Office 2021:</para></td>
+               <td><para style="text3">{{ off21_si   }} </para></td>
+               <td><para style="text2">Visio PRO:</para></td>
+               <td><para style="text3">{{ vispro_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+<spacer length="0.5cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>               
+               <td></td>
+               <td><para style="text2">Project PRO: </para></td>
+               <td><para style="text3">{{ project_si }} </para></td>
+               <td><para style="text2">Compras:</para></td>
+               <td><para style="text3">{{ appCompr_si   }} </para></td>
+               <td><para style="text2">Planilla:</para></td>
+               <td><para style="text3">{{ applani_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+<spacer length="0.5cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>               
+               <td></td>
+               <td><para style="text2">Autocad:</para></td>
+               <td><para style="text3">{{ autocad_si }} </para></td>
+               <td><para style="text2">Revit:</para></td>
+               <td><para style="text3">{{ revit_si }}</para></td>
+               <td><para style="text2">Vector Works:</para></td>
+               <td><para style="text3">{{ vectorWorks_si }}</para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+{% for list_item in answers.65f1d90abef02099d69525e4 %}
+    {% if list_item == "Canon Canella" %}
+      {% set canella_si = "✓" %}
+      {% set canella_no = "" %}
+     {% endif %}
+    {% if list_item == "Epson Personal" %}
+      {% set epson_si = "✓" %}
+      {% set epson_no = "" %}
+    {% endif %}
+    {% if list_item == "Canon Personal" %}
+      {% set canon_si = "✓" %}
+      {% set canon_no = "" %}
+    {% endif %}
+{% endfor %}
+
+<spacer length="0.5cm"/>
+          <blockTable colWidths="6cm, 2cm, 1cm, 2cm, 1cm, 2cm,1cm,4cm" style="table_sub2_two">
+             <tr>
+               <td><para style="text1"><b>MARCA DE IMPRESORA:  </b></para></td>
+               <td><para style="text2">Canella:</para></td>
+               <td><para style="text3">{{ canella_si }} </para></td>
+               <td><para style="text2">Epson:</para></td>
+               <td><para style="text3">{{ epson_si   }} </para></td>
+               <td><para style="text2">Canon:</para></td>
+               <td><para style="text3">{{ canon_si   }} </para></td>
+               <td></td>
+             </tr>
+          </blockTable>
+
+<spacer length="0.5cm"/>
+    <blockTable colWidths="4cm,5cm,5cm,5cm">
+      <tr>
+        <td><para style="text1"><b>Usuario de Dominio:</b></para> </td>
+        <td><para style="text3">{{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f }}</para> </td>    
+        <td><para style="text1"><b>Correo Configurado:</b></para> </td>
+        <td><para style="text3">{{ answers.65f1d58c723797045a0995e8 }}</para> </td>   
+        </tr>  
+    </blockTable>
+
+<spacer length="0.5cm"/>
+    <blockTable colWidths="8.5cm,5cm,5.5cm">
+      <tr>
+        <td><para style="text1"><b>Fecha de Programación para Backup Automaticos:</b></para> </td>
+        <td><para style="text3">{{ answers.65f1d21796b00eb701f6c891 }}</para> </td>
+        <td></td>  
+        </tr>  
+    </blockTable>
+
+<spacer length="1cm"/>
+    <blockTable colWidths="5cm, 8cm, 5cm">
+      <tr>
+        <td></td>  
+        <td><para style="text3">__________________________________________</para> </td>
+        <td></td>  
+      </tr>
+
+      <tr>
+        <td></td>  
+        <td><para style="firma"><b>Firma Usuario:</b></para> </td>
+        <td></td>  
+      </tr>
+    </blockTable>
+
+<spacer length="0.4cm"/>
+        <blockTable colWidths="19cm" style="table_sub1_two">
+         <tr>
+           <td><para style="text4">Formato Actualizado de Equipo de computo, en esta ficha se detalla la configuración 
+                 y características de cada equipo de computo el cual pertenece a el usuario acá mencionado, también hacemos hincapié en que el backup programado se realice según su calendario establecido, es responsabilidad del usuario velar por que la misma se realice. En caso contrario favor de notificar con prontitud al Dpto. de IT para que se realice la revisión y configuración respectiva. Al no atender lo solicitado el Dpto. de IT queda absuelto de cualquier responsabilidad, siendo el único responsable directo el usuario, por lo cual agradeceremos tome en cuenta lo mencionado. El usuario es responsable de cuidar el equipo de computo. </para></td>
+           </tr>
+         </blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

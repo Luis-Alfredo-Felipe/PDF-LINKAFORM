@@ -1,0 +1,2246 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--  Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+  <story>
+    <blockTable style="mtto_dataV" colWidths="18cm">
+     <tr>
+        <td><para style="HEAD">* * * * * * S I T I O - A * * * * * * </para> </td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="8cm,10cm">
+     <tr>
+        <td><para style="P8L">NOMBRE INGENIERO/SUPERVISOR RESPONSABLE:</para> </td>
+        <td><para style="dataBB">{{answers.66aa4b5a9d21943a619ce134}}</para> </td>
+      </tr>
+    </blockTable>
+<spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN GENERAL SITIO A</para></td>
+      </tr>
+    </blockTable>
+
+<spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,7cm,2cm,4cm">
+      <tr>
+        <td><para style="P8L">Nombre del Sitio A</para></td>
+        <td><para style="dataB">{{answers.66aa7198050fe5ca0e489cd1}}</para></td>
+        <td><para style="P8L">ID</para></td>
+        <td><para style="dataB">No existe Campo</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set longitude = '' %}
+      {% set latitude = '' %}
+      {% set cutLatitude = 0 %}
+      {% set cutLongitude = 0 %}
+
+      {% for ls in answers.66aa4b5a9d21943a619ce133 %}
+        {% if cutLongitude > 26 and cutLongitude < 40   %}
+          {% concat 'longitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLongitude' 1 %}
+      {% endfor %}
+
+    <blockTable style="Table" colWidths="5cm,2cm,2.5cm,2.5cm,6cm">
+      <tr>
+        <td><para style="P8L">Coordena de la Estación</para></td>
+        <td><para style="P8L">Latitud </para></td>
+        <td><para style="dataB">{{latitude}}</para></td>
+        <td><para style="P8L">Longitud</para> </td>
+        <td><para style="dataB">{{longitude}}</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="5cm,2cm,2.5cm,2.5cm,2cm,2cm,2cm">
+      <tr>
+        <td><para style="P8L">Fecha de Finalización de Instalación</para></td>
+        <td><para style="P8L">Torre/Baliza</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L">Pararrayos Sistema Tierra</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L">Paneles Solares</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L"></para></td>
+        <td><para style="P8L">Enlace</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L">Cámara</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L"></para></td>
+        <td><para style="P8L"></para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">EMPRESA RESPONSABLE</para> </td>
+        <td><para style="dataB">INFRACOM</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DE ANTENA</para></td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Número de serie</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d77}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Modelo</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d76}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Diametro</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d78}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Altura</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d79}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Azimut</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d7a}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Polaridad</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d7b}}</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">PARAMETROS DE RADIO FRECUENCIA SITIO A</para></td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,2cm,2.5cm,2.5cm,2cm,2cm,2cm"> 
+      <tr>
+        <td><para style="P8L">Frecuencia de TX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d72}}</para></td>
+        <td><para style="P8L">Serie Radio</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d71}}</para> </td>
+        <td><para style="P8L">Modelo Radio</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d70}}</para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Frecuencia de RX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d73}}</para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+    </blockTable>
+ <blockTable style="Table" colWidths="5cm,4.5cm,4.5cm,4cm">
+      <tr>
+        <td><para style="P8L">Potencia de TX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d74}}</para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Nivel de RX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d75}}</para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="5cm,13cm">
+      <tr>
+        <td><para style="P8L">COMENTARIOS</para></td>
+        <td><para style="dataB">{{answers.66aa69a72932d65a758fbc3d}}</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DE LA CÁMARA</para></td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,13cm">
+      <tr>
+        <td><para style="P8L">Número de Serie</para></td>
+        <td><para style="dataB">{{answers.66aa74164fb5770a9c9ce17e}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Modelo</para></td>
+        <td><para style="dataB">{{answers.66aa74164fb5770a9c9ce17f}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Altura de Instalación</para></td>
+        <td><para style="dataB">{{answers.66aa74164fb5770a9c9ce180}}</para></td>
+      </tr>
+    </blockTable>
+
+    <spacer length="8cm"/>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">INSTALACIÓN DE LA TORRE</para></td>
+      </tr>
+    </blockTable>
+      {% set photo1 = ''%}
+      {% set photo2 = ''%}
+      {% set photo3 = ''%}
+      {% set photo4 = ''%}
+        {% if answers.66aa5af2a09c98a5a1489cba.0.file_url %}
+          {% set photo1 = answers.66aa5af2a09c98a5a1489cba.0.file_url %}
+        {% endif%}
+        {% if answers.66aa5af2a09c98a5a1489cbb.0.file_url %}
+          {% set photo2 = answers.66aa5af2a09c98a5a1489cbb.0.file_url %}
+        {% endif%}
+        {% if answers.66aa5af2a09c98a5a1489cbc.0.file_url %}
+          {% set photo3 = answers.66aa5af2a09c98a5a1489cbc.0.file_url %}
+        {% endif%}
+        {% if answers.66aa5af2a09c98a5a1489cbd.0.file_url %}
+          {% set photo4 = answers.66aa5af2a09c98a5a1489cbd.0.file_url %}
+        {% endif%}
+
+    <blockTable style="Table" colWidths="9cm,9cm">
+      <tr>
+        {% if photo1 %} 
+          <td href="{{ photo1 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo1 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+        
+        {% if photo2 %} 
+          <td href="{{ photo2 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo2 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+      </tr><?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--  Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+  <story>
+    <blockTable style="mtto_dataV" colWidths="18cm">
+     <tr>
+        <td><para style="HEAD">* * * * * * S I T I O - A * * * * * * </para> </td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="8cm,10cm">
+     <tr>
+        <td><para style="P8L">NOMBRE INGENIERO/SUPERVISOR RESPONSABLE:</para> </td>
+        <td><para style="dataBB">{{answers.66aa4b5a9d21943a619ce134}}</para> </td>
+      </tr>
+    </blockTable>
+<spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN GENERAL SITIO A</para></td>
+      </tr>
+    </blockTable>
+
+<spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,7cm,2cm,4cm">
+      <tr>
+        <td><para style="P8L">Nombre del Sitio A</para></td>
+        <td><para style="dataB">{{answers.66aa7198050fe5ca0e489cd1}}</para></td>
+        <td><para style="P8L">ID</para></td>
+        <td><para style="dataB">No existe Campo</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set longitude = '' %}
+      {% set latitude = '' %}
+      {% set cutLatitude = 0 %}
+      {% set cutLongitude = 0 %}
+
+      {% for ls in answers.66aa4b5a9d21943a619ce133 %}
+        {% if cutLongitude > 26 and cutLongitude < 40   %}
+          {% concat 'longitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLongitude' 1 %}
+      {% endfor %}
+
+      {% for ls in answers.66aa4b5a9d21943a619ce133 %}
+        {% if cutLatitude > 41 and cutLatitude < 57  %}
+          {% concat 'latitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLatitude' 1 %}
+      {% endfor %}
+
+    <blockTable style="Table" colWidths="5cm,2cm,2.5cm,2.5cm,6cm">
+      <tr>
+        <td><para style="P8L">Coordena de la Estación</para></td>
+        <td><para style="P8L">Latitud </para></td>
+        <td><para style="dataB">{{latitude}}</para></td>
+        <td><para style="P8L">Longitud</para> </td>
+        <td><para style="dataB">{{longitude}}</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="5cm,2cm,2.5cm,2.5cm,2cm,2cm,2cm">
+      <tr>
+        <td><para style="P8L">Fecha de Finalización de Instalación</para></td>
+        <td><para style="P8L">Torre/Baliza</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L">Pararrayos Sistema Tierra</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L">Paneles Solares</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L"></para></td>
+        <td><para style="P8L">Enlace</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L">Cámara</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+        <td><para style="P8L"></para></td>
+        <td><para style="P8L"></para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">EMPRESA RESPONSABLE</para> </td>
+        <td><para style="dataB">INFRACOM</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DE ANTENA</para></td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Número de serie</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d77}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Modelo</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d76}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Diametro</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d78}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Altura</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d79}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Azimut</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d7a}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Polaridad</para> </td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d7b}}</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">PARAMETROS DE RADIO FRECUENCIA SITIO A</para></td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,2cm,2.5cm,2.5cm,2cm,2cm,2cm"> 
+      <tr>
+        <td><para style="P8L">Frecuencia de TX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d72}}</para></td>
+        <td><para style="P8L">Serie Radio</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d71}}</para> </td>
+        <td><para style="P8L">Modelo Radio</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d70}}</para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Frecuencia de RX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d73}}</para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+    </blockTable>
+ <blockTable style="Table" colWidths="5cm,4.5cm,4.5cm,4cm">
+      <tr>
+        <td><para style="P8L">Potencia de TX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d74}}</para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Nivel de RX</para></td>
+        <td><para style="dataB">{{answers.66aa6898bd9d199a2ca08d75}}</para></td>
+        <td><para style="dataB"></para></td>
+        <td><para style="dataB"></para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="5cm,13cm">
+      <tr>
+        <td><para style="P8L">COMENTARIOS</para></td>
+        <td><para style="dataB">{{answers.66aa69a72932d65a758fbc3d}}</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DE LA CÁMARA</para></td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,13cm">
+      <tr>
+        <td><para style="P8L">Número de Serie</para></td>
+        <td><para style="dataB">{{answers.66aa74164fb5770a9c9ce17e}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Modelo</para></td>
+        <td><para style="dataB">{{answers.66aa74164fb5770a9c9ce17f}}</para></td>
+      </tr>
+      <tr>
+        <td><para style="P8L">Altura de Instalación</para></td>
+        <td><para style="dataB">{{answers.66aa74164fb5770a9c9ce180}}</para></td>
+      </tr>
+    </blockTable>
+
+    <spacer length="8cm"/>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">INSTALACIÓN DE LA TORRE</para></td>
+      </tr>
+    </blockTable>
+      {% set photo1 = ''%}
+      {% set photo2 = ''%}
+      {% set photo3 = ''%}
+      {% set photo4 = ''%}
+        {% if answers.66aa5af2a09c98a5a1489cba.0.file_url %}
+          {% set photo1 = answers.66aa5af2a09c98a5a1489cba.0.file_url %}
+        {% endif%}
+        {% if answers.66aa5af2a09c98a5a1489cbb.0.file_url %}
+          {% set photo2 = answers.66aa5af2a09c98a5a1489cbb.0.file_url %}
+        {% endif%}
+        {% if answers.66aa5af2a09c98a5a1489cbc.0.file_url %}
+          {% set photo3 = answers.66aa5af2a09c98a5a1489cbc.0.file_url %}
+        {% endif%}
+        {% if answers.66aa5af2a09c98a5a1489cbd.0.file_url %}
+          {% set photo4 = answers.66aa5af2a09c98a5a1489cbd.0.file_url %}
+        {% endif%}
+
+    <blockTable style="Table" colWidths="9cm,9cm">
+      <tr>
+        {% if photo1 %} 
+          <td href="{{ photo1 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo1  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+        
+        {% if photo2 %} 
+          <td href="{{ photo2 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo2  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Base de Torre</para></td>
+        <td><para style="HEAD">Ancla 1, Herraje y Tensores</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="Table" colWidths="9cm,9cm">
+      <tr>
+        {% if photo3 %} 
+          <td href="{{ photo3 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo3  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+        
+        {% if photo4 %} 
+          <td href="{{ photo4 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo4  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Ancla 2, Herraje y Cables Tensores</para></td>
+        <td><para style="HEAD">Ancla 3, Herraje y Cables Tensores</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="9cm,9cm" style="Table">
+            <tr>
+                <td background="#2F75B5"><para style="HEAD"> SECCION </para></td>
+                <td background="#2F75B5"><para style="HEAD"> Fotografia </para></td>
+            </tr>
+            {% for item in answers.66aa5d0d24464c4d1a75c14b %}
+                {% set img = ''%}
+                {% if item.66aa5da1d5fae965ba489cf2.0.file_url %}
+                    {% set img = item.66aa5da1d5fae965ba489cf2.0.file_url %}
+                {% endif%}
+                <tr>
+                    <td><para style = "dataC">{{item.66aa5da1d5fae965ba489cf1}}</para></td>
+
+                    {% if img %} <td href="{{ img }}"> <imageAndFlowables imageName="{% get_thumbnail img  %}" imageWidth="4cm" imageHeight="3.5cm" imageSide="left"/></td> 
+                    {% else %}
+                        <td> ITEMS {{ item.66aa5d0d24464c4d1a75c14b }}</td> 
+                    {% endif %}
+                </tr>
+            {% endfor %}
+    </blockTable>
+
+    <spacer length="5.5cm"/>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Notas</para></td>
+        <td><para style="HEAD"></para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo5 = ''%}
+      {% set photo6 = ''%}
+      {% set photo7 = ''%}
+      {% set photo8 = ''%}
+        {% if answers.66aa6457502853f8489ce10d.0.file_url %}
+          {% set photo5 = answers.66aa6457502853f8489ce10d.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10e.0.file_url %}
+          {% set photo6 = answers.66aa6457502853f8489ce10e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10e.0.file_url %}
+          {% set photo7 = answers.66aa6457502853f8489ce10e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce110.0.file_url %}
+          {% set photo8 = answers.66aa6457502853f8489ce110.0.file_url %}
+        {% endif%}
+
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo5 %} 
+          <td href="{{ photo5 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo5  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Parrarayos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo6 %} 
+          <td href="{{ photo6 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo6  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos Cable Parrarayos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Pararrayos</para></td>
+        <td><para style="HEAD">Cable Bajante de Pararrayos</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo7 %} 
+          <td href="{{ photo7 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo7  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo8 %} 
+          <td href="{{ photo8 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo8  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Baliza</para></td>
+        <td><para style="HEAD">Platina de Tierra</para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo9 = ''%}
+      {% set photo10 = ''%}
+      {% set photo11 = ''%}
+      {% set photo12 = ''%}
+        {% if answers.66aa6457502853f8489ce10d.0.file_url %}
+          {% set photo9 = answers.66aa6457502853f8489ce10d.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10e.0.file_url %}
+          {% set photo10 = answers.66aa6457502853f8489ce10e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10f.0.file_url %}
+          {% set photo11 = answers.66aa6457502853f8489ce10f.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce110.0.file_url %}
+          {% set photo12 = answers.66aa6457502853f8489ce110.0.file_url %}
+        {% endif%}
+
+    <spacer length="9.5cm"/>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">ENLACE</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo9 %} 
+          <td href="{{ photo9 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo9  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo10 %} 
+          <td href="{{ photo10 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo10  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Antena en Torre</para></td>
+        <td><para style="HEAD">Radio Instalado</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo11 %} 
+          <td href="{{ photo11 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo11  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo12 %} 
+          <td href="{{ photo12 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo12  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Protector</para></td>
+        <td><para style="HEAD">Poe</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">CAMARA</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun.........! </para></td>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun.........! </para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Cámara en Torre</para></td>
+        <td><para style="HEAD">Toma Panoramica con la Cámara</para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo13 = ''%}
+      {% set photo14 = ''%}
+      {% set photo15 = ''%}
+      {% set photo16 = ''%}
+      {% set photo17 = ''%}
+      {% set photo18 = ''%}
+      {% set photo19 = ''%}
+      {% set photo20 = ''%}
+        {% if answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+          {% set photo13 = answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+          {% set photo14 = answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc20.0.file_url %}
+          {% set photo15 = answers.66aa6c3e25091455f98fbc20.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc21.0.file_url %}
+          {% set photo16 = answers.66aa6c3e25091455f98fbc21.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc22.0.file_url %}
+          {% set photo17 = answers.66aa6c3e25091455f98fbc22.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc23.0.file_url %}
+          {% set photo18 = answers.66aa6c3e25091455f98fbc23.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc22.0.file_url %}
+          {% set photo19 = answers.66aa6c3e25091455f98fbc22.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc23.0.file_url %}
+          {% set photo20 = answers.66aa6c3e25091455f98fbc23.0.file_url %}
+        {% endif%}
+
+<spacer length="2cm"/>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">SISTEMA DE TIERRAS</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo13 %} 
+          <td href="{{ photo13 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo13  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo14 %} 
+          <td href="{{ photo14 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo14  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Sistema en Delta</para></td>
+        <td><para style="HEAD">Soldaduras Cadwell en Varilla</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo15 %} 
+          <td href="{{ photo15 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo15  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo16 %} 
+          <td href="{{ photo16 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo16  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Aterrizaje de Tensores</para></td>
+        <td><para style="HEAD">Cable de aterrizaje en platina</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo17 %} 
+          <td href="{{ photo17 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo17 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo18 %} 
+          <td href="{{ photo18 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo18  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+    <tr>
+        <td><para style="HEAD">Aterrizaje Cable Bajante Pararrayos</para></td>
+        <td><para style="HEAD">Mediciòn del Sistema de Tierras</para></td>
+      </tr>
+    </blockTable>
+<spacer length="2cm"/>
+ <blockTable style="Table" colWidths="9cm,9cm">
+ <tr>
+        {% if photo19 %} 
+          <td href="{{ photo19 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo19 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo20 %} 
+          <td href="{{ photo20 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo20  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Clamper en Cable Bajante Pararrayos</para></td>
+        <td><para style="HEAD"></para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo21 = ''%}
+      {% set photo22 = ''%}
+      {% set photo23 = ''%}
+      {% set photo24 = ''%}
+      {% set photo25 = ''%}
+      {% set photo26 = ''%}
+        {% if answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+          {% set photo21 = answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+          {% set photo22 = answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc20.0.file_url %}
+          {% set photo23 = answers.66aa6c3e25091455f98fbc20.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc21.0.file_url %}
+          {% set photo24 = answers.66aa6c3e25091455f98fbc21.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc22.0.file_url %}
+          {% set photo25 = answers.66aa6c3e25091455f98fbc22.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc23.0.file_url %}
+          {% set photo26 = answers.66aa6c3e25091455f98fbc23.0.file_url %}
+        {% endif%}
+
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">INSTALACION DE EQUIPOS Y PANELES SOLARES</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo21 %} 
+          <td href="{{ photo21 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo21 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo22 %} 
+          <td href="{{ photo22 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo22  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Caja Nema</para></td>
+        <td><para style="HEAD">Paneles Solares</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo23 %} 
+          <td href="{{ photo23 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo23 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo24 %} 
+          <td href="{{ photo24 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo24  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Equipos 1</para></td>
+        <td><para style="HEAD">Equipos 2</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="2cm"/>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo25 %} 
+          <td href="{{ photo25 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo25 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo26 %} 
+          <td href="{{ photo26 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo26  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Etiquetado 1</para></td>
+        <td><para style="HEAD">Etiquetado 2</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">CAPTURAS DE PANTALLA DE CONFIGURACIONES</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">Niveles de potencia Tx/Rx</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Niveles de Potencia aun......................! </para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="8cm,10cm">
+     <tr>
+        <td><para style="P8L">REPORTE INSTALACION DE ENLACE MW </para> </td>
+        <td><para style="dataBB"> </para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="9cm"/>
+  <blockTable style="mtto_dataV" colWidths="18cm">
+    <tr>
+      <td><para style="HEAD"> * * * * * * S I T I O - B * * * * * * </para> </td>
+    </tr>
+  </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN GENERAL SITIO B</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,7cm,1.5cm,4.5cm">
+      <tr>
+        <td><para style="P8L">Nombre del Sitio B</para></td>
+        <td><para style="dataBB">{{answers.66aa7072fa135252bb9ce1d0}}</para></td>
+        <td><para style="P8L">ID</para></td>
+        <td><para style="dataBB">No existe Campo</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set longitudel = '' %}
+      {% set latitudel = '' %}
+      {% set cutLatitudel = 0 %}
+      {% set cutLongitudel = 0 %}
+
+      {% for ls in answers.66aa7198050fe5ca0e489cd2 %}
+        {% if cutLongitudel > 26 and cutLongitudel < 40   %}
+          {% concat 'longitudel' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLongitudel' 1 %}
+      {% endfor %}
+      {% for ls in answers.66aa7198050fe5ca0e489cd2 %}
+        {% if cutLatitudel > 41 and cutLatitudel < 57  %}
+          {% concat 'latitudel' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLatitudel' 1 %}
+      {% endfor %}
+    
+    <blockTable style="Table" colWidths="5cm,2.5cm,2.5cm,2cm,6cm">
+      <tr>
+        <td><para style="P8L">Coordena de la Estación</para></td>
+        <td><para style="P8L">Latitud </para></td>
+        <td><para style="P8L">{{latitudel}}</para></td>
+        <td><para style="P8L">Longitud</para> </td>
+        <td><para style="P8L">{{longitudel}}</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="5cm,13cm">
+      <tr>
+        <td><para style="P8L">Fecha de Finalización de Instalación</para></td>
+        <td><para style="P8L">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Empresa Responsable</para> </td>
+        <td><para style="P8L">I N F R A C O M</para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DEL ENLACE SITIO B</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,2.5cm,2.5cm,2cm,1.5cm,1.5cm,1.5cm,1.5cm">
+    <tr>
+        <td><para style="P8L">Modelo del Equipo</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d1}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+    </tr>
+    <tr>
+        <td><para style="P8L">Número de Serie</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d2}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+    </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DE ANTENA</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Número</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d8}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Modelo</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d7}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Diámetro</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d9}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Altura</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1da}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Azimut</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1db}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Polaridad</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1dc}}</para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">PARAMETROS DE RADIO FRECUENCIA SITIO B</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Frecuencia de TX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d3}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Frecuencia de RX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d4}}</para> </td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,5cm,5cm,3cm">
+     <tr>
+        <td><para style="P8L">Potencia de TX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d5}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Nivel de RX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d6}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Comentarios</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1e2}}</para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCION DE LA CÁMARA</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Número de Serie</para> </td>
+        <td><para style="P8L">{{answers.66aa74164fb5770a9c9ce183}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Modelo</para> </td>
+        <td><para style="P8L">{{answers.66aa74164fb5770a9c9ce182}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Altura de Instalación</para> </td>
+        <td><para style="P8L">{{answers.66aa74164fb5770a9c9ce184}}</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set photo27 = ''%}
+      {% set photo28 = ''%}
+      {% set photo29 = ''%}
+      {% set photo30 = ''%}
+        {% if answers.66aa6951581d30b3548fbbea.0.file_url %}
+          {% set photo27 = answers.66aa6951581d30b3548fbbea.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6951581d30b3548fbbe9.0.file_url %}
+          {% set photo28 = answers.66aa6951581d30b3548fbbe9.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6951581d30b3548fbbeb.0.file_url %}
+          {% set photo29 = answers.66aa6951581d30b3548fbbeb.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6951581d30b3548fbbec.0.file_url %}
+          {% set photo30 = answers.66aa6951581d30b3548fbbec.0.file_url %}
+        {% endif%}
+
+<spacer length="6.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">FOTOGRAFIAS SITIO B</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">ENLACE</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo27 %} 
+          <td href="{{ photo27 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo27 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo28 %} 
+          <td href="{{ photo28 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo28  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">ANTENA</para></td>
+        <td><para style="HEAD">RADIO</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo29 %} 
+          <td href="{{ photo29 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo29 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo30 %} 
+          <td href="{{ photo30 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo30  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">PROTECTOR</para></td>
+        <td><para style="HEAD">POE</para></td>
+      </tr>
+    </blockTable>
+<!--
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBBll">LISTADO DE MATERIALES</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="6cm,3cm,6cm,3cm">
+      <tr>
+        <td><para style="dataBBll">DESCRIPCIÓN CONSUMIBLE</para></td>
+        <td><para style="dataBBll">CANTIDAD</para></td>
+        <td><para style="dataBBll">DESCRIPCIÓN HARDWARE</para></td>
+        <td><para style="dataBBll">CANTIDAD</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="6cm,3cm,6cm,3cm">
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+    </blockTable>
+-->
+
+  <spacer length="4.3cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">CAPTURAS DE PANTALLA DE CONFIGURACIONES</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">Niveles de Potencia TX/RX</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Niveles de Potencia aun.........! </para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="dataBBll">FIRMA ACCEPTANCE TEST PROCEDURE (ATP)</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Documento ATP Supervisor de Ingenio Magdalena.........! </para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="dataBBll">DOCUMENTO ATP CON FECHA Y FIRMA DE SUPERVISORES  DE INGENIO MAGDALENA  E INFRACOM</para></td>
+      </tr>
+    </blockTable>
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+{% endautoescape %}
+  </story>
+</document>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Base de Torre</para></td>
+        <td><para style="HEAD">Ancla 1, Herraje y Tensores</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="Table" colWidths="9cm,9cm">
+      <tr>
+        {% if photo3 %} 
+          <td href="{{ photo3 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo3 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+        
+        {% if photo4 %} 
+          <td href="{{ photo4 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo4 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Ancla 2, Herraje y Cables Tensores</para></td>
+        <td><para style="HEAD">Ancla 3, Herraje y Cables Tensores</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="9cm,9cm" style="Table">
+            <tr>
+                <td background="#2F75B5"><para style="HEAD"> SECCION </para></td>
+                <td background="#2F75B5"><para style="HEAD"> Fotografia </para></td>
+            </tr>
+            {% for item in answers.66aa5d0d24464c4d1a75c14b %}
+                {% set img = ''%}
+                {% if item.66aa5da1d5fae965ba489cf2.0.file_url %}
+                    {% set img = item.66aa5da1d5fae965ba489cf2.0.file_url %}
+                {% endif%}
+                <tr>
+                    <td><para style = "dataC">{{item.66aa5da1d5fae965ba489cf1}}</para></td>
+
+                    {% if img %} <td href="{{ img }}"> <imageAndFlowables imageName="{%   img  %}" imageWidth="4cm" imageHeight="3.5cm" imageSide="left"/></td> 
+                    {% else %}
+                        <td> ITEMS {{ item.66aa5d0d24464c4d1a75c14b }}</td> 
+                    {% endif %}
+                </tr>
+            {% endfor %}
+    </blockTable>
+
+    <spacer length="5.5cm"/>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Notas</para></td>
+        <td><para style="HEAD"></para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo5 = ''%}
+      {% set photo6 = ''%}
+      {% set photo7 = ''%}
+      {% set photo8 = ''%}
+        {% if answers.66aa6457502853f8489ce10d.0.file_url %}
+          {% set photo5 = answers.66aa6457502853f8489ce10d.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10e.0.file_url %}
+          {% set photo6 = answers.66aa6457502853f8489ce10e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10e.0.file_url %}
+          {% set photo7 = answers.66aa6457502853f8489ce10e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce110.0.file_url %}
+          {% set photo8 = answers.66aa6457502853f8489ce110.0.file_url %}
+        {% endif%}
+
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo5 %} 
+          <td href="{{ photo5 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo5 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Parrarayos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo6 %} 
+          <td href="{{ photo6 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo6 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos Cable Parrarayos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Pararrayos</para></td>
+        <td><para style="HEAD">Cable Bajante de Pararrayos</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo7 %} 
+          <td href="{{ photo7 }}" target="_blank">
+            <imageAndFlowables imageName="{%   photo7  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo8 %} 
+          <td href="{{ photo8 }}" target="_blank">
+            <imageAndFlowables imageName="{%   photo8  %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Baliza</para></td>
+        <td><para style="HEAD">Platina de Tierra</para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo9 = ''%}
+      {% set photo10 = ''%}
+      {% set photo11 = ''%}
+      {% set photo12 = ''%}
+        {% if answers.66aa6457502853f8489ce10d.0.file_url %}
+          {% set photo9 = answers.66aa6457502853f8489ce10d.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10e.0.file_url %}
+          {% set photo10 = answers.66aa6457502853f8489ce10e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce10f.0.file_url %}
+          {% set photo11 = answers.66aa6457502853f8489ce10f.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6457502853f8489ce110.0.file_url %}
+          {% set photo12 = answers.66aa6457502853f8489ce110.0.file_url %}
+        {% endif%}
+
+    <spacer length="9.5cm"/>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">ENLACE</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo9 %} 
+          <td href="{{ photo9 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo9 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo10 %} 
+          <td href="{{ photo10 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo10 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Antena en Torre</para></td>
+        <td><para style="HEAD">Radio Instalado</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo11 %} 
+          <td href="{{ photo11 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo11 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo12 %} 
+          <td href="{{ photo12 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo12 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Protector</para></td>
+        <td><para style="HEAD">Poe</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">CAMARA</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun.........! </para></td>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos aun.........! </para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Cámara en Torre</para></td>
+        <td><para style="HEAD">Toma Panoramica con la Cámara</para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo13 = ''%}
+      {% set photo14 = ''%}
+      {% set photo15 = ''%}
+      {% set photo16 = ''%}
+      {% set photo17 = ''%}
+      {% set photo18 = ''%}
+      {% set photo19 = ''%}
+      {% set photo20 = ''%}
+        {% if answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+          {% set photo13 = answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+          {% set photo14 = answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc20.0.file_url %}
+          {% set photo15 = answers.66aa6c3e25091455f98fbc20.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc21.0.file_url %}
+          {% set photo16 = answers.66aa6c3e25091455f98fbc21.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc22.0.file_url %}
+          {% set photo17 = answers.66aa6c3e25091455f98fbc22.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc23.0.file_url %}
+          {% set photo18 = answers.66aa6c3e25091455f98fbc23.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc22.0.file_url %}
+          {% set photo19 = answers.66aa6c3e25091455f98fbc22.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc23.0.file_url %}
+          {% set photo20 = answers.66aa6c3e25091455f98fbc23.0.file_url %}
+        {% endif%}
+
+<spacer length="2cm"/>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">SISTEMA DE TIERRAS</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo13 %} 
+          <td href="{{ photo13 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo13 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo14 %} 
+          <td href="{{ photo14 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo14 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Sistema en Delta</para></td>
+        <td><para style="HEAD">Soldaduras Cadwell en Varilla</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo15 %} 
+          <td href="{{ photo15 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo15 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo16 %} 
+          <td href="{{ photo16 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo16 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Aterrizaje de Tensores</para></td>
+        <td><para style="HEAD">Cable de aterrizaje en platina</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo17 %} 
+          <td href="{{ photo17 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo17 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Baliza......!</para> </td> 
+        {% endif %}
+        
+        {% if photo18 %} 
+          <td href="{{ photo18 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo18 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Platinas......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+    <tr>
+        <td><para style="HEAD">Aterrizaje Cable Bajante Pararrayos</para></td>
+        <td><para style="HEAD">Mediciòn del Sistema de Tierras</para></td>
+      </tr>
+    </blockTable>
+<spacer length="2cm"/>
+ <blockTable style="Table" colWidths="9cm,9cm">
+ <tr>
+        {% if photo19 %} 
+          <td href="{{ photo19 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo19 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo20 %} 
+          <td href="{{ photo20 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo20 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Clamper en Cable Bajante Pararrayos</para></td>
+        <td><para style="HEAD"></para></td>
+      </tr>
+    </blockTable>
+
+      {% set photo21 = ''%}
+      {% set photo22 = ''%}
+      {% set photo23 = ''%}
+      {% set photo24 = ''%}
+      {% set photo25 = ''%}
+      {% set photo26 = ''%}
+        {% if answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+          {% set photo21 = answers.66aa6c3e25091455f98fbc1e.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+          {% set photo22 = answers.66aa6c3e25091455f98fbc1f.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc20.0.file_url %}
+          {% set photo23 = answers.66aa6c3e25091455f98fbc20.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc21.0.file_url %}
+          {% set photo24 = answers.66aa6c3e25091455f98fbc21.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc22.0.file_url %}
+          {% set photo25 = answers.66aa6c3e25091455f98fbc22.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6c3e25091455f98fbc23.0.file_url %}
+          {% set photo26 = answers.66aa6c3e25091455f98fbc23.0.file_url %}
+        {% endif%}
+
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">INSTALACION DE EQUIPOS Y PANELES SOLARES</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo21 %} 
+          <td href="{{ photo21 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo21 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo22 %} 
+          <td href="{{ photo22 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo22 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Caja Nema</para></td>
+        <td><para style="HEAD">Paneles Solares</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo23 %} 
+          <td href="{{ photo23 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo23 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo24 %} 
+          <td href="{{ photo24 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo24 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Equipos 1</para></td>
+        <td><para style="HEAD">Equipos 2</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="2cm"/>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo25 %} 
+          <td href="{{ photo25 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo25 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo26 %} 
+          <td href="{{ photo26 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo26 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">Etiquetado 1</para></td>
+        <td><para style="HEAD">Etiquetado 2</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">CAPTURAS DE PANTALLA DE CONFIGURACIONES</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">Niveles de potencia Tx/Rx</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Niveles de Potencia aun......................! </para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="8cm,10cm">
+     <tr>
+        <td><para style="P8L">REPORTE INSTALACION DE ENLACE MW </para> </td>
+        <td><para style="dataBB"> </para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="9cm"/>
+  <blockTable style="mtto_dataV" colWidths="18cm">
+    <tr>
+      <td><para style="HEAD"> * * * * * * S I T I O - B * * * * * * </para> </td>
+    </tr>
+  </blockTable>
+
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN GENERAL SITIO B</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="Table" colWidths="5cm,7cm,1.5cm,4.5cm">
+      <tr>
+        <td><para style="P8L">Nombre del Sitio B</para></td>
+        <td><para style="dataBB">{{answers.66aa7072fa135252bb9ce1d0}}</para></td>
+        <td><para style="P8L">ID</para></td>
+        <td><para style="dataBB">No existe Campo</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set longitudel = '' %}
+      {% set latitudel = '' %}
+      {% set cutLatitudel = 0 %}
+      {% set cutLongitudel = 0 %}
+
+      {% for ls in answers.66aa7198050fe5ca0e489cd2 %}
+        {% if cutLongitudel > 26 and cutLongitudel < 40   %}
+          {% concat 'longitudel' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLongitudel' 1 %}
+      {% endfor %}
+      {% for ls in answers.66aa7198050fe5ca0e489cd2 %}
+        {% if cutLatitudel > 41 and cutLatitudel < 57  %}
+          {% concat 'latitudel' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLatitudel' 1 %}
+      {% endfor %}
+    
+    <blockTable style="Table" colWidths="5cm,2.5cm,2.5cm,2cm,6cm">
+      <tr>
+        <td><para style="P8L">Coordena de la Estación</para></td>
+        <td><para style="P8L">Latitud </para></td>
+        <td><para style="P8L">{{latitudel}}</para></td>
+        <td><para style="P8L">Longitud</para> </td>
+        <td><para style="P8L">{{longitudel}}</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="5cm,13cm">
+      <tr>
+        <td><para style="P8L">Fecha de Finalización de Instalación</para></td>
+        <td><para style="P8L">{{answers.66aa6898bd9d199a2ca08d6e}}</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Empresa Responsable</para> </td>
+        <td><para style="P8L">I N F R A C O M</para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DEL ENLACE SITIO B</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,2.5cm,2.5cm,2cm,1.5cm,1.5cm,1.5cm,1.5cm">
+    <tr>
+        <td><para style="P8L">Modelo del Equipo</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d1}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+    </tr>
+    <tr>
+        <td><para style="P8L">Número de Serie</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d2}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+    </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCIÓN DE ANTENA</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Número</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d8}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Modelo</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d7}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Diámetro</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d9}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Altura</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1da}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Azimut</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1db}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Polaridad</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1dc}}</para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">PARAMETROS DE RADIO FRECUENCIA SITIO B</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Frecuencia de TX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d3}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Frecuencia de RX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d4}}</para> </td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,5cm,5cm,3cm">
+     <tr>
+        <td><para style="P8L">Potencia de TX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d5}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Nivel de RX</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1d6}}</para> </td>
+        <td><para style="P8L"></para> </td>
+        <td><para style="P8L"></para> </td>
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Comentarios</para> </td>
+        <td><para style="P8L">{{answers.66aa7072fa135252bb9ce1e2}}</para> </td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">DESCRIPCION DE LA CÁMARA</para></td>
+      </tr>
+    </blockTable>
+  <spacer length="0.5cm"/>
+    <blockTable style="mtto_datall" colWidths="5cm,13cm">
+     <tr>
+        <td><para style="P8L">Número de Serie</para> </td>
+        <td><para style="P8L">{{answers.66aa74164fb5770a9c9ce183}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Modelo</para> </td>
+        <td><para style="P8L">{{answers.66aa74164fb5770a9c9ce182}}</para> </td>
+      </tr>
+     <tr>
+        <td><para style="P8L">Altura de Instalación</para> </td>
+        <td><para style="P8L">{{answers.66aa74164fb5770a9c9ce184}}</para> </td>
+      </tr>
+    </blockTable>
+
+      {% set photo27 = ''%}
+      {% set photo28 = ''%}
+      {% set photo29 = ''%}
+      {% set photo30 = ''%}
+        {% if answers.66aa6951581d30b3548fbbea.0.file_url %}
+          {% set photo27 = answers.66aa6951581d30b3548fbbea.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6951581d30b3548fbbe9.0.file_url %}
+          {% set photo28 = answers.66aa6951581d30b3548fbbe9.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6951581d30b3548fbbeb.0.file_url %}
+          {% set photo29 = answers.66aa6951581d30b3548fbbeb.0.file_url %}
+        {% endif%}
+        {% if answers.66aa6951581d30b3548fbbec.0.file_url %}
+          {% set photo30 = answers.66aa6951581d30b3548fbbec.0.file_url %}
+        {% endif%}
+
+<spacer length="6.5cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">FOTOGRAFIAS SITIO B</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="HEAD">ENLACE</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo27 %} 
+          <td href="{{ photo27 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo27 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo28 %} 
+          <td href="{{ photo28 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo28 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">ANTENA</para></td>
+        <td><para style="HEAD">RADIO</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="9cm,9cm">
+    <tr>
+        {% if photo29 %} 
+          <td href="{{ photo29 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo29 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+        
+        {% if photo30 %} 
+          <td href="{{ photo30 }}" target="_blank">
+            <imageAndFlowables imageName="{% photo30 %}" imageWidth="9cm" imageHeight="6.5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos......!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="9cm,9cm">
+      <tr>
+        <td><para style="HEAD">PROTECTOR</para></td>
+        <td><para style="HEAD">POE</para></td>
+      </tr>
+    </blockTable>
+<!--
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBBll">LISTADO DE MATERIALES</para></td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="Tablell" colWidths="6cm,3cm,6cm,3cm">
+      <tr>
+        <td><para style="dataBBll">DESCRIPCIÓN CONSUMIBLE</para></td>
+        <td><para style="dataBBll">CANTIDAD</para></td>
+        <td><para style="dataBBll">DESCRIPCIÓN HARDWARE</para></td>
+        <td><para style="dataBBll">CANTIDAD</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="6cm,3cm,6cm,3cm">
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+      <tr>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+        <td><para style="dataBBll">N/A</para></td>
+      </tr>
+    </blockTable>
+-->
+
+  <spacer length="4.3cm"/>
+    <blockTable style="mtto_header" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">CAPTURAS DE PANTALLA DE CONFIGURACIONES</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="dataBB">Niveles de Potencia TX/RX</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Niveles de Potencia aun.........! </para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="dataBBll">FIRMA ACCEPTANCE TEST PROCEDURE (ATP)</para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Table" colWidths="18cm">
+      <tr>
+        <td><para style="Header_NO_PHOTO"> ¡No se Han Cargado Datos Fotograficos de Documento ATP Supervisor de Ingenio Magdalena.........! </para></td>
+      </tr>
+    </blockTable>
+    <blockTable style="Tablell" colWidths="18cm">
+      <tr>
+        <td><para style="dataBBll">DOCUMENTO ATP CON FECHA Y FIRMA DE SUPERVISORES  DE INGENIO MAGDALENA  E INFRACOM</para></td>
+      </tr>
+    </blockTable>
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+{% endautoescape %}
+  </story>
+</document>

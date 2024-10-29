@@ -1,0 +1,8 @@
+<lineMode width="0.1"/>
+<fill color="#333333"/>
+<lines>.6cm 1.5cm 20.7cm 1.5cm</lines>
+<setFont name="Helvetica-Bold" size="7"/>
+
+<stroke color="#17202a"/>
+<rect x="2cm" y="10cm" width="6.5cm" height="0.05cm" fill="yes" stroke="yes" />
+<rect x="12cm" y="10cm" width="6cm" height="0.05cm" fill="yes" stroke="yes" />

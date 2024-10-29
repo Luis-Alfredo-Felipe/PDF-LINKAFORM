@@ -1,0 +1,13 @@
+<image x="2cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.2cm" />
+
+<setFont name="Montserrat-Bold" size="15"/>
+<drawCentredString x="10.5cm" y="26.5cm"> DATOS GENERALES </drawCentredString>
+
+<lines>1.5cm 28.5cm 19.5cm 28.5cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<lines>1.5cm 2.5cm 19.5cm 2.5cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<!-- Línea vertical izquierda -->
+<lines>1.5cm 2.5cm 1.5cm 28.5cm</lines>
+<!-- Línea vertical derecha -->
+<lines>19.5cm 2.5cm 19.5cm 28.5cm</lines>

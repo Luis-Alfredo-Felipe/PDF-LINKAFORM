@@ -1,0 +1,8 @@
+<image x="2cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="4.5cm" height="2cm" />
+<image x="15.5cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/660f3b2c677ff625693e6234.jpg" width="4cm" height="2cm" />
+
+<setFont name="Montserrat-Bold" size="15"/>
+<drawCentredString x="10.5cm" y="26.5cm"> Registro de Inspección EPP </drawCentredString>
+
+<lines>6.5cm 26.3cm 14.5cm 26.3cm</lines>
+<setFont name="Montserrat-Bold" size="15"/>

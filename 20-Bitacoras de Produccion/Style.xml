@@ -1,0 +1,20 @@
+<blockTableStyle id="TablaTitulo">
+ <lineStyle kind="GRID" colorName="#000" start="0,0" stop="0,0" />
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_firma">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,-1" stop="0,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="2,-1" stop="2,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="4,-1" stop="4,-1" thickness="0.5" />
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" />
+<paraStyle name="datos" fontName="Helvetica" fontSize="6.5" leading="10" alignment="left" />
+<paraStyle name="datosll" fontName="Helvetica-Bold" fontSize="6.5" leading="7" alignment="center" />
+<paraStyle name="datosTitulo" fontName="Helvetica-Bold" fontSize="8" leading="7" alignment="left" />
+
+<paraStyle name="firma" fontName="Helvetica" fontSize="6" leading="7" alignment="center" />

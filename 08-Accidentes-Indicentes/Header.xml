@@ -1,0 +1,4 @@
+<image x="1cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/656f91f2763e1fe9ff170f73.png " width="4.5cm" height="1.5cm" />
+
+<setFont name="Helvetica" size="15" lineMode="single" />
+<drawCentredString x="11cm" y="26.5cm"> Reporte Accidentes - Incidentes </drawCentredString>

@@ -1,0 +1,9 @@
+<image x="2.5cm" y="25.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.3cm" />
+<image x="8.5cm" y="26cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/670e847f9ef8e4ac07cf66cc.png " width="10.1cm" height="1.9cm" />
+
+<lineMode width="0.5"/>
+<fill color="#333333"/>
+<setFont name="Helvetica-Bold" size="10"/>
+<lines>2cm 26.1cm 18.5cm 26.1cm</lines>
+<drawRightString x="18.5cm" y="25.5cm">RRHH-AS- 001</drawRightString>
+

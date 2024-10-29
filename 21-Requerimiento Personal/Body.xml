@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Reporte_Recursos Humanos" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>  
+
+    <blockTable colWidths="4cm,3cm,12cm">
+      <tr>
+        <td><para style="dataBB">Fecha de Solicitud:</para> </td>
+        <td><para style="dataB">{{ answers.65d392910fc9871a4ffaa277 }}</para> </td>    
+        <td>   </td>           
+        </tr>  
+    </blockTable>
+
+{% set sub_two = '_Solicitante' %}
+     <blockTable colWidths="1cm, 18cm" style="table_two">
+        <tr>
+          <td>
+            {% for letter in sub_two %}
+              {% if letter == '_' %}
+                <spacer length="0.1cm" />
+              {% else %}
+                <para style="datosSubtitulo">{{letter}}</para>
+              {% endif %}
+            {% endfor %}
+          </td>
+
+          <td>
+            <spacer length="0.1cm" />
+            <para style="text1"> <b>a. Jefatura que Solicita Personal: </b>{{answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para>
+            <spacer length="0.4cm" />
+            <para style="text1"> <b>b. Puesto: </b>{% for select in answers.60007c5194d9a63b1caf534c.602d929fbd3a1dba1fff5ee4 %}
+             {{ select }} 
+              {% endfor %}           
+            </para>
+            <spacer length="0.4cm" />
+            <para style="text1"> <b>c. Departamento: </b>{% for select in  answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760 %} 
+             {{ select }} 
+              {% endfor %}    
+            </para>
+            <spacer length="0.4cm" />
+            <para style="text1"><b>d. Autorización Jefe Supervisor Inmediato: </b>{{answers.65d397f0bee354a975617e6e}} </para>
+          </td>
+        </tr>
+     </blockTable>
+
+<spacer length="0.1cm" />
+     {% set sub_two = 'Datos.Generales.de.Puesto' %}
+     <blockTable colWidths="1cm, 18cm" style="table_two">
+        <tr>
+          <td>
+            {% for letter in sub_two %}
+              {% if letter == '.' %}
+                <spacer length="0.1cm" />
+              {% else %}
+                <para style="datosSubtitulo">{{letter}}</para>
+              {% endif %}
+            {% endfor %}
+          </td>
+
+          {% set central = '' %}
+          {% set salcaja = '' %}
+          {% set siquinala = '' %}
+          {% set zacapa = '' %}
+
+          {% if answers.65fa19ae979996a431d44bb3 == "Central" %}
+            {% set central = '✓' %}
+          {% elif answers.65fa19ae979996a431d44bb3 == "Salcaja" %}
+            {% set salcaja = '✓' %}
+          {% elif answers.65fa19ae979996a431d44bb3 == "Siquinala" %}
+            {% set siquinala = '✓' %}
+          {% elif answers.65fa19ae979996a431d44bb3 == "Zacapa" %}
+            {% set zacapa = '✓' %}
+          {% endif %}
+
+          <td>
+            <spacer length="0.2cm" />
+            <para style="text1"> <b>e. Nombre de la Plaza a ocupar: </b>{{answers.65d39a374629b6fd0cfaa290}}</para>
+            <spacer length="0.2cm" />
+
+            <blockTable colWidths="5cm,1.6cm,1cm,2cm,1cm,2cm,1cm,2cm,1cm,1.4cm" style="table_sub6_two">
+              <tr>
+                <td><para style="text1"><b>f. Departamento: </b>{{answers.65fa19ae979996a431d44bb3}}</para></td>
+                <td><para style="text3"><b>Central </b></para></td>
+                <td>{{central}}</td>
+                <td><para style="text3"><b>Salcaja </b></para></td>
+                <td>{{salcaja}}</td>
+                <td><para style="text3"><b>Siquinala </b></para></td>
+                <td>{{siquinala}}</td>
+                <td><para style="text3"><b>Zacapa  </b></para></td>
+                <td>{{zacapa}}</td>
+                <td></td>
+              </tr>
+            </blockTable>    
+
+            {% set sub_si = '' %}
+            {% set sub_no = '' %}
+            {% if answers.65d39b54d5c62d6e6cfaa28c == "Sí" %}
+              {% set sub_si = '✓' %}
+              {% set sub_no = '' %}
+            {% elif answers.65d39b54d5c62d6e6cfaa28c == "No" %}
+              {% set sub_si = '' %}
+              {% set sub_no = 'X' %}
+            {% endif %}
+
+            <spacer length="0.2cm" />
+            <blockTable colWidths="4cm, 2cm, 2cm, 2cm, 2cm, 6cm, 2.5cm" style="table_sub1_two">
+             <tr>
+               <td><para style="text3"><b>g. Subalternos:  </b></para></td>
+               <td><para style="text3"><b>Si</b></para></td>
+               <td><para style="text4">{{ sub_si }}</para></td>
+               <td><para style="text3"><b>No</b></para></td>
+               <td><para style="text4">{{ sub_no }}</para></td>
+               <td><para style="text1"><b>No. Personas a Cargo: </b>{{answers.65d39ba32479112e49faa34b}} </para></td>
+               <td></td>
+             </tr>
+            </blockTable>
+
+            {% set vacante = '' %}
+            {% set ascenso = '' %}
+            {% set temporal = '' %}
+            {% set plaza_nueva = '' %}
+            {% set traslado = '' %}
+
+            {% if answers.65d39c3b9fd3b8326461373e == "Vacante a Ocupar" %}
+            {% set vacante = '✓' %}
+            {% elif answers.65d39c3b9fd3b8326461373e == "Puesto Nuevo" %}
+            {% set plaza_nueva = '✓' %}
+            {% elif answers.65d39c3b9fd3b8326461373e == "Ascenso" %}
+            {% set ascenso = '✓' %}
+            {% elif answers.65d39c3b9fd3b8326461373e == "Traslado" %}
+            {% set traslado = '✓' %}
+            {% elif answers.65d39c3b9fd3b8326461373e == "Temporal" %}
+            {% set temporal = '✓' %}
+            {% endif %}
+
+            <spacer length="0.2cm" />
+            <para style="text1"><b>h. Motivo de Solicitud: </b>{{answers.65d39c3b9fd3b8326461373e}} </para>
+            <spacer length="0.2cm" />
+            <blockTable colWidths="2cm,1cm,2cm,1cm,2cm,1cm,3cm,1cm,2cm,1cm" colHeights=".7cm, 1.5cm" style="table_sub2_two">
+              <tr>
+                <td><para style="text3"><b>Vacante  </b></para></td>
+                <td>{{vacante}}</td>
+                <td><para style="text3"><b>Ascenso </b></para></td>
+                <td>{{ascenso}}</td>
+                <td><para style="text3"><b>Temporal </b></para></td>
+                <td>{{temporal}}</td>
+                <td><para style="text3"><b>Plaza Nueva  </b></para></td>
+                <td>{{plaza_nueva}}</td>
+                <td><para style="text3"><b>Traslado </b></para></td>
+                <td>{{traslado}}</td>
+                <td></td>
+              </tr>
+            </blockTable>
+
+              <!--        Aca podemos dejar un bloque no. 2 por ejemplo para poder crear otro segmentos de cuadros o check list  -->
+ 
+             {% set segvida_si = '' %}
+            {% set segvida_no = '' %}
+            {% if answers.65eb30f712336b9365ebc3da == "Sí" %}
+              {% set segvida_si = '✓' %}
+              {% set segvida_no = '' %}
+            {% elif answers.65eb30f712336b9365ebc3da == "No" %}
+              {% set segvida_si = '' %}
+              {% set segvida_no = 'X' %}
+            {% endif %}
+
+             <spacer length="0.2cm" />
+             <blockTable colWidths="3cm, 1cm, 1cm, 1cm, 1cm, 5.6cm, 5.6cm" style="table_sub1_two">
+             <tr>
+               <td><para style="text3"><b>Seguro de Vida:   </b></para></td>
+               <td><para style="text3"><b>Si</b></para></td>
+               <td><para style="text4">{{ segvida_si }}</para></td>
+               <td><para style="text3"><b>No</b></para></td>
+               <td><para style="text4">{{ segvida_no }}</para></td>
+                <td></td>
+                <td></td>
+                </tr>
+            </blockTable>
+            
+            <spacer length="0.3cm" />
+            <para style="text1"><b>j. Descripción breve de Puesto: </b> {{answers.65d39cd5938175bbb622e556}} </para>    
+            <spacer length="0.3cm" />
+            <para style="text1"><b>i. Observaciones: </b> {{answers.65e0a08ee7f981ff9d3ecaaf}} </para>        
+          </td>
+        </tr>
+     </blockTable>
+
+<spacer length="0.1cm" />
+     {% set sub_two = 'Datos.de.Perfil.del.Puesto' %}
+    <blockTable colWidths="1cm,18cm" style="table_two">
+        <tr>
+          <td>
+            {% for letter in sub_two %}
+              {% if letter == '.' %}
+                <spacer length="0.1cm" />
+              {% else %}
+                <para style="datosSubtitulo">{{letter}}</para>
+              {% endif %}
+            {% endfor %}
+          </td>
+
+      <td> 
+            <!-- 
+            <spacer length="0.2cm" />
+            <para style="text1"> <b>k. Habilidades: </b>{{answers.65d3b8bc05c0f05e09617e6c}}</para>
+            <spacer length="0.2cm" />
+            <para style="text1"> <b>l. destrezas: </b>{{answers.65d3b8bc05c0f05e09617e6d }}</para>
+            <spacer length="0.2cm" />
+            <para style="text1"> <b>m. conocimientos: </b>{{answers.65d3b8bc05c0f05e09617e6e }}</para>
+            <spacer length="0.2cm" />
+            -->
+          <spacer length="0.2cm" />    
+            <blockTable colWidths="5cm,5cm,8cm" >
+            <tr>
+            <spacer length="0.2cm" />
+            <td><para style="text1"><b> k. Habilidades: </b>{{answers.65d3b8bc05c0f05e09617e6c}}</para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b> l. destrezas: </b>{{answers.65d3b8bc05c0f05e09617e6d }}</para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b>m. conocimientos: </b>{{answers.65d3b8bc05c0f05e09617e6e }}</para></td>
+            <spacer length="0.3cm" />
+            </tr>
+          </blockTable>
+
+          {% set primaria = '' %}
+          {% set secundaria = '' %}
+          {% set diversificado = '' %}
+          {% set universidad = '' %}
+          {% set maestria = '' %}
+
+          {% if answers.65d3b95272066f2b91faa287 == "Primaria" %}
+            {% set primaria = '✓' %}
+          {% elif answers.65d3b95272066f2b91faa287 == "Secundaria" %}
+            {% set secundaria = '✓' %}
+          {% elif answers.65d3b95272066f2b91faa287 == "Diversificado" %}
+            {% set diversificado = '✓' %}
+          {% elif answers.65d3b95272066f2b91faa287 == "Universidad" %}
+            {% set universidad = '✓' %}
+          {% elif answers.65d3b95272066f2b91faa287 == "Maestria" %}
+            {% set maestria = '✓' %}
+          {% endif %}
+
+          <spacer length="0.2cm" />                                
+            <para style="text1"><b>n. Educacion: </b>{{answers.65d3b95272066f2b91faa287}} </para>
+            <spacer length="0.4cm" />
+            <blockTable colWidths="1.8cm,1cm,2.2cm,1cm,2.5cm,1cm,2.5cm,1cm,2cm,1cm" colHeights=".7cm, 1.5cm" style="table_sub2_two">
+              <tr>
+                <td><para style="text3"><b>Primaria  </b></para></td>
+                <td>{{primaria}}</td>
+                <td><para style="text3"><b>Secundaria </b></para></td>
+                <td>{{secundaria}}</td>
+                <td><para style="text3"><b>Diversificado </b></para></td>
+                <td>{{diversificado}}</td>
+                <td><para style="text3"><b>Universidad  </b></para></td>
+                <td>{{universidad}}</td>
+                <td><para style="text3"><b>Maestria </b></para></td>
+                <td>{{maestria}}</td>
+                <td></td>
+              </tr>
+          </blockTable>
+
+          {% set year_one = '' %}
+          {% set year_two = '' %}
+          {% set year_tree = '' %}
+          {% set year_for = '' %}
+          {% set year_five = '' %}
+
+          {% if answers.65eb4d3466ffc2a552ebc3c4 == "1er. año" %}
+            {% set year_one = '✓' %}
+          {% elif answers.65eb4d3466ffc2a552ebc3c4 == "2do. año" %}
+            {% set year_two = '✓' %}
+          {% elif answers.65eb4d3466ffc2a552ebc3c4 == "3er. año" %}
+            {% set year_tree = '✓' %}
+          {% elif answers.65eb4d3466ffc2a552ebc3c4 == "4to. año" %}
+            {% set year_for  = '✓' %}
+          {% elif answers.65eb4d3466ffc2a552ebc3c4 == "5to. año" %}
+            {% set year_five = '✓' %}
+          {% endif %}
+
+          <spacer length="0.2cm" />                                
+            <para style="text1"><b>Grado En Curso: </b>{{answers.65eb4d3466ffc2a552ebc3c4}} </para>
+            <spacer length="0.4cm" />
+            <blockTable colWidths="1.8cm,1cm,2.2cm,1cm,2.5cm,1cm,2.5cm,1cm,2cm,1cm" colHeights=".7cm, 1.5cm" style="table_sub2_two">
+              <tr>
+                <td><para style="text3"><b>1er. año  </b></para></td>
+                <td>{{year_one}}</td>
+                <td><para style="text3"><b>2do. año </b></para></td>
+                <td>{{year_two}}</td>
+                <td><para style="text3"><b>3er. año </b></para></td>
+                <td>{{year_tree}}</td>
+                <td><para style="text3"><b>4to. año  </b></para></td>
+                <td>{{year_for}}</td>
+                <td><para style="text3"><b>5to. año </b></para></td>
+                <td>{{year_five}}</td>
+                <td></td>
+              </tr>
+          </blockTable>
+
+          <spacer length="0.2cm" />    
+            <blockTable colWidths="9cm,9cm" >
+            <tr>
+            <spacer length="0.3cm" />
+            <td><para style="text1"> <b>o. Experiencia Laboral: </b>{{answers.65d3baf805c0f05e09617e85}} <b>años</b></para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"> <b>Experiencia Laboral: </b>{{answers.65d3baf805c0f05e09617e86 }} <b>meses</b> </para></td> 
+            </tr>
+          </blockTable>
+
+            {% set gen_si = '' %}
+            {% set gen_no = '' %}
+            {% if answers.65d3c0f3ef61c3c9aaf772d8 == "Masculino" %}
+              {% set gen_si = '✓' %}
+              {% set gen_no = '' %}
+            {% elif answers.65d3c0f3ef61c3c9aaf772d8 == "Femenino" %}
+              {% set gen_si = '' %}
+              {% set gen_no = 'X' %}
+            {% endif %}
+
+            <spacer length="0.2cm" />
+          <blockTable colWidths="5cm, 2cm, 1cm, 2cm, 1cm, 5cm,2cm" style="table_sub1_two">
+             <tr>
+               <td><para style="text3"><b>p. Caracteristicas Personales:  </b></para></td>
+               <td><para style="text3"><b>Masculino</b></para></td>
+               <td><para style="text4">{{ gen_si }}</para></td>
+               <td><para style="text3"><b>Femenino</b></para></td>
+               <td><para style="text4">{{ gen_no }}</para></td>
+               <td><para style="text1"><b>Edad de: </b>{{answers.65d3c0f3ef61c3c9aaf772d6}} a: {{answers.65d3c0f3ef61c3c9aaf772d7}} <b>años</b> </para></td>
+                <td></td>
+             </tr>
+          </blockTable>
+          <spacer length="0.1cm" />
+          <blockTable colWidths="10cm, 3cm, 1cm, 1cm, 1cm, 1cm, 1cm" style="table_sub3_two">
+             <tr>
+               <td><para style="text1"><b>q. Horario Laboral: </b>{{answers.65e0c91225f9bc4c2bf9977d}} </para></td>
+               <td><para style="text3"><b>r. Horas Extras:  </b></para></td>
+               <td><para style="text3"><b>Si</b></para></td>
+               <td><para style="text4">{{ horextra_si }}</para></td>
+               <td><para style="text3"><b>No</b></para></td>
+               <td><para style="text4">{{ horextra_no }}</para></td>
+                <td></td>
+             </tr>
+          </blockTable>
+
+      </td>
+    </tr>
+  </blockTable>
+
+<spacer length="0.1cm" />
+{% set sub_two = 'Otros.Requisitos' %}
+    <blockTable colWidths="1cm, 18cm" style="table_two">
+      <tr>
+          <td>
+            {% for letter in sub_two %}
+              {% if letter == '.' %}
+                <spacer length="0.1cm" />
+              {% else %}
+                <para style="datosSubtitulo">{{letter}}</para>
+              {% endif %}
+            {% endfor %}
+          </td>
+        <td> 
+            {% set horextra_si = '' %}
+            {% set horextra_no = '' %}
+            {% if answers.65d3c25467e1759d59617e69 == "Sí" %}
+              {% set horextra_si = '✓' %}
+              {% set horextra_no = '' %}
+            {% elif answers.65d3c25467e1759d59617e69 == "No" %}
+              {% set horextra_si = '' %}
+              {% set horextra_no = 'X' %}
+            {% endif %}
+
+            {% set vehic_si = '' %}
+            {% set vehic_no = '' %}
+            {% if answers.65d3c25467e1759d59617e6a == "Sí" %}
+              {% set vehic_si = '✓' %}
+              {% set vehic_no = '' %}
+            {% elif answers.65d3c25467e1759d59617e6a == "No" %}
+              {% set vehic_si = '' %}
+              {% set vehic_no = 'X' %}
+            {% endif %}
+
+            {% set viaje_si = '' %}
+            {% set viaje_no = '' %}
+            {% if answers.65d3c25467e1759d59617e6b == "Sí" %}
+              {% set viaje_si = '✓' %}
+              {% set viaje_no = '' %}
+            {% elif answers.65d3c25467e1759d59617e6b == "No" %}
+              {% set viaje_si = '' %}
+              {% set viaje_no = 'X' %}
+            {% endif %}
+
+          <spacer length="0.2cm" />
+          <blockTable colWidths="2.3cm, 1cm, 1cm, 1cm, 1cm, 2.8cm, 0.9cm, 1cm, 1cm, 1cm, 5cm" style="table_sub4_two">
+             <tr>
+               <td><para style="text1"><b>s. Vehiculo: </b></para></td>
+               <td><para style="text3"><b>Si</b></para></td>
+               <td><para style="text4">{{ vehic_si }}</para></td>
+               <td><para style="text3"><b>No</b></para></td>
+               <td><para style="text4">{{ vehic_no }}</para></td>
+               <td><para style="text1"><b>t. Viaje exterior: </b></para></td>
+               <td><para style="text3"><b>Si</b></para></td>
+               <td><para style="text4">{{ vehic_si }}</para></td>
+               <td><para style="text3"><b>No</b></para></td>
+               <td><para style="text4">{{ vehic_no }}</para></td>
+                <td></td>
+             </tr>
+          </blockTable>
+
+          <spacer length="0.1cm" />    
+            <blockTable colWidths="9cm,9cm" >
+            <tr>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b>t. Lugar de Labores: </b>{{answers.65d3c25467e1759d59617e6c}}</para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b> Visita Lugar: </b>{{answers.65d3c25467e1759d59617e6d }}</para></td>
+            </tr>
+          </blockTable>
+
+          <spacer length="0.1cm" />    
+            <blockTable colWidths="9cm,9cm" >
+            <tr>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b>u. Salario: Q </b>{{answers.65d3c295c7736c65c9faa2fa }}</para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b> Bonificacion: Q </b>{{answers.65d3c295c7736c65c9faa2fb }}</para></td>
+            </tr>
+          </blockTable>
+
+          {% set comision = '' %}
+          {% set combustible = '' %}
+          {% set indefinido = '' %}
+          {% set temporal = '' %}
+          {% set otros = '' %}
+
+          {% if answers.65eb321806ebb3c101ac5183 == "Comisión" %}
+            {% set comision = '✓' %}
+          {% elif answers.65eb321806ebb3c101ac5183 == "Combustible" %}
+            {% set combustible = '✓' %}
+          {% elif answers.65d3c2d2c8a5f9ce973c5a0f == "Indefinido" %}
+            {% set indefinido = '✓' %}
+          {% elif answers.65d3c2d2c8a5f9ce973c5a0f == "Temporal" %}
+            {% set temporal = '✓' %}
+          {% endif %}
+
+          <spacer length="0.2cm" />                                
+            <blockTable colWidths="3cm,1cm,2.5cm,1cm,3.5cm,2cm,1cm,2cm,1cm,2.5cm" colHeights=".7cm, 1.5cm" style="table_sub5_two">
+              <tr>
+                <td><para style="text3"><b>v. Comision  </b></para></td>
+                <td>{{comision}}</td>
+                <td><para style="text3"><b>Combustible </b></para></td>
+                <td>{{combustible}}</td>
+                <td><para style="text3"><b>Tipo de Contrato: </b></para></td>
+                <td><para style="text3"><b>Indefinido </b></para></td>
+                <td>{{indefinido}}</td>
+                <td><para style="text3"><b>Temporal  </b></para></td>
+                <td>{{temporal}}</td>
+                <td></td>
+              </tr>
+          </blockTable>
+
+            <blockTable colWidths="4.5cm,4.5cm,4.5cm,4.5cm" >
+            <tr>
+            <td><para style="text1"><b>w. Candidatos Referidos: </b></para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b>I : </b>{{answers.65eb333ec2cd4a2099feda1b}}</para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b>II : </b>{{answers.65eb33f871fd5f248c34c62f}}</para></td>
+            <spacer length="0.3cm" />
+            <td><para style="text1"><b>III: </b>{{answers.65eb33f871fd5f248c34c631}}</para></td>
+            <spacer length="0.3cm" />
+            </tr>
+
+          </blockTable>
+            <blockTable colWidths="18cm">
+            <tr>
+            <td><para style="text1"><b>x. Observaciones: </b>{{answers.65d3c34d12d53bf062f77329}}</para></td>
+            </tr>
+          </blockTable>
+        </td>
+      </tr>
+    </blockTable>
+<spacer length="0.1cm" />
+{% set sub_two = '.Autorización' %}
+    <blockTable colWidths="1cm, 18cm" style="table_two">
+        <tr>
+          <td>
+            {% for letter in sub_two %}
+              {% if letter == '.' %}
+                <spacer length="0.1cm" />
+              {% else %}
+                <para style="datosSubtitulo">{{letter}}</para>
+              {% endif %}
+            {% endfor %}
+          </td>
+
+           <td>
+      <blockTable colWidths="5cm,5cm,5cm,2cm">
+      <tr>
+        {% set url1 = answers.65e0cc7cc4a2e8ce29124de4.file_url %}
+        {% set url2 = answers.65e0cc7cc4a2e8ce29124de5.file_url %}
+        <td>
+          {% if url1 %}
+            <imageAndFlowables imageName="{% get_thumbnail url1 %}"  imageWidth="3.3cm" imageHeight="1.2cm" imageSide="right"  />
+          {% endif %}
+        </td>
+        <td></td>
+        <td>
+          {% if url2 %}
+            <imageAndFlowables imageName="{% get_thumbnail url2 %}"  imageWidth="3.3cm" imageHeight="1.2cm" imageSide="right"  />
+          {% endif %}
+        </td>
+        <td></td>
+      </tr>
+      </blockTable>
+
+      <blockTable colWidths="6cm,3cm,9cm">
+        <tr>
+          <td > <para style="datosll"> ___________________________________ </para></td>
+          <td > </td>
+          <td > <para style="datosll"> ___________________________________ </para></td>
+        </tr>
+        <tr>
+          <td > <para style="firma"> Gerente de Departamentos </para></td>
+          <td > </td>
+          <td > <para style="firma"> Gerencia RRHH </para></td>
+        </tr>
+      </blockTable>
+
+
+          </td>
+        </tr>
+     </blockTable>
+
+   {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

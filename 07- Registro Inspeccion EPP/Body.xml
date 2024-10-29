@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,27.5cm)">
+        <pageTemplate id="first" pageSize="(21cm,27.5cm)">
+            <frame id="first"    x1="1.5cm"   y1="6cm" width="18cm"   height="20cm"/>
+            <pageGraphics>
+                <setFont name="Montserrat-Regular" size="7.5"/>
+                <drawCenteredString x="10.5cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Montserrat-Regular" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+    <story>
+        
+        <spacer length="0.5cm"/>
+        <blockTable colWidths="10cm, 8cm">  
+            <tr>
+                <td>
+                    <blockTable colWidths="5cm, 5cm" style="table_sub1_two">
+                        <tr>
+                            <td><para style="text1"><b>Nombre del Técnico:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f %}{{ select }}{% endfor %}</para></td>
+                        </tr> 
+                        <tr>
+                            <td><para style="text1"><b>NO. DPI:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534d %}{{ select }}{% endfor %}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Área:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007ca59253268e682b875f%}{{ select }}{% endfor %}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Departamento:</b> </para></td>
+                            <td><para style="text2"> {% for select in answers.60007c5194d9a63b1caf534c.60007ca59253268e682b8760%}{{ select }}{% endfor %}</para></td>
+                        </tr>
+                        <tr>
+                            <td><para style="text1"><b>Fecha de Revisión:</b> </para></td>
+                            <td><para style="text2"> {{answers.660c79edf1bef9f45353998c}}</para></td>
+                        </tr> 
+                        <tr>
+                            <td><para style="text1"><b>Próxima Revisión:</b> </para></td>
+                            <td><para style="text2"> {{answers.660c8602700fa143d33e6232}}</para></td>
+                        </tr> 
+                        <tr>
+                            <td><para style="text1"><b>Fecha de Entrega de Bodega:</b> </para></td>
+                            <td><para style="text2"> {{answers.660d6873fb23916c04e9cf0f}}</para></td>
+                        </tr>  
+                    </blockTable>
+                </td>
+                <td>
+                    {% set fotoA1 = "" %}
+                    {% set count = 0 %}
+                    {% if answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534e %}
+                        {% for item in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534e %}
+                            {% if count  == 0 %}
+                                {% set fotoA1 = item.file_url %}
+                            {% endif %}
+                            {% add_total 'count' 1 %}
+                        {% endfor %}
+                    {% endif %}
+                    <blockTable colWidths="3cm, 4cm" style="marc_photo">
+                        <tr>
+                            <td> </td>
+                            <td>
+                                {% if fotoA1 %}
+                                    <imageAndFlowables imageName="{% get_thumbnail fotoA1 %}"  imageWidth="3cm" imageHeight="3cm" />
+                                {% endif %}
+                            </td> 
+                        </tr>  
+                    </blockTable> 
+                </td>   
+            </tr> 
+        </blockTable>
+
+
+        <spacer length="0.5cm"/>
+        <blockTable colWidths="1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,1.5cm,2cm" style="contenido">
+            <tr>
+                <td background="#DBEDF0"><para style="negrita"> Tipo EPP </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Color </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Marca </para></td>
+                <td background="#DBEDF0"><para style="negrita"> No. Serie </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Existen Daños S/N </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Cambio Equipo </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Fecha Cambio </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Entrega por Persona </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Detalles </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Acciones Tomadas </para></td>
+                <td background="#DBEDF0"><para style="negrita"> Fotografía del EPP </para></td>
+            </tr>
+            {% for item in answers.660c7b1093bea623ad0df625 %}
+                {% set img = ''%}
+                {% if item.660c7bb9ed2d8ff5e2e9cf9b.0.file_url %}
+                    {% set img = item.660c7bb9ed2d8ff5e2e9cf9b.0.file_url %}
+                {% endif%}
+                <tr>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399a8}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399a9}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399aa}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399ab}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399ac}}</para></td>
+                    <td><para style = "datos">{{item.66183fcad60863735dca0ca7}}</para></td>
+                    <td><para style = "datos">{{item.66183fcad60863735dca0ca8}}</para></td>
+                    <td><para style = "datos">{{item.66183fcad60863735dca0ca9}}</para></td>
+                    <td><para style = "datos">{{item.660f34a0bab78f0d20e9cf20}}</para></td>
+                    <td><para style = "datos">{{item.660c7b8f670b53fd015399ae}}</para></td>
+                    {% if img %}  
+                        <td href="{{ img }}">
+                            <imageAndFlowables
+                            imageName="{% get_thumbnail img  %}"
+                            imageWidth="2cm" imageHeight="2cm" imageSide="left"/>
+                        </td> 
+                    {% else %}
+                        <td> ITEMS {{ item.660c7bb9ed2d8ff5e2e9cf9b }}</td> 
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </blockTable>
+      </story>
+</document>
+

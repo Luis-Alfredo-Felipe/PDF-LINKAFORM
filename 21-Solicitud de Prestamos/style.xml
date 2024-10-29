@@ -1,0 +1,92 @@
+<blockTableStyle id="TablaTitulo">
+ <lineStyle kind="GRID" colorName="#000" start="0,0" stop="0,0" />
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+    <rowStyle start="0" stop="-1" height="30"/>
+    <!-- Aplica bordes a todas las celdas de la tabla -->
+    <lineStyle kind="GRID" colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5" />
+    <lineStyle kind="GRID" colorName="#0a2756" start="3,0" stop="3,0" thickness="0.5" />
+        <!-- Quita las líneas de las celdas 1 y 3 (deja sin bordes) -->
+    <lineStyle kind="GRID" colorName="rgba(255, 255, 255, 0)" start="0,0" stop="0,0" thickness="0"/>
+    <lineStyle kind="GRID" colorName="rgba(255, 255, 255, 0)" start="2,0" stop="2,0" thickness="0"/>
+</blockTableStyle>
+
+<blockTableStyle id="contenidoll">
+    <rowStyle start="0" stop="-1" height="30"/>
+    <!-- Aplica bordes a todas las celdas de la tabla -->
+    <lineStyle kind="GRID" colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5" />
+    <!--     <lineStyle kind="GRID" colorName="#0a2756" start="3,0" stop="3,0" thickness="0.5" />  -->
+        <!-- Quita las líneas de las celdas 1 y 3 (deja sin bordes) -->
+    <lineStyle kind="GRID" colorName="rgba(255, 255, 255, 0)" start="0,0" stop="0,0" thickness="0"/>
+    <!-- <lineStyle kind="GRID" colorName="rgba(255, 255, 255, 0)" start="2,0" stop="2,0" thickness="0"/> -->
+</blockTableStyle>
+
+<blockTableStyle id="contenidolll">
+    <rowStyle start="0" stop="-1" height="30"/> 
+<!--<Aplica bordes a todas las celdas de la tabla -->
+    <lineStyle kind="GRID" colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5" />
+    <lineStyle kind="GRID" colorName="#0a2756" start="3,0" stop="3,0" thickness="0.5" /> 
+ <!--<Quita las líneas de las celdas 1 y 3 (deja sin bordes)> -->
+    <blockBackground colorName="#0a2756" start="0,0" stop="0,0" thickness="0.5"/>
+    <blockBackground colorName="#0a2756" start="2,0" stop="2,0" thickness="0.5"/> 
+</blockTableStyle>
+
+<blockTableStyle id="contenidolV">
+    <rowStyle start="0" stop="-1" height="30"/> 
+<!--<Aplica bordes a todas las celdas de la tabla -->
+    <lineStyle kind="GRID" colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5" />
+    <lineStyle kind="GRID" colorName="#0a2756" start="3,0" stop="3,0" thickness="0.5" />
+    <lineStyle kind="GRID" colorName="#0a2756" start="5,0" stop="5,0" thickness="0.5" />  
+ <!--<Quita las líneas de las celdas 1 y 3 (deja sin bordes)> -->
+    <blockBackground colorName="#0a2756" start="0,0" stop="0,0" thickness="0.5"/>
+    <blockBackground colorName="#0a2756" start="2,0" stop="2,0" thickness="0.5"/> 
+    <blockBackground colorName="#0a2756" start="4,0" stop="4,0" thickness="0.5"/> 
+</blockTableStyle>
+
+<blockTableStyle id="Encabezado">
+    <rowStyle start="0" stop="-1" height="30"/>
+    <lineStyle kind="GRID" colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5" />
+    <lineStyle kind="GRID" colorName="#0a2756" start="2,0" stop="2,0" thickness="0.5" />  
+    <blockBackground colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5"/>
+    <blockBackground colorName="#0a2756" start="2,0" stop="2,0" thickness="0.5"/>
+</blockTableStyle>
+
+<blockTableStyle id="Tabla_Repeat">
+    <rowStyle start="0" stop="-1" height="30"/>
+    <lineStyle kind="GRID" colorName="#0a2756" start="1,0" stop="1,0" thickness="0.5" />
+    <lineStyle kind="GRID" colorName="#0a2756" start="2,0" stop="2,0" thickness="0.5" />  
+    <lineStyle kind="GRID" colorName="rgba(255, 255, 255, 0)" start="1,0" stop="1,0" thickness="0"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_firma">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,-1" stop="0,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="2,-1" stop="2,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="4,-1" stop="4,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_firmal">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,-1" stop="0,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,3" stop="0,3" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_firmall">
+  <lineStyle kind="LINEABOVE" colorName="#424242" start="0,2" stop="0,2" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table">
+<rowStyle start="0" stop="-1" height="30"/>
+<!-- Aplica bordes a todas las celdas de la tabla -->
+<lineStyle kind="GRID" colorName="#0a2756" start="0,0" stop="0,0" thickness="0.5" />
+</blockTableStyle>
+
+<paraStyle name="titulo" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="left" textColor="#FFFFFF" />
+<paraStyle name="datos" fontName="Helvetica" fontSize="10" leading="14" alignment="left" />
+<paraStyle name="parrafo" fontName="Helvetica" fontSize="10" leading="11.5" alignment="left" />
+<paraStyle name="parrafoll" fontName="Helvetica" fontSize="10" leading="11.5" alignment="center" />
+<paraStyle name="datosll" fontName="Helvetica" fontSize="11" leading="15" alignment="justify" />
+<paraStyle name="datoslll" fontName="Helvetica-Bold" fontSize="10" leading="14" alignment="center" textColor="#FFFFFF" />
+<paraStyle name="datosTitulo" fontName="Helvetica-Bold" fontSize="15" leading="7" alignment="center" />
+<paraStyle name="datosFirma" fontName="Helvetica-Bold" fontSize="9" leading="5" alignment="center" />
+<paraStyle name="firma" fontName="Helvetica-Bold" fontSize="9" leading="9" alignment="center" />
+

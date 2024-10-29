@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story>  
+
+<!--Bloque de informacion Principal Inicio-->
+      <blockTable colWidths="8cm, 6.5cm,5.5cm" style="contenido">
+        <tr>
+         <td ><para  style="Border" > </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo">Empresa Propietaria de Herramientas: </para></td>
+          <td><para style="datos"> {{ answers.621e6b8fefb64155e08c5e33.621e6b8fefb64155e08c5e34 }} </para></td>
+        </tr>
+        <tr>
+          <td ><para  > </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Fecha de Mivimiento:</para></td>
+          <td><para style="datos"> {{ answers.626ff17d3dce3129ea010961 }}</para></td>
+
+        </tr>
+        <tr>
+         <td ><para > </para></td>
+          <td background="#E8FFFE"><para style="datosTitulo"> Tipo de Miviemiento: </para></td>
+          <td><para style="datos"> {{ answers.6270039e4efd0c412dbe2171 }}</para></td>
+        </tr>   
+        
+    </blockTable>
+
+<!--Bloque de informacion Principal Fin-->
+
+<!--informacion inicio-->
+ <spacer length="0.5 cm" />
+  <blockTable colWidths="14cm,4cm" colHeights=".5cm">
+    <tr>
+      <td><para style="datos">INFORMACIÓN DE INVOLUCRADOS:</para></td>
+      <td></td>
+    </tr>
+  </blockTable>
+<spacer length="0.3 cm" />
+<blockTable colWidths="6cm, 6cm,6cm" style="contenido2">
+        <tr>
+            <td background="#E8FFFE"><para style="datosTitulo">Colaborador</para></td>
+            <td background="#E8FFFE"><para style="datosTitulo">Código de Caja Receptora</para></td>
+            <td background="#E8FFFE"><para style="datosTitulo">Area</para></td>    
+</tr>
+        <tr>
+         <td><para style="datos"> {{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para></td>
+          <td><para style="datos"> {{ answers.62741951df4e0600e5563a47}}</para></td>
+          <td><para style="datos"> {{ answers.6270039e4efd0c412dbe2171 }}</para></td>
+        </tr>   
+        
+    </blockTable>
+<spacer length="0.3 cm" />
+   <blockTable colWidths="14cm,4cm" colHeights=".5cm">
+    <tr>
+      <td><para style="datos">INFORMACIÓN DE HERRAMIENTAS:</para></td>
+      <td></td>
+    </tr>
+  </blockTable>
+
+<!--informacion Fin-->
+
+    
+  <spacer length="0.5cm" />
+  <blockTable colWidths="5cm,1.5cm,5cm,1.6cm,5cm,1.5cm" colHeights=".5cm, 5cm, .5cm" style="table_firma">
+      <tr>
+        <td><para style="datosTitulo">Solicitado por</para></td>
+        <tr>
+        <td><para style="datosTitulo"></para></td>
+       </tr>
+        <td><para style="datosTitulo">Autorizado por </para></td>
+        <td><para style="datosTitulo"></para></td>
+        <td><para style="datosTitulo">Recibí conforme</para></td>
+      </tr>
+  <spacer length="2cm" />      
+      <tr>
+        {% set url1 = answers.634d70ee58411e58f051c5f2.file_url %}
+        {% set url2 = answers.62741951df4e0600e5563a47.file_url %}
+        {% set solicitante = answes.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f %}
+        <td>
+          {% if url1 %}
+            <imageAndFlowables imageName="{% get_thumbnail url1 %}"  imageWidth="4cm" imageHeight="3cm" hAlign="CENTER" />
+          {% endif %}
+        </td>
+        <td></td>
+        <td>
+          {% if url2 %}
+            <imageAndFlowables imageName="{% get_thumbnail url2 %}"  imageWidth="4cm" imageHeight="3cm" hAlign="CENTER" />
+          {% endif %}
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><para style="firma">Nombre y Firma: {{ solicitante }}</para></td>
+        <td></td>
+        <td><para style="firma">Aceptación </para></td>
+        <td></td>
+        <td><para style="firma">Nombre y Firma</para></td>
+      </tr>
+     
+  </blockTable>
+
+  <spacer length="1.5cm" />
+
+
+     
+  {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

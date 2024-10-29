@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="20"/>
+<drawCentredString  x="10.5cm" y="25.5cm"> PAGO DE {{answers.66f59fb8559cb10da6e687de}} </drawCentredString>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+<story>
+    {% for select in answers.66f59fb8559cb10da6e687de %}
+     {{ select }}
+     {% endfor %}
+    <spacer length="2cm" />
+    <blockTable colWidths="8cm,8cm">
+      <tr> 
+          <td><para style="datosTitulo"> {{ answers.666b54fe4206854b2b9d2d59}} </para></td>
+          <td></td>     
+      </tr>
+    </blockTable>
+    <spacer length="1cm" /> 
+    <blockTable colWidths="5cm,9cm,2cm">
+      <tr> 
+          <td></td>  
+          <td><para style="datosTitulo"> {{ answers.666b5533662c917f449d2cd6}} </para></td>
+          <td></td>     
+      </tr>
+    </blockTable>
+    <spacer length="2cm" /> 
+    <blockTable colWidths="5cm,12cm">
+      <tr>
+          <td><para style="datos"> <b> NOMBRE DEL EMPLEADO: </b></para></td>     
+          <td><para style="datosll"> {{ answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}} </para></td>  
+      </tr>
+    </blockTable>
+    <blockTable colWidths="5cm,12cm">
+      <tr>
+          <td><para style="datos"> <b> DPI: </b></para></td>   
+          <td><para style="datosll"> {% for select in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534d %} {{select}} {%endfor%} </para></td>  
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm" /> 
+    <blockTable colWidths="5cm,12cm">
+      <tr>
+          <td><para style="datos"> <b> PERIODO: </b></para></td>     
+          <td></td>  
+      </tr>
+      <tr>
+          <td><para style="datos"> <b> DEL: </b></para></td>     
+          <td><para style="datosll"> {{ answers.666b55787ebcbee9cfd859e3}} </para></td>  
+      </tr>
+      <tr>
+          <td><para style="datos"> <b> AL: </b></para></td>     
+          <td><para style="datosll"> {{ answers.666b55787ebcbee9cfd859e4}} </para></td>  
+      </tr>
+    </blockTable>
+    <spacer length="0.8cm" /> 
+    <blockTable colWidths="0.5cm,15.5cm">
+      <tr>
+          <td></td>  
+          <td><para style="datos"> <b> CÁLCULO DE AGUINALDO </b></para></td>     
+      </tr>
+    </blockTable>
+    <spacer length="0.3cm" /> 
+    <blockTable colWidths="4.2cm,4.3cm,4.3cm,4.2cm" style ="contenido">
+      <tr>
+        <td><para style="datoslll"> Sueldo Base: </para></td>  
+        <td><para style="datoslll"> Días Anuales: </para></td>
+        <td><para style="datoslll"> Total Días Para Cálculo: </para></td>  
+        <td><para style="datoslll"> Total a Pagar: </para></td>      
+      </tr>
+      <tr>
+        <td><para style="titulo"> {% money_format answers.666b5daaf64166f40b1cc9d9 2 "Q " %}</para></td>  
+        <td><para style="titulo"> {{ answers.666b5daaf64166f40b1cc9da}} </para></td>
+        <td><para style="titulo"> {{ answers.666b5dd0cc32008aee912369}}</para></td>
+      
+          {% set sueldo_base = answers.666b5daaf64166f40b1cc9d9  %}
+          {% set dia_anual = answers.666b5daaf64166f40b1cc9da%}
+          {% set total_dias = answers.666b5dd0cc32008aee912369%} 
+          {% set total = 0%}
+          {% set resultado_division = 0%}
+  
+          {% if dia_anual != 0%}
+            {% arithmetic 'resultado_division' 'sueldo_base' '/' 'dia_anual'%}
+            {% arithmetic 'total' 'resultado_division' '*' 'total_dias'%}
+          {% endif %}
+        <td><para style="titulo"> {% money_format total 2 "Q " %} </para></td></tr>
+    </blockTable>
+    <spacer length="3.5cm" /> 
+    <blockTable colWidths="6cm,4cm,6cm">
+      <tr>
+          <td><para style="datoslll">  RICARDO ANTONIO VALENZUELA </para></td>  
+          <td></td>
+          <td><para style="datoslll">{{answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534f}}</para></td>  
+      </tr>
+      <tr>
+          <td><para style="datoslll">  REPRESENTANTE LEGAL </para></td>  
+          <td></td>
+          <td><para style="datoslll"> {% for select in answers.60007c5194d9a63b1caf534c.60007c5194d9a63b1caf534d %} {{select}} {%endfor%} </para></td>  
+      </tr>
+    </blockTable>
+    <spacer length="3cm" /> 
+    <blockTable colWidths="16cm">
+      <tr>
+          <td><para style="datoslll">  8° Calle 26-30 Zona 4 Mixco, Colonia Bosques de San Nicolas </para></td>  
+      </tr>
+      <tr>
+          <td><para style="datoslll">  Guatemala, C.A. </para></td>  
+      </tr>
+    </blockTable>
+</story>
+</document>

@@ -1,0 +1,10 @@
+<image x="0.5cm" y="26.8cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.2cm" />
+
+<setFont name="Helvetica-Bold" size="10"/>
+<drawRightString x="20.5cm" y="28.2cm"> REQUERIMIENTO DE RECURSOS HUMANOS  </drawRightString>
+<drawRightString x="20.5cm" y="27.8cm"> REQUERIMIENTO DE PERSONAL </drawRightString>
+<drawRightString x="20.5cm" y="27.4cm"> RRHH-RP-001 </drawRightString>
+<lines>0.5cm 27cm 6cm 27cm</lines>
+<lines>15cm 27cm 20.5cm 27cm</lines>
+<setFont name="Helvetica-Bold" size="15"/>
+<drawCentredString x="10.5cm" y="26.8cm"> REQUERIMIENTO DE PERSONAL </drawCentredString>

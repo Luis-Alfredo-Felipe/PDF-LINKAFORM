@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Ejemplo" xmlns:doc="http://namespaces.zope.org/rml/doc">
+    <pageInfo pageSize="(21cm,27.5cm)" doc:example="" />
+    <docinit>
+        <registerTTFont faceName="Montserrat-Regular" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Regular.ttf" />
+        <registerTTFont faceName="Montserrat-Bold" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-Bold.ttf" />
+        <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
+        <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
+    </docinit>
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,27.5cm)">
+        <pageTemplate id="first" pageSize="(21cm,27.5cm)">
+            <frame id="first"    x1="1.5cm"   y1="6cm" width="18cm"   height="20cm"/>
+            <pageGraphics>
+                <setFont name="Montserrat-Regular" size="7.5"/>
+                <drawCenteredString x="10.5cm" y="27.8cm">
+                {{direccion}}
+                </drawCenteredString>
+                <setFont name="Montserrat-Regular" size="8"/>
+                <!-- Cabecera de documento -->
+                {% Header company_logo parent user form Template meta %}
+                <!-- Pie del documento -->
+                {% Footer user form Template meta %}
+            </pageGraphics>
+        </pageTemplate>
+    </template>
+    <stylesheet>
+        {% autoescape on %}
+        {{ Template.style|safe }}
+        {% endautoescape %}
+    </stylesheet>
+    <story>
+ 
+  <blockTable colWidths="4cm,2cm,4cm,2cm,4cm,2cm">
+    <tr>
+      <td><para style="datosTitulo">TRANSFORMETAL: </para></td>
+      <td><para style="datos"> {% for select in answers.64e7dc18e8fae6a3fd0baead.64e7dc18e8fae6a3fd0baeae %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datosTitulo">MES: </para></td>
+      <td><para style="datos"> {% for select in answers.601c05614cdc5855852cd3fc.601c05614cdc5855852cd3fe %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datosTitulo">QUINCENA: </para></td>
+      <td><para style="datos"> {% for select in answers.6512f48e7139128666a5163e %}{{ select }}{% endfor %}</para></td>
+    </tr> 
+  </blockTable>
+
+    {% for record_multi in answers_list %}
+            {% for item in record_multi.answers.64e7d1f2a154f3b1f81a91b3 %}
+                {% set nombre_tecnico = '' %}
+                {% if item.64e7dc7b8c3c2499730baee6.64e7dc7b8c3c2499730baee7 %}
+                    {% if  item.64e7dc7b8c3c2499730baee6.64e7dc7b8c3c2499730baee7|length == 1 %}
+                        {% set nombre_tecnico = item.64e7dc7b8c3c2499730baee6.64e7dc7b8c3c2499730baee7.0 %}
+                    {% else %} 
+                        {% set nombre_tecnico = item.64e7dc7b8c3c2499730baee6.64e7dc7b8c3c2499730baee7 %}
+                    {% endif %}
+                {% endif %}
+                <para>Tecnico: {{ nombre_tecnico }}</para>
+            {% endfor %}
+
+    {% endfor %}
+    </story>
+</document>

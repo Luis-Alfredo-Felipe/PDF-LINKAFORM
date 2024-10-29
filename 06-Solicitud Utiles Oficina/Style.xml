@@ -1,0 +1,57 @@
+<blockTableStyle id="TablaTitulo">
+ <lineStyle kind="GRID" colorName="#000" start="0,0" stop="0,0" />
+</blockTableStyle>
+
+<blockTableStyle id="table_sub1_two">
+    <blockValign value="TOP"/>
+ <!-- Con esta opción me dibujara una celda en la 1ra. celda -->
+    <lineStyle thickness="0.5" kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000000" start="0,0" stop="0,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+    <lineStyle thickness="0.5" kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+ <!-- Con esta opción me dibujara una celda en la 3ra. celda -->
+    <lineStyle thickness="0.5" kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#000000" start="1,0" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+    <lineStyle thickness="0.5" kind="LINEAFTER" colorName="#000000" start="1,0" stop="1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="table_sub2_two">
+    <blockValign value="TOP"/>
+    <!-- Líneas en el borde izquierdo de la tabla -->
+    <lineStyle thickness="0.5" kind="LINEBEFORE" colorName="#424242" start="0,0" stop="0,-1"/>
+    <!-- Líneas al final de la columna de la segunda celda -->
+    <lineStyle thickness="0.5" kind="LINEAFTER" colorName="#424242" start="1,0" stop="1,-1"/>
+    <!-- Líneas al final de la columna de la cuarta celda -->
+    <lineStyle thickness="0.5" kind="LINEAFTER" colorName="#424242" start="3,0" stop="3,-1"/>
+    <!-- Líneas al final de la columna de la sexta celda -->
+    <lineStyle thickness="0.5" kind="LINEAFTER" colorName="#424242" start="5,0" stop="5,-1"/>
+    <!-- Líneas en el borde derecho de la tabla -->
+    <lineStyle thickness="0.5" kind="LINEAFTER" colorName="#424242" start="-1,0" stop="-1,-1"/>
+    <!-- Líneas en el borde superior de la tabla -->
+    <lineStyle thickness="0.5" kind="LINEABOVE" colorName="#424242" start="0,0" stop="-1,0"/>
+    <!-- Líneas en la segunda fila de ambas celdas -->
+    <lineStyle thickness="0.5" kind="LINEABOVE" colorName="#424242" start="0,1" stop="-1,1"/>
+    <!-- Líneas en el borde inferior de la tabla -->
+    <lineStyle thickness="0.5" kind="LINEBELOW" colorName="#424242" start="0,-1" stop="-1,-1"/>
+    <!-- Relleno de color para toda la tabla -->
+</blockTableStyle>
+
+<blockTableStyle id="contenido">
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1" thickness="0.5" />
+</blockTableStyle>
+
+<blockTableStyle id="table_firma">
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="0,-1" stop="0,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="2,-1" stop="2,-1" thickness="0.5" />
+ <lineStyle kind="LINEABOVE" colorName="#424242" start="4,-1" stop="4,-1" thickness="0.5" />
+</blockTableStyle>
+
+<paraStyle name="datosFirma" fontName="Montserrat-Bold" fontSize="9" leading="5" alignment="center" />
+<paraStyle name="datos" fontName="Montserrat-Bold" fontSize="7" leading="10" alignment="left" />
+<paraStyle name="datosRC" fontName="Montserrat-Regular" fontSize="7" leading="10" alignment="center" />
+<paraStyle name="datosRL" fontName="Montserrat-Regular" fontSize="7" leading="10" alignment="left" />
+<paraStyle name="datosRP" fontName="Montserrat-Regular" fontSize="5" leading="10" alignment="left" />
+<paraStyle name="titulo" fontName="Montserrat-Bold" fontSize="13" leading="7" alignment="right" />
+<paraStyle name="tituloll" fontName="Montserrat-Regular" fontSize="13" leading="7" alignment="left" />
+<paraStyle name="firma" fontName="Montserrat-Bold" fontSize="9" leading="7" alignment="center" />

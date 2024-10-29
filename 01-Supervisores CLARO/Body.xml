@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Reporte Supervisores" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+  <pageInfo pageSize="(26cm,20cm)" doc:example="" />
+  <template  title="Gerencia" author="LinkaForm" pagesize="(26cm,20cm)">
+    <pageTemplate id="first">
+      <frame id="first" x1="1cm" y1="1.0cm"  width="24cm" height="16.5cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+  <story>
+
+<spacer length="0.5cm"/>
+    <blockTable style="mtto_header" colWidths="8.5cm,4cm,5.5cm,4cm,3cm">
+      <tr>
+        <td><para style="P8L">REPORTE DE SUPERVISORES CLARO</para></td>
+        <td><para style="dataB">FECHA DE GENERACIÓN:</para></td>
+        <td><para style="dataBB" >{{ answers.64ecbfdad971fcb2490baed5}}</para></td>
+        <td><para style="dataB" >No. TAREA:</para></td>
+        <td><para style="dataBB" >{{ answers.651c4153534bacb2e70d4a2b }}</para> </td>
+      </tr>
+    </blockTable>
+
+    <spacer length="0.7cm"/>
+
+    <blockTable style="mtto_data" colWidths="5.5cm,3cm,4cm,5.5cm,4cm,3cm">
+      <tr>
+        <td><para style="dataB">Supervisores SELECOM (CLARO):</para> </td>
+        <td><para style="dataBB">{{ answers.64ee1a2b25f70fda75751c4f.64ee1a2b25f70fda75751c50 }}</para> </td>                                   
+        <td><para style="dataB">Fecha Hora de Inicio:</para> </td>
+        <td><para style="data">{{ answers.64ecbfdad971fcb2490baed5 }}</para> </td>
+        <td><para style="dataB">Id:</para> </td>
+        <td><para style="data">{{ answers.64ecbf952ec84d93eb8ee0ff}}</para> </td>
+      </tr>
+
+      <tr>
+        <td><para style="dataB">Sala:</para> </td>
+        <td><para style="data">{{ answers.64ecc00998fce6b1ebff5bd7}}</para> </td>
+        <td><para style="dataB">Sitio:</para> </td>
+        <td><para style="data">{{ answers.64ecbf6a576bd8d2748ee08b}}</para> </td>
+        <td><para style="dataB">RIR:</para> </td>
+        <td><para style="data">{{ answers.64ecbfdad971fcb2490baed7}}</para> </td>
+      </tr>
+
+      <tr>
+        <td><para style="dataB">RDA:</para> </td>
+        <td><para style="data">{{ answers.64ecbfdad971fcb2490baed6 }}</para> </td>
+        <td><para style="dataB">Salida CNR:</para> </td>
+        <td><para style="data">{{ answers.64ecc262bcbe12d24b8ee02d }}</para> </td>
+        <td><para style="dataB">Entrada CNR:</para> </td>
+        <td><para style="data">{{ answers.64ecc00998fce6b1ebff5bd6 }}</para> </td>
+      </tr>
+      <tr>
+        <td><para style="dataB">Jefe Grupo Contratista:</para> </td>
+        <td><para style="data">{{ answers.64ecc19f62be3f0bfb1a91ea }}</para> </td>
+        <td><para style="dataB">Contratista:</para> </td>
+        <td><para style="data">{{ answers.64ecc19f62be3f0bfb1a91e9 }}</para> </td>
+        <td><para style="dataB">Actividad a Realizar:</para> </td>
+        <td><para style="data">{{ answers.64ecc262bcbe12d24b8ee02c }}</para> </td>
+      </tr>
+      <tr>
+        <td><para style="dataB">Proyecto:</para> </td>
+        <td><para style="data">{{ answers.64ecc20cbbb03b90a5ff5ce2 }}</para> </td>
+        <td><para style="dataB">Fecha Hora Finalización:</para> </td>
+        <td><para style="data">{{ answers.64ecc2d49606a86b3c751d58 }}</para> </td>
+        <td><para style="dataB">Validación Alarmas con CCR:</para> </td>
+        <td><para style="data">{{ answers.64ecc262bcbe12d24b8ee02e }}</para> </td>
+      </tr>
+    </blockTable>
+
+    <blockTable style="mtto_data" colWidths="5.5cm,19.5cm">
+      <tr>
+        <td><para style="dataB">Observaciones:</para> </td>
+        <td><para style="data">{{ answers.64ecc2d49606a86b3c751d56 }}</para> </td>
+      </tr>
+    </blockTable>
+
+    <spacer length="0.7cm"/>
+
+
+{% set fotoA1 = "" %}
+{% set fotoA2 = "" %}
+{% set fotoA3 = "" %}
+{% set fotoA4 = "" %}
+{% set fotoB1 = "" %}
+{% set fotoB2 = "" %}
+{% set fotoC1 = "" %}
+{% set fotoC2 = "" %}
+{% set fotoC3 = "" %}
+{% set fotoC4 = "" %}
+{% set fotoC5 = "" %}
+{% set fotoC6 = "" %}
+{% set fotoC7 = "" %}
+{% set fotoC8 = "" %}
+{% set fotoC9 = "" %}
+{% set fotoC10 = "" %}
+
+{% set count = 0 %}
+{% for item in answers.64ecc32a56bf0e442eca2936 %}
+  {% if count  == 0 %}
+    {% set fotoA1 = item.file_url %}
+  {% endif %}
+  {% if count  == 1 %}
+    {% set fotoA2 = item.file_url %}
+  {% endif %}
+  {% if count  == 2 %}
+    {% set fotoA3 = item.file_url %}
+  {% endif %}
+  {% if count  == 3 %}
+    {% set fotoA4 = item.file_url %}
+  {% endif %}
+  {% add_total 'count' 1 %}
+{% endfor %}
+
+{% set count = 0 %}
+{% for item in answers.64ecc32a56bf0e442eca2937 %}
+  {% if count  == 0 %}
+    {% set fotoB1 = item.file_url %}
+  {% endif %}
+  {% if count  == 1 %}
+    {% set fotoB2 = item.file_url %}
+  {% endif %}
+  {% add_total 'count' 1 %}
+{% endfor %}
+
+{% set count = 0 %}
+{% for item in answers.64ecc32a56bf0e442eca2938 %}
+  {% if count  == 0 %}
+    {% set fotoC1 = item.file_url %}
+  {% endif %}
+  {% if count  == 1 %}
+    {% set fotoC2 = item.file_url %}
+  {% endif %}
+  {% if count  == 2 %}
+    {% set fotoC3 = item.file_url %}
+  {% endif %}
+  {% if count  == 3 %}
+    {% set fotoC4 = item.file_url %}
+  {% endif %}
+  {% if count  == 4 %}
+    {% set fotoC5 = item.file_url %}
+  {% endif %}
+  {% if count  == 5 %}
+    {% set fotoC6 = item.file_url %}
+  {% endif %}
+  {% if count  == 6 %}
+    {% set fotoC7 = item.file_url %}
+  {% endif %}
+  {% if count  == 7 %}
+    {% set fotoC8 = item.file_url %}
+  {% endif %}
+  {% if count  == 8 %}
+    {% set fotoC9 = item.file_url %}
+  {% endif %}
+  {% if count  == 9 %}
+    {% set fotoC10 = item.file_url %}
+  {% endif %}
+  {% add_total 'count' 1 %}
+{% endfor %}
+
+
+<blockTable style="red_header" colWidths="6.3cm,6.2cm,6.2cm,6.3cm">
+    <tr>
+    <td><para style="dataBB">FOTOGRAFIAS DE BITACORAS :</para> </td>
+  
+    </tr>
+    <tr>
+        <td>
+          {% if fotoA1 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoA1 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td> 
+        <td>
+          {% if fotoA2 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoA2 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>        
+        <td>
+          {% if fotoA3 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoA3 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>
+        <td>
+          {% if fotoA4 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoA4 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td> 
+    </tr>
+</blockTable>
+
+    <spacer length="0.7cm"/>
+
+<blockTable style="red_header" colWidths="6.2cm,6.2cm,6.2cm,6.2cm">
+    <tr>
+        <td><para style="dataBB">FOTOGRAFIAS DE REPORTES :</para> </td>
+    </tr>
+    <tr>
+        <td>
+        {% if fotoB1 %}
+            <imageAndFlowables imageName="{% get_thumbnail fotoB1 %}"  imageWidth="6cm" imageHeight="4cm" />
+        {% endif %}
+        </td> 
+        <td>
+       {% if fotoB2 %}
+            <imageAndFlowables imageName="{% get_thumbnail fotoB2 %}"  imageWidth="6cm" imageHeight="4cm" />
+        {% endif %}
+        </td>
+    </tr> 
+</blockTable>
+
+    <spacer length="1cm"/>
+
+<blockTable style="red_header" colWidths="6.3cm,6.2cm,6.2cm,6.3cm">
+    <tr>
+    <td><para style="dataBB">FOTOGRAFIAS DE TRABAJO REALIZADO :</para> </td>  
+    </tr>
+    <tr>
+        <td>
+          {% if fotoC1 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC1 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td> 
+        <td>
+          {% if fotoC2 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC2 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>        
+        <td>
+          {% if fotoC3 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC3 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>
+        <td>
+          {% if fotoC4 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC4 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>
+    </tr>
+</blockTable>
+
+<blockTable style="reds_header" colWidths="6.3cm,6.2cm,6.2cm,6.3cm">
+    <tr>
+        <td>
+          {% if fotoC5 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC5 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td> 
+        <td>
+          {% if fotoC6 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC6 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>        
+        <td>
+          {% if fotoC7 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC7 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>
+        <td>
+          {% if fotoC8 %}
+          <imageAndFlowables imageName="{% get_thumbnail fotoC8 %}"  imageWidth="6cm" imageHeight="4cm" />
+          {% endif %}
+        </td>
+    </tr>
+</blockTable>
+
+<blockTable style="reds_header" colWidths="6.2cm,6.2cm,6.2cm,6.2cm">
+    <tr>
+        <td>
+        {% if fotoC9 %}
+            <imageAndFlowables imageName="{% get_thumbnail fotoC9 %}"  imageWidth="6cm" imageHeight="4cm" />
+        {% endif %}
+        </td> 
+        <td>
+       {% if fotoC10 %}
+            <imageAndFlowables imageName="{% get_thumbnail fotoC10 %}"  imageWidth="6cm" imageHeight="4cm" />
+        {% endif %}
+        </td>
+    </tr> 
+</blockTable>
+
+ <!--
+    <spacer length="2.5cm"/>
+
+<blockTable colWidths="6.25cm">
+    <tr>
+       <td><para style="dataC">_______________________________________  Firma del Mecanico    </para>
+       </td>
+       <td></td>
+       <td></td>
+       <td><para style="dataC">_______________________________________  Firma del Jefe de Área    </para>
+       </td>
+    </tr>
+
+</blockTable>
+--> 
+
+    {% autoescape on %}
+    {{ Template.style|safe }}
+{% endautoescape %}
+  </story>
+</document>

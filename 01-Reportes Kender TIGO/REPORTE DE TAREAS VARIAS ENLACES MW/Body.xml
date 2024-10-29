@@ -1,0 +1,756 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+       <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+          <!--        Cabecera de documento  -->
+          <image x="14cm" y="27cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2cm" />
+          <image x="1cm" y="27cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/657b37744e10a7b8fc0cadd2.png " width="5cm" height="2cm" />
+        <setFont name="Helvetica-Bold" size="8"/>
+          <!--        Pie del documento  -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+    <pageTemplate id="second">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="260mm"/>
+        <pageGraphics>
+          <setFont name="Helvetica" size="5"/>
+          <setFont name="Helvetica-Bold" size="5"/>
+          {% Footer user form Template meta %}
+        </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+<story firstPageTemplate="first"> 
+ <spacer length="0.2cm"/>
+<blockTable colWidths="19cm" colHeights="2cm" style="contenido" >
+    <tr>
+        <td><para style="Titulo">REPORTE DE TAREAS VARIAS ENLACES MW</para></td>
+    </tr>
+    <tr>
+        <td><para style="Tituloll"> {{ answers.6452e2f6531d4c33474a4995 }} {{ answers.6452e2f6531d4c33474a4993 }} </para></td>
+    </tr>
+    </blockTable>
+
+    <spacer length="0.2cm"/>
+
+    <blockTable colWidths="5cm,14cm" colHeights="2cm" style="contenido" >
+      <tr>
+        <td><para style="Encabezado">ING. RESPONSABLE</para> </td>
+        <td><para style="SubTitulo">{{ answers.645bade6c1d570a8ad253ab7 }}</para> </td>                                   
+      </tr>
+    </blockTable>
+
+        <spacer length="0.2cm"/>
+    <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+      <tr>
+        <td><para style="Encabezado">DESCRIPCION GENERAL DEL SITIO</para> </td>                             
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="5cm,8cm,3cm,3cm" colHeights="2cm" style="contenido" >
+      <tr>
+        <td><para style="Encabezado">Nombre Del Sitio A</para> </td>
+        <td><para style="SubTitulo">{{ answers.6452e2f6531d4c33474a4993 }}</para> </td>
+        <td><para style="Encabezado">ID </para> </td>
+        <td><para style="SubTitulo">{{ answers.6452e2f6531d4c33474a4995 }}</para> </td>                                    
+      </tr>
+    </blockTable>
+
+      {% set longitude = '' %}
+      {% set latitude = '' %}
+      {% set cutLatitude = 0 %}
+      {% set cutLongitude = 0 %}
+
+      {% for ls in answers.6452e2f6531d4c33474a4996 %}
+        {% if cutLongitude > 26 and cutLongitude < 40   %}
+          {% concat 'longitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLongitude' 1 %}
+      {% endfor %}
+
+      {% for ls in answers.6452e2f6531d4c33474a4996 %}
+        {% if cutLatitude > 41 and cutLatitude < 57  %}
+          {% concat 'latitude' ls 'True' %}
+        {% endif  %}
+          {% add_total 'cutLatitude' 1 %}
+      {% endfor %}
+
+  <blockTable colWidths="5cm,2.5cm,4cm,2.5cm,5cm" colHeights="2cm" style="contenido" >
+      <tr> 
+        <td><para style="Encabezado">Coordenadas de la Estacion</para> </td>
+        <td><para style="Encabezado">Latitud</para> </td>
+        <td><para style="SubTitulo">{{longitude}}</para> </td>
+        <td><para style="Encabezado">Longitud </para> </td>
+        <td><para style="SubTitulo">{{latitude}}</para> </td>                                   
+      </tr>                               
+</blockTable>
+
+<blockTable colWidths="5cm,14cm" colHeights="2cm" style="contenido" >
+      <tr>
+        <td><para style="Encabezado">Fecha de Desinstalación</para> </td>
+        <td><para style="SubTitulo">{{ answers.6452e2f6531d4c33474a4997 }}</para> </td>                           
+      </tr>
+      <tr>
+        <td><para style="Encabezado">Empresa Responsable</para> </td>
+        <td><para style="SubTitulo">SELECOM Networks S.A.</para> </td>                           
+      </tr>
+      <tr>
+        <td><para style="Encabezado">Descripción de Trabajos Realizados</para> </td>
+        <td><para style="SubTitulo">{{ answers.646e4535ab3b34d2081d36fe }}</para> </td>                           
+      </tr>
+</blockTable>
+    <spacer length="0.2cm"/>
+        <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">DESCRIPCION DEL ENLACE</para> </td>                             
+              </tr>
+        </blockTable>
+
+      {% set unoCero = '' %}
+      {% set unoUno = '' %}
+      {% set dosCero = '' %}
+      {% set unoCeroXpic = ''%}
+      {% set dosCeroXpic = ''%}
+      {% set cuatroCeroXpic = ''%}
+
+      {% if answers.6452e2f6531d4c33474a499b == "1+0" %}
+      {% set unoCero = '✓' %}
+      {% elif answers.6452e2f6531d4c33474a499b == "1+1" %}
+      {% set unoUno = '✓' %}
+      {% elif answers.6452e2f6531d4c33474a499b == "2+0" %}
+      {% set dosCero = '✓' %}
+      {% elif answers.6452e2f6531d4c33474a499b == "1+0 XPIC" %}
+      {% set unoCeroXpic = '✓' %}
+      {% elif answers.6452e2f6531d4c33474a499b == "2+0 XPIC" %}
+      {% set dosCeroXpic = '✓' %}
+      {% elif answers.6452e2f6531d4c33474a499b == "4+0 XPIC" %}
+      {% set cuatroCeroXpic = '✓' %}
+      {% endif %}
+
+    <blockTable colWidths="5cm,2.3cm,2.3cm,2.4cm,2.3cm,2.4cm,2.3cm" style="contenidoll">
+          <tr>
+            <td><para style="Encabezado">Protección de Enlace</para></td>
+            <td><para style="Encabezado">1+0</para> </td>
+            <td><para style="Encabezadolll">{{unoCero}}</para></td>
+            <td><para style="Encabezado">1+1 </para> </td>
+            <td><para style="Encabezadolll">{{unoUno}}</para></td>
+            <td><para style="Encabezado">2+0 </para> </td>
+            <td><para style="Encabezadolll">{{dosCero}}</para></td>                                      
+          </tr>
+          <tr>
+            <td> </td>
+            <td><para style="Encabezado">1+0 XPIC</para> </td>
+            <td><para style="Encabezadolll">{{unoCeroXpic}}</para></td>
+            <td><para style="Encabezado">2+0 XPIC</para> </td>
+            <td><para style="Encabezadolll">{{dosCeroXpic}}</para></td>
+            <td><para style="Encabezado">4+0 XPIC </para> </td>
+            <td><para style="Encabezadolll">{{cuatroCeroXpic}}</para></td>                                     
+          </tr>  
+    </blockTable>
+
+    <spacer length="0.2cm"/>
+        <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">HARDWARE INSTALADO</para> </td>                             
+              </tr>
+        </blockTable>
+
+   <blockTable colWidths="2cm,1.8cm,2cm,1.8cm,2cm,1.8cm,2cm,1.8cm,2cm,1.8cm" style="contenido">
+          <tr>
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td>
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td> 
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td>
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td> 
+            <td><para style="tableRB">Serie</para> </td>   
+            <td><para style="tableRB">Modelo</para> </td>                                  
+          </tr>
+           <tr>
+             {% for ls in answers.646e411799488056461d3615 %}
+               <td><para style="tableR">{{ ls.646e4139aad02bd5821d3618 }}</para></td>
+               <td><para style="tableR">{{ ls.646e4139aad02bd5821d3619 }}</para></td>
+             {% endfor %}
+           </tr>
+    </blockTable>
+
+    <spacer length="0.2cm"/>
+        <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">HARDWARE DESINSTALADO</para> </td>                             
+              </tr>
+        </blockTable>
+
+   <blockTable colWidths="2cm,1.8cm,2cm,1.8cm,2cm,1.8cm,2cm,1.8cm,2cm,1.8cm" style="contenido">
+          <tr>
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td>
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td> 
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td>
+            <td><para style="tableRB">Serie</para> </td>
+            <td><para style="tableRB">Modelo</para> </td> 
+            <td><para style="tableRB">Serie</para> </td>   
+            <td><para style="tableRB">Modelo</para> </td>                                  
+          </tr>
+           <tr>
+             {% for ls in answers.6452e2f6531d4c33474a49a1 %}
+               <td><para style="tableR">{{ ls.6452e2f6531d4c33474a49a2 }}</para></td>
+               <td><para style="tableR">{{ ls.6452e2f6531d4c33474a49a3 }}</para></td>
+             {% endfor %}
+           </tr>
+    </blockTable>
+
+  <spacer length="0.2cm"/>
+      <blockTable colWidths="5cm,14cm" colHeights="2cm" style="contenido" >
+            <tr>
+              <td><para style="Encabezado">COMENTARIOS</para> </td>
+              <td><para style="SubTitulo">{{ answers.646396fca368a4f77573bb79 }}</para> </td>                                   
+            </tr>
+      </blockTable>
+
+  <spacer length="0.2cm"/>
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">FOTOGRAFIAS </para> </td>                             
+              </tr>
+        </blockTable>
+
+  <spacer length="0.2cm"/>
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_1 = ''%}
+      {% set photo_2 = ''%}
+      {% set photo_3 = ''%}
+
+        {% if answers.6452e2f6531d4c33474a49ba.0.file_url %}
+          {% set photo_1 = answers.6452e2f6531d4c33474a49ba.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49bb.0.file_url %}
+          {% set photo_2 = answers.6452e2f6531d4c33474a49bb.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49bc.0.file_url %}
+          {% set photo_3 = answers.6452e2f6531d4c33474a49bc.0.file_url %}
+        {% endif%}
+
+        <tr><td><para style="Header_PHOTO">GABINETE/RACK ANTES</para> </td>
+        <td><para style="Header_PHOTO">PANORAMICA DE IDU ANTES </para> </td>
+        <td><para style="Header_PHOTO">ACERCAMIENTO DE IDU ANTES</para> </td>
+        </tr>
+        
+      <tr>
+        {% if photo_1 %} 
+          <td href="{{ photo_1 }}" target="_blank">
+            <imageAndFlowables imageName="{% get_thumbnail photo_1  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+        {% endif %}
+        
+        {% if photo_2 %} 
+          <td href="{{ photo_2 }}">
+            <imageAndFlowables imageName="{% get_thumbnail photo_2  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+        {% endif %}
+
+        {% if photo_3 %} 
+          <td href="{{ photo_3 }}">
+            <imageAndFlowables imageName="{% get_thumbnail photo_3  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/>
+          </td>
+        {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+        {% endif %}
+      </tr>
+    </blockTable>
+
+  <setNextTemplate name="second"/>
+    <nextFrame/>
+
+ <spacer length="0.1cm"/>
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">FOTOGRAFIAS </para> </td>                             
+              </tr>
+        </blockTable>
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_4 = ''%}
+      {% set photo_5 = ''%}
+      {% set photo_6 = ''%}
+       <tr><td><para style="Header_PHOTO">EQUIPO ANTES </para> </td>
+         <td><para style="Header_PHOTO">EQUIPO ANTES  </para> </td>
+         <td><para style="Header_PHOTO">EQUIPO ANTES </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49bd.0.file_url %}
+          {% set photo_4 = answers.6452e2f6531d4c33474a49bd.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49be.0.file_url %}
+          {% set photo_5 = answers.6452e2f6531d4c33474a49be.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49bf.0.file_url %}
+          {% set photo_6 = answers.6452e2f6531d4c33474a49bf.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_4 %} 
+            <td href="{{ photo_4 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_4  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_5 %} 
+            <td href="{{ photo_5 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_5  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_6 %} 
+            <td href="{{ photo_6 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_6  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_7 = ''%}
+      {% set photo_8 = ''%}
+      {% set photo_9 = ''%}
+       <tr><td><para style="Header_PHOTO">EQUIPO ANTES </para> </td>
+         <td><para style="Header_PHOTO">EQUIPO ANTES  </para> </td>
+         <td><para style="Header_PHOTO">EQUIPO ANTES </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49c0.0.file_url %}
+          {% set photo_7 = answers.6452e2f6531d4c33474a49c0.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49c1.0.file_url %}
+          {% set photo_8 = answers.6452e2f6531d4c33474a49c1.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49c2.0.file_url %}
+          {% set photo_9 = answers.6452e2f6531d4c33474a49c2.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_7 %} 
+            <td href="{{ photo_7 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_7  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_8 %} 
+            <td href="{{ photo_8 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_8  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+
+          {% if photo_9 %} 
+            <td href="{{ photo_9 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_9  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_10 = ''%}
+      {% set photo_11 = ''%}
+      {% set photo_12 = ''%}
+       <tr><td><para style="Header_PHOTO">GABINETE/RACK FINALES </para> </td>
+         <td><para style="Header_PHOTO">PANORAMICA DE IDU FINALES  </para> </td>
+         <td><para style="Header_PHOTO">ACERCAMIENTO DE IDU FINALES </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49c3.0.file_url %}
+          {% set photo_10 = answers.6452e2f6531d4c33474a49c3.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdf6.0.file_url %}
+          {% set photo_11 = answers.646e76acdec95cac2a41fdf6.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdf7.0.file_url %}
+          {% set photo_12 = answers.646e76acdec95cac2a41fdf7.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_10 %} 
+            <td href="{{ photo_10 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_10  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_11 %} 
+            <td href="{{ photo_11 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_11  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+
+          {% if photo_12 %} 
+            <td href="{{ photo_12 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_12  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_13 = ''%}
+      {% set photo_14 = ''%}
+      {% set photo_15 = ''%}
+       <tr><td><para style="Header_PHOTO">EQUIPOS FINALES </para> </td>
+         <td><para style="Header_PHOTO">EQUIPOS FINALES  </para> </td>
+         <td><para style="Header_PHOTO">EQUIPOS FINALES </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49cf.0.file_url %}
+          {% set photo_13 = answers.6452e2f6531d4c33474a49cf.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49d0.0.file_url %}
+          {% set photo_14 = answers.6452e2f6531d4c33474a49d0.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49d1.0.file_url %}
+          {% set photo_15 = answers.6452e2f6531d4c33474a49d1.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_13 %} 
+            <td href="{{ photo_13 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_13  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_14 %} 
+            <td href="{{ photo_14 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_14  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+
+          {% if photo_15 %} 
+            <td href="{{ photo_15 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_15  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+
+ <spacer length="1.5cm"/>
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">FOTOGRAFIAS </para> </td>                             
+              </tr>
+        </blockTable>
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_16 = ''%}
+      {% set photo_17 = ''%}
+      {% set photo_18 = ''%}
+       <tr><td><para style="Header_PHOTO">EQUIPOS FINALES </para> </td>
+         <td><para style="Header_PHOTO">EQUIPOS FINALES  </para> </td>
+         <td><para style="Header_PHOTO">EQUIPOS FINALES </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49d2.0.file_url %}
+          {% set photo_16 = answers.6452e2f6531d4c33474a49d2.0.file_url %}
+        {% endif%}
+        {% if answers.645be231ff1a551fd5125509.0.file_url %}
+          {% set photo_17 = answers.645be231ff1a551fd5125509.0.file_url %}
+        {% endif%}
+        {% if answers.645be231ff1a551fd512550a.0.file_url %}
+          {% set photo_18 = answers.645be231ff1a551fd512550a.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_16 %} 
+            <td href="{{ photo_16 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_16  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_17 %} 
+            <td href="{{ photo_17 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_17  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+
+          {% if photo_18 %} 
+            <td href="{{ photo_18 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_18  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_19 = ''%}
+      {% set photo_20 = ''%}
+      {% set photo_21 = ''%}
+       <tr><td><para style="Header_PHOTO">ETIQUETAS </para> </td>
+         <td><para style="Header_PHOTO">ETIQUETAS  </para> </td>
+         <td><para style="Header_PHOTO">ETIQUETAS </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49d3.0.file_url %}
+          {% set photo_19 = answers.6452e2f6531d4c33474a49d3.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49d4.0.file_url %}
+          {% set photo_20 = answers.6452e2f6531d4c33474a49d4.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49d5.0.file_url %}
+          {% set photo_21 = answers.6452e2f6531d4c33474a49d5.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_19 %} 
+            <td href="{{ photo_19 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_19  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_20 %} 
+            <td href="{{ photo_20 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_20  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+
+          {% if photo_21 %} 
+            <td href="{{ photo_21 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_21  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="6.3cm,6.4cm,6.3cm" style="contenido">
+      {% set photo_21 = ''%}
+      {% set photo_22 = ''%}
+      {% set photo_23 = ''%}
+       <tr><td><para style="Header_PHOTO">ETIQUETAS </para> </td>
+         <td><para style="Header_PHOTO">BITACORA  </para> </td>
+         <td><para style="Header_PHOTO">BITACORA </para> </td>
+       </tr>
+
+        {% if answers.6452e2f6531d4c33474a49d6.0.file_url %}
+          {% set photo_21 = answers.6452e2f6531d4c33474a49d6.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49d7.0.file_url %}
+          {% set photo_22 = answers.6452e2f6531d4c33474a49d7.0.file_url %}
+        {% endif%}
+        {% if answers.6452e2f6531d4c33474a49d8.0.file_url %}
+          {% set photo_23 = answers.6452e2f6531d4c33474a49d8.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_21 %} 
+            <td href="{{ photo_21 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_21  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+
+          {% if photo_22 %} 
+            <td href="{{ photo_22 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_22  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+
+          {% if photo_23 %} 
+            <td href="{{ photo_23 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_23  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+ <spacer length="7.5cm"/>
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">***** PANTALLAS DE CONFIGURACIONES ***** </para> </td>                             
+              </tr>
+        </blockTable>
+
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenido" >
+      {% set photo_24 = ''%}
+      {% set photo_25 = ''%}
+      {% set photo_26 = ''%}
+
+        {% if answers.646e76acdec95cac2a41fdf8.0.file_url %}
+          {% set photo_24 = answers.646e76acdec95cac2a41fdf8.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdf9.0.file_url %}
+          {% set photo_25 = answers.646e76acdec95cac2a41fdf9.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdfa.0.file_url %}
+          {% set photo_26 = answers.646e76acdec95cac2a41fdfa.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_24 %} 
+            <td href="{{ photo_24}}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_24  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+        </tr>
+
+        <tr>
+          {% if photo_25 %} 
+            <td href="{{ photo_25 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_25  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          {% if photo_26 %} 
+            <td href="{{ photo_26 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_26  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+<spacer length="1.5cm"/>
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">***** PANTALLAS DE CONFIGURACIONES ***** </para> </td>                             
+              </tr>
+        </blockTable>
+
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenido" >
+      {% set photo_27 = ''%}
+      {% set photo_28 = ''%}
+      {% set photo_29 = ''%}
+
+        {% if answers.646e76acdec95cac2a41fdfb.0.file_url %}
+          {% set photo_27 = answers.646e76acdec95cac2a41fdfb.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdfc.0.file_url %}
+          {% set photo_28 = answers.646e76acdec95cac2a41fdfc.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdfd.0.file_url %}
+          {% set photo_29 = answers.646e76acdec95cac2a41fdfd.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_27 %} 
+            <td href="{{ photo_27}}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_27  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+        </tr>
+
+        <tr>
+          {% if photo_28 %} 
+            <td href="{{ photo_28 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_28  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          {% if photo_29 %} 
+            <td href="{{ photo_29 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_29  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+
+<spacer length="1.5cm"/>
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenidoB" >
+              <tr>
+                <td><para style="Encabezado">***** PANTALLAS DE CONFIGURACIONES ***** </para> </td>                             
+              </tr>
+        </blockTable>
+
+      <blockTable colWidths="19cm" colHeights="2cm" style="contenido" >
+      {% set photo_30 = ''%}
+      {% set photo_31 = ''%}
+      {% set photo_32 = ''%}
+
+        {% if answers.646e76acdec95cac2a41fdfe.0.file_url %}
+          {% set photo_30 = answers.646e76acdec95cac2a41fdfe.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fdff.0.file_url %}
+          {% set photo_31 = answers.646e76acdec95cac2a41fdff.0.file_url %}
+        {% endif%}
+        {% if answers.646e76acdec95cac2a41fe00.0.file_url %}
+          {% set photo_32 = answers.646e76acdec95cac2a41fe00.0.file_url %}
+        {% endif%}
+
+      <tr>
+          {% if photo_30 %} 
+            <td href="{{ photo_30}}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_30  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td> 
+          {% endif %}
+        </tr>
+
+        <tr>
+          {% if photo_31 %} 
+            <td href="{{ photo_31 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_31  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+        </tr>
+
+        <tr>
+          {% if photo_32 %} 
+            <td href="{{ photo_32 }}">
+              <imageAndFlowables imageName="{% get_thumbnail photo_32  %}" imageWidth="18cm" imageHeight="7.5cm" imageSide="left"/> </td>
+          {% else %}
+            <td><para style="Header_NO_PHOTO"> No hay Fotografia Cargada....!</para> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+
+</story>
+</document>

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}   
+
+<document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
+<pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Solicitud_Materiales" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="250mm"/>
+      <pageGraphics>
+        <setFont name="Helvetica" size="5"/>
+        <setFont name="Helvetica-Bold" size="5"/>
+
+ <!--        Cabecera de documento  -->
+               {% Header company_logo parent user form Template meta %}
+
+   <setFont name="Helvetica-Bold" size="8"/>
+ <!--        Pie del documento  -->
+        
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+
+
+<story>
+    {% for record in answers_list %}
+
+  <spacer length="1cm"/>  
+  <blockTable colWidths="4cm,2cm,4cm,2cm,4cm,2cm">
+    <tr>
+      <td><para style="datosTitulo">TRANSFORMETAL: </para></td>
+      <td><para style="datos"> {% for select in answers.64e7dc18e8fae6a3fd0baead.64e7dc18e8fae6a3fd0baeae %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datosTitulo">MES: </para></td>
+      <td><para style="datos"> {% for select in answers.601c05614cdc5855852cd3fc.601c05614cdc5855852cd3fe %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datosTitulo">QUINCENA: </para></td>
+      <td><para style="datos"> {% for select in answers.6512f48e7139128666a5163e %}{{ select }}{% endfor %}</para></td>
+    </tr> 
+  </blockTable>
+
+    <spacer length="1cm"/>
+
+      <blockTable colWidths="2cm,4cm,2cm,2cm,2cm,4cm,2cm" style="contenido">
+        <tr>
+          <td background="#E8FFFE"><para style="datosll">ODP </para></td>
+          <td background="#E8FFFE"><para style="datosll">DESCRIPCION PROYECTO </para></td>
+          <td background="#E8FFFE"><para style="datosll">TECNICO </para></td>
+          <td background="#E8FFFE"><para style="datosll">FECHA INICIO</para></td>
+          <td background="#E8FFFE"><para style="datosll">FECHA FIN </para></td>
+          <td background="#E8FFFE"><para style="datosll">TAREA</para></td>
+          <td background="#E8FFFE"><para style="datosll">HORAS </para></td>
+        </tr> 
+
+            {% for item in answers.64e7d1f2a154f3b1f81a91b3 %}
+                <tr>
+                    <td><para style="datos">{{answers.64e80380beca8345d6ff5b7d}}</para></td>
+                    <td><para style="datos">{{answers.64fa342e6d8ed741ca46254a}}</para></td>
+                    <td><para style="datos">{{item.64e7dc7b8c3c2499730baee6.64e7dc7b8c3c2499730baee7}}</para></td>
+                    <td><para style="datos">{{item.64e7d6a31aa3edfc1e751c7e}}</para></td>
+                    <td><para style="datos">{{item.64ecde6a9e70b37f4aff5bac}}</para></td>
+                    <td><para style="datos">{{item.64e7d6a31aa3edfc1e751c7f}}</para></td>
+                    <td><para style="datos">{{item.64ecde6a9e70b37f4aff5bad}}</para></td> 
+                  </tr>
+            {% endfor %}
+        <tr>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td> 
+        </tr>
+        <tr>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td> 
+        </tr>
+        <tr>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td>
+          <td><para style="datos"></para></td> 
+        </tr>
+    </blockTable>
+
+  <spacer length="1cm" />
+
+  <blockTable colWidths="4cm,3cm,12cm" colHeights=".5cm, 3cm">
+    <tr>
+      <td><para style="datosTitulo">AUTORIZADO POR: </para></td>
+      <td><para style="datos"> Ing. Kevin Álvarez</para></td>
+      <td></td>
+    </tr>
+  </blockTable>
+     
+  {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>
+
+

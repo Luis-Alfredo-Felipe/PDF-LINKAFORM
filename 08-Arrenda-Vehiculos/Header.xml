@@ -1,0 +1,8 @@
+<image x="0.3cm" y="27.7cm" file="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/656f91f2763e1fe9ff170f73.png" width="5cm" height="1.5cm" />
+
+<setFont name="Helvetica-Bold" size="13"/>
+<drawRightString x="20.3cm" y="28.8cm"> Entrega y Recepción  </drawRightString>
+<drawRightString x="20.3cm" y="28.2cm"> de Vehiculos </drawRightString>
+
+<setFont name="Helvetica-Bold" size="9"/>
+<drawRightString x="20.3cm" y="27.5cm"> No. {{ folio }} </drawRightString>

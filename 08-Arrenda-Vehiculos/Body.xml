@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Instalaciones" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+  <pageInfo pageSize="(200mm,260mm)" doc:example="" />
+  <template  title="Instalaciones" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.3cm" y1="1.0cm"  width="20cm" height="26.0cm"/>
+      <frame id="second" x1="0.5cm" y1="0.0cm" width="9cm" height="24cm"/>
+      <frame id="third"  x1="10cm"  y1="0.0cm" width="9cm" height="24cm"/>
+
+      <frame id="four"   x1="0.5cm" y1="0cm" width="20cm" height="18.5cm"/>
+
+      <frame id="five" x1="0.5cm" y1="0cm" width="9cm" height="12.8cm"/>
+       <frame id="six" x1="10cm" y1="0cm" width="9cm" height="12.8cm"/>
+
+      <frame id="seven" x1="0.5cm" y1="0.0cm" width="20cm" height="8.7cm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+  <story>
+
+ <blockTable colWidths="5cm,5cm,5cm,5cm" style="tabla 1">
+  <tr>
+  <td><para style="datos"><b> ODT: </b> </para></td>
+                       <td><para style="datos"> {{ answers.60e729b0670256c729e2d17e }} </para></td>
+  <td><para style="datos"><b> Fecha de Asignacion: </b></para></td>
+                       <td><para style="datos"> {{ answers.60ca718da01264adbba9070e }}  </para></td>
+</tr>
+<tr>
+ <td><para style="datos"><b> Modelo del Vehiculo: </b></para></td>
+                       <td><para style="datos">
+            {% for list_item in answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a2 %}
+               {{ list_item }}
+            {% endfor %}
+                    </para></td>
+  <td><para style="datos"><b> Fecha de Devolución : </b> </para></td>
+                       <td><para style="datos"> {{ answers.60ca736e81a74d9ceba90666 }} </para></td>
+</tr>
+<tr>
+<td><para style="datos"><b> Kilometraje de Salida: </b></para></td>
+                       <td><para style="datos"> {{ answers.600aef23c61ef6fae8bd49b5 }} </para></td>
+  <td><para style="datos"><b> Placas: </b></para></td>
+                       <td><para style="datos"> {{answers.5fce97da44836a76b696cf89.5fff322bc9c9904ac6ab50a4 }} </para></td>
+</tr>
+<tr>
+<td><para style="datos"><b> Kilometraje de Entrada: </b></para></td>
+                       <td><para style="datos"> {{ answers.60ca736e81a74d9ceba90665 }}  </para></td>
+  <td></td>
+</tr>
+</blockTable>
+
+<spacer length="0.1cm"/>
+
+<blockTable colWidths="20cm">
+  <tr>
+    <td><para style="subtitulo"> Revisión Exterior del Vehiculo</para></td>
+  </tr>
+</blockTable>
+<nextFrame/>
+
+{% set vidrios_si = "" %}
+{% set vidrios_no = "x" %}
+{% set presionll_si = "" %}
+{% set presionll_no = "x" %}
+{% set triangulo_si = "" %}
+{% set triangulo_no = "x" %}
+{% set llantar_si = "" %}
+{% set llantar_no = "x" %}
+{% set tricket_si = "" %}
+{% set tricket_no = "x" %}
+{% set retrovisores_si = "" %}
+{% set retrovisores_no = "x" %}
+{% set llavecruz_si = "" %}
+{% set llavecruz_no = "x" %}
+{% set llavellanta_si = "" %}
+{% set llavellanta_no = "x" %}
+{% set extintor_si = "" %}
+{% set extintor_no = "x" %}
+{% set lucesinterior_si = "" %}
+{% set lucesinterior_no = "x" %}
+{% set lucestablero_si = "" %}
+{% set lucestablero_no = "x" %}
+{% set tapiceria_si = "" %}
+{% set tapiceria_no = "x" %}
+{% set tarjetac_si = "" %}
+{% set tarjetac_no = "x" %}
+{% set infoseguro_si = "" %}
+{% set infoseguro_no = "x" %}
+{% set kitprimerosaux_si = "" %}
+{% set kitprimerosaux_no = "x" %}
+{% set calcomania_si = "" %}
+{% set calcomania_no = "x" %}
+
+ {% for list_item in answers.600af43bd6d024c45e0273da %}
+    {% if list_item == "Vidrios" %}
+      {% set vidrios_si = "✓" %}
+      {% set vidrios_no = "" %}
+     {% endif %}
+    {% if list_item == "Presión de 4 Llantas" %}
+      {% set presionll_si = "✓" %}
+      {% set presionll_no = "" %}
+    {% endif %}
+    {% if list_item == "Triángulos" %}
+      {% set triangulo_si = "✓" %}
+      {% set triangulo_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Llanta de Repuesto" %}
+      {% set llantar_si = "✓" %}
+      {% set llantar_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Tricket" %}
+      {% set tricket_si = "✓" %}
+      {% set tricket_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Retrovisores" %}
+      {% set retrovisores_si = "✓" %}
+      {% set retrovisores_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Llave de Cruz" %}
+      {% set llavecruz_si = "✓" %}
+      {% set llavecruz_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Llave para Bajar llanta de Repuestos" %}
+      {% set llavellanta_si = "✓" %}
+      {% set llavellanta_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Extintor" %}
+      {% set extintor_si = "✓" %}
+      {% set extintor_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Luces Interior" %}
+      {% set lucesinterior_si = "✓" %}
+      {% set lucesinterior_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Luces de Tablero" %}
+      {% set lucestablero_si = "✓" %}
+      {% set lucestablero_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Tapicería" %}
+      {% set tapiceria_si = "✓" %}
+      {% set tapiceria_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Tarjeta de Circulación" %}
+      {% set tarjetac_si = "✓" %}
+      {% set tarjetac_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Información del Seguro" %}
+      {% set infoseguro_si = "✓" %}
+      {% set infoseguro_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Kit de Primeros Auxilios" %}
+      {% set kitprimerosaux_si = "✓" %}
+      {% set kitprimerosaux_no = "" %}
+    {% endif %}
+
+    {% if list_item == "Calcomanía" %}
+      {% set calcomania_si = "✓" %}
+      {% set calcomania_no = "" %}
+    {% endif %}
+
+{% endfor %}
+
+{% if answers.600af6368a30f26675c22e37 %}
+    {% set gasasignacion_no = "" %}
+{% else %}
+    {% set gasasignacion_no = "X" %}
+{% endif %}
+{% if answers.600af6368a30f26675c22e37 %}
+    {% set gasdevolucion_no = "" %}
+{% else %}
+    {% set gasdevolucion_no = "X" %}
+{% endif %}
+
+<blockTable colWidths="7cm,1cm,1cm" style="tabla 3">
+  <tr>
+    <td background="#c5cae9"><para style="subtitul3"> CONCEPTO </para></td>
+    <td background="#c5cae9"><para style="subtitul3"> SI </para></td>
+    <td background="#c5cae9"><para style="subtitul3"> NO </para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Vidrios </para></td>
+      <td><para style="Ques"> {{ vidrios_si }}</para></td>
+      <td><para style="Ques"> {{ vidrios_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Presión de 4 llantas </para></td>
+      <td><para style="Ques"> {{ presionll_si }}</para></td>
+      <td><para style="Ques"> {{ presionll_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Triangulos </para></td>
+      <td><para style="Ques"> {{ triangulo_si }}</para></td>
+      <td><para style="Ques"> {{ triangulo_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3"> Llanta de Repuesto </para></td>
+      <td><para style="Ques"> {{ llantar_si }}</para></td>
+      <td><para style="Ques"> {{ llantar_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3"> Tricket </para></td>
+      <td><para style="Ques"> {{ tricket_si }}</para></td>
+      <td><para style="Ques"> {{ tricket_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3"> Retrovisores </para></td>
+      <td><para style="Ques"> {{ retrovisores_si }}</para></td>
+      <td><para style="Ques"> {{ retrovisores_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3"> Llave de Cruz </para></td>
+      <td><para style="Ques"> {{ llavecruz_si }}</para></td>
+      <td><para style="Ques"> {{ llavecruz_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3"> Llave para Bajar llanta de Repuestos </para></td>
+      <td><para style="Ques"> {{ llavellanta_si }}</para></td>
+      <td><para style="Ques"> {{ llavellanta_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Extintor  </para></td>
+      <td><para style="Ques"> {{ extintor_si }}</para></td>
+      <td><para style="Ques"> {{ extintor_no }}</para></td>
+  </tr>
+</blockTable>
+
+  <nextFrame/>
+
+<blockTable colWidths="7cm,1cm,1cm" style="tabla 3">
+    <tr>
+      <td background="#c5cae9"><para style="subtitul3"> CONCEPTO </para></td>
+      <td background="#c5cae9"><para style="subtitul3"> SI </para></td>
+      <td background="#c5cae9"><para style="subtitul3"> NO </para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Luces Interior </para></td>
+      <td><para style="Ques"> {{ lucesinterior_si }}</para></td>
+      <td><para style="Ques"> {{ lucesinterior_no }}</para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Luces de Tablero </para></td>
+      <td><para style="Ques"> {{ lucestablero_si }}</para></td>
+      <td><para style="Ques"> {{ lucestablero_no }}</para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Nivel de Combustible Asignacion </para></td>
+      <td><para style="Ques"> {{answers.600af6368a30f26675c22e37 }}</para></td>
+      <td><para style="Ques"> {{ gasasignacion_no }}</para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Nivel de Combustible Devolución </para></td>
+      <td><para style="Ques"> {{answers.60ca7256b351ff88b0a4c46d }}</para></td>
+      <td><para style="Ques"> {{ gasdevolucion_no }}</para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Tapicería </para></td>
+      <td><para style="Ques"> {{ tapiceria_si }}</para></td>
+      <td><para style="Ques"> {{ tapiceria_no }}</para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Tarjeta de Circulación </para></td>
+      <td><para style="Ques"> {{ tarjetac_si }}</para></td>
+      <td><para style="Ques"> {{ tarjetac_no }}</para></td>
+    </tr>
+    <tr>
+      <td><para style="subtitul3">Información Seguro </para></td>
+      <td><para style="Ques"> {{ infoseguro_si }}</para></td>
+      <td><para style="Ques"> {{ infoseguro_no }}</para></td>
+    </tr>
+    <tr>
+        <td><para style="subtitul3">Kit de primero auxilios </para></td>
+        <td><para style="Ques"> {{ kitprimerosaux_si }}</para></td>
+        <td><para style="Ques"> {{ kitprimerosaux_no }}</para></td>
+    </tr>
+    <tr>
+        <td><para style="subtitul3">Calcomanía </para></td>
+        <td><para style="Ques"> {{ calcomania_si }}</para></td>
+        <td><para style="Ques"> {{ calcomania_no }}</para></td>
+    </tr>
+</blockTable>
+
+  <nextFrame/>
+<spacer length="0.2cm"/>
+
+<blockTable colWidths="20cm">
+  <tr>
+    <td><para style="subtitulo"> Revisión Mecánica del Vehiculo</para></td>
+  </tr>
+</blockTable>
+<spacer length="0.1cm"/>
+<blockTable colWidths="3cm,14cm,3cm">
+  <tr>
+    <td></td>
+    <td> <imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-126/32727/599cb924b43fdd4817d99016/60af452db1b12e9b1383adb5.jpg" imageWidth="14cm" imageHeight="4.5cm" /></td>
+    <td></td>
+  </tr>
+</blockTable>
+<spacer length="0.2cm"/>
+  <nextFrame/>
+
+  {% set nivelaceite_si = "" %}
+  {% set nivelaceite_no = "x" %}
+  {% set nivelradiador_si = "" %}
+  {% set nivelradiador_no = "x" %}
+  {% set liquidofrenos_si = "" %}
+  {% set liquidofrenos_no = "x" %}
+  {% set liquidohidraulico_si = "" %}
+  {% set liquidohidraulico_no = "x" %}
+  {% set mangueras_si = "" %}
+  {% set mangueras_no = "x" %}
+  {% set bateria_si = "" %}
+  {% set bateria_no = "x" %}
+  {% set limpieza_si = "" %}
+  {% set limpieza_no = "x" %}
+  {% set lucesgeneral_si = "" %}
+  {% set lucesgeneral_no = "x" %}
+  {% set indicadortablero_si = "" %}
+  {% set indicadortablero_no = "x" %}
+
+   {% for list_item in answers.600af5ed27fea59cc1c38278 %}
+      {% if list_item == "Nivel de Aceite del Motor" %}
+        {% set nivelaceite_si = "✓" %}
+        {% set nivelaceite_no = "" %}
+       {% endif %}
+       {% if list_item == "Nivel en el Radiador" %}
+         {% set nivelradiador_si = "✓" %}
+         {% set nivelradiador_no = "" %}
+        {% endif %}
+       {% if list_item == "Líquido de Frenos" %}
+         {% set  liquidofrenos_si = "✓" %}
+         {% set  liquidofrenos_no = "" %}
+        {% endif %}
+       {% if list_item == "Líquido Hidráulico" %}
+         {% set  liquidohidraulico_si = "✓" %}
+         {% set  liquidohidraulico_no = "" %}
+        {% endif %}
+       {% if list_item == "Revisión de Mangueras" %}
+         {% set  mangueras_si = "✓" %}
+         {% set  mangueras_no = "" %}
+        {% endif %}
+       {% if list_item == "Revisión de Batería" %}
+         {% set  bateria_si = "✓" %}
+         {% set  bateria_no = "" %}
+        {% endif %}
+       {% if list_item == "Limpieza de Vehículo" %}
+         {% set  limpieza_si = "✓" %}
+         {% set  limpieza_no = "" %}
+        {% endif %}
+       {% if list_item == "Luces General" %}
+         {% set  lucesgeneral_si = "✓" %}
+         {% set  lucesgeneral_no = "" %}
+        {% endif %}
+       {% if list_item == "Indicadores Tablero" %}
+         {% set  indicadortablero_si = "✓" %}
+         {% set  indicadortablero_no = "" %}
+        {% endif %}
+
+{% endfor %}
+
+<blockTable colWidths="7cm,1cm,1cm" style="tabla 3">
+  <tr>
+    <td background="#c5cae9"><para style="subtitul3"> CONCEPTO </para></td>
+    <td background="#c5cae9"><para style="subtitul3"> SI </para></td>
+    <td background="#c5cae9"><para style="subtitul3"> NO </para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Nivel de Aceite en motor </para></td>
+      <td><para style="Ques"> {{ nivelaceite_si }}</para></td>
+      <td><para style="Ques"> {{ nivelaceite_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Nivel en Radiador </para></td>
+      <td><para style="Ques"> {{ nivelradiador_si }}</para></td>
+      <td><para style="Ques"> {{ nivelradiador_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Líquido de Frenos </para></td>
+      <td><para style="Ques"> {{ liquidofrenos_si }}</para></td>
+      <td><para style="Ques"> {{ liquidofrenos_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Líquido Hidráulico </para></td>
+      <td><para style="Ques"> {{ liquidohidraulico_si }}</para></td>
+      <td><para style="Ques"> {{ liquidohidraulico_no }}</para></td>
+  </tr>
+  <tr>
+      <td><para style="subtitul3">Revisión de Mangueras </para></td>
+      <td><para style="Ques"> {{ mangueras_si }}</para></td>
+      <td><para style="Ques"> {{ mangueras_no }}</para></td>
+  </tr>
+  </blockTable>
+
+  <nextFrame/>
+  <blockTable colWidths="7cm,1cm,1cm" style="tabla 3">
+    <tr>
+      <td background="#c5cae9"><para style="subtitul3"> CONCEPTO </para></td>
+      <td background="#c5cae9"><para style="subtitul3"> SI </para></td>
+      <td background="#c5cae9"><para style="subtitul3"> NO </para></td>
+  </tr>
+    <tr>
+        <td><para style="subtitul3">Revisión de Batería </para></td>
+        <td><para style="Ques"> {{ bateria_si }}</para></td>
+        <td><para style="Ques"> {{ bateria_no }}</para></td>
+    </tr>
+    <tr>
+        <td><para style="subtitul3">Limpieza de Vehículo </para></td>
+        <td><para style="Ques"> {{ limpieza_si }}</para></td>
+        <td><para style="Ques"> {{ limpieza_no }}</para></td>
+    </tr>
+    <tr>
+        <td><para style="subtitul3">Luces General </para></td>
+        <td><para style="Ques"> {{ lucesgeneral_si }}</para></td>
+        <td><para style="Ques"> {{ lucesgeneral_no }}</para></td>
+    </tr>
+    <tr>
+        <td><para style="subtitul3">Indicadores Tablero </para></td>
+        <td><para style="Ques"> {{ indicadortablero_si }}</para></td>
+        <td><para style="Ques"> {{ indicadortablero_no }}</para></td>
+    </tr>
+  </blockTable>
+
+  <nextFrame/>
+
+<blockTable colWidths="10cm,10cm" style="tabla 3">
+  <tr>
+      <td background="#c5cae9"><para style="datos"> Fecha y Hora de Salida</para></td>
+      <td background="#c5cae9"><para style="datos"> Lugar y Destino</para></td>
+  </tr>
+  <tr>
+    <td><para style="datos"> {{ answers.600aefa2173b4464c80273d4 }} </para></td>
+    <td><para style="datos"> {{ answers.600b0072828521f6d06ad536 }} </para></td>
+  </tr>
+</blockTable>
+
+<spacer length="0.3cm"/>
+
+<blockTable colWidths="20cm">
+  <tr>
+    <td><para style="subtitulo"> Términos y Condiciones de Aceptación del Vehiculo </para></td>
+  </tr>
+  <tr>
+  <td> <para style="prec"> El arrendante se responsabiliza del buen uso y cuidado del vehículo descrito en este formulario, usándolo exclusivamente para trabajos de la empresa. Los daños que sufra el vehiculo por descuido del conductor o responsable del mismo, deberán ser reparados o pagados al precio del mercado actual. No tendrá culpa ni responsabilidad el conductor, si el extravío o daño del vehículo sucediera por caso fortuito o fuerza mayor. Se entiende por caso fortuito o fuerza mayor; los embates y sucesos de la naturaleza, marchas públicas, actos vandálicos y accidentes ocacionados por terceros. El conductor se compromete a conducir el vehículo de forma prudcente, a no igerir ningún tipo de bebida embriagante, drogas ni estupefacientes. El conductor se compromete a no contravenir los reglamentos, leyes y disposiciones de tránsito de todas las municipalidades del país, pero si las transgrede, acepta de forma libre y voluntaria que se le descuente el pago de las multas en las que incurriere. </para>
+  </td>
+</tr>
+</blockTable>
+
+<spacer length="0.3cm"/>
+
+<blockTable colWidths="7cm,6cm,7cm">
+         <tr>
+           <td>
+             <para style="firma"> Firma Conductor  </para>
+
+
+              <para style="firma"> ______________________________ </para>
+             <para style="firma"> Nombre y Firma </para>
+             <para style="firma"> {{ answers.6154ca157d665404bfb2e1bc.6154ca157d665404bfb2e1bd }} </para>
+           </td>
+
+           <td>
+             <para style="firma"> Persona que Autoriza </para>
+
+              <para style="firma"> ______________________________ </para>
+            <para style="firma"> Aceptación </para>
+            <para style="firma"> {{ answers.60ca727c8c8c5866d7a4c4e3 }} </para>
+           </td>
+           <td>
+             <para style="firma"> Persona que Entrega Vehiculo  </para>
+
+              <para style="firma"> ______________________________ </para>
+             <para style="firma"> Nombre y Firma </para>
+             <para style="firma"> {{ answers.615b27a0ea33f749b970e448 }} </para>
+           </td>
+          </tr>
+        </blockTable>
+
+  {% autoescape on %}
+    {{ Template.style|safe }}
+  {% endautoescape %}
+</story>
+</document>

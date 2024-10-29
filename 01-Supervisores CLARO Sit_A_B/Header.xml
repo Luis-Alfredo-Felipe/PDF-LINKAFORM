@@ -1,0 +1,11 @@
+<image x="1.3cm" y="26.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="4.5cm" height="2.2cm" />
+<image x="15.5cm" y="26.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/6671020c0ab57035d4912408.png " width="3.8cm" height="1.5cm" />
+<image x="6cm" y="26.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/6670ebf62c09e8144b9d2c31.png " width="9cm" height="1.5cm" /> 
+<image x="1.2cm" y="1.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/667367e232a2d1ddcd03e8d1.png " width="18cm" height="1.5cm" />
+
+<setFont name="Helvetica-Bold" size="14" lineMode="single" />
+<drawCentredString x="10.5cm" y="27.5cm"> SUPERVISORES DE CLARO </drawCentredString> 
+<setFont name="Helvetica-Bold" size="12" lineMode="single" /> 
+<drawCentredString x="10.5cm" y="26.7cm"> * * * * * * R E P O R T E * * * * * * </drawCentredString> 
+<setFont name="Helvetica-Bold" size="8"/>
+<drawString x="16cm" y="27.2cm"> Folio No. {{ folio }} </drawString>

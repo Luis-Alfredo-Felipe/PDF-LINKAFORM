@@ -1,0 +1,24 @@
+<lineMode width="0.1"/>
+<fill color="#333333"/>
+<setFont name="Montserrat-Regular" size="8.5"/>
+<lines>.6cm 1.5cm 20.7cm 1.5cm</lines>
+
+<drawCentredString x="10.5cm" y="5.9cm">Me comprometo al uso y cuidado del Equipo de Protección de Personal asignado en caso no cumpliera con dicha</drawCentredString>
+<drawCentredString x="10.5cm" y="5.4cm">Normativa. Acepto de conformidad la sanción que me sea impuesta o bien el descuento correspondiente para su </drawCentredString>
+<drawCentredString x="10.5cm" y="4.9cm">reposición por daño o descuido. Lo cual está descrito en la Cláusula Decima Primera del Contrato de Trabajo. </drawCentredString>
+
+<fill color="#17202a"/>
+<setFont name="Montserrat-Regular" size="10"/>
+
+<setFont name="Montserrat-Bold" size="10"/>
+<drawRightString x="6cm" y="2.5cm">Firma Técnico</drawRightString>
+<drawRightString x="12cm" y="2.5cm">Firma de Bodega</drawRightString>
+<drawRightString x="18cm" y="2.5cm">Firma de Inspector CSS</drawRightString>
+<drawRightString x="15.8cm" y="6.5cm">“LA SALUD Y SEGURIDAD ES RESPONSABILIDAD DE TODOS”</drawRightString>
+ 
+
+<stroke color="#17202a"/>
+<rect x="2.5cm" y="3cm" width="4.5cm" height="0.02cm" fill="yes" stroke="yes" />
+<rect x="8.2cm" y="3cm" width="4.5cm" height="0.02cm" fill="yes" stroke="yes" />
+<rect x="13.6cm" y="3cm" width="4.5cm" height="0.02cm" fill="yes" stroke="yes" />
+

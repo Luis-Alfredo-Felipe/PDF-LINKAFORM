@@ -1,0 +1,11 @@
+<image x="1.5cm" y="26.5cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/654d4dcb18e3ffd752ebd4d5.png " width="5cm" height="2.2cm" />
+<image x="1.5cm" y="2.3cm" file=" https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/66051b4e3bf40e1fe8d09c28.jpg " width="18cm" height="2.4cm" />
+
+<setFont name="Helvetica-Bold" size="10"/>
+<drawRightString x="19cm" y="27.5cm"> RRHH-SP-002</drawRightString>
+<setFont name="Helvetica-Bold" size="15"/>
+<drawCentredString x="10.5cm" y="26cm"> S O L I C I T U D   D E   P E R M I S O </drawCentredString>
+<drawCentredString x="10.5cm" y="25.9cm"> ________________________________</drawCentredString>
+<setFont name="Helvetica-Bold" size="12"/>
+<drawCentredString x="10.5cm" y="25.2cm"> R  E C U R S O S     H U M A N O S </drawCentredString>
+<lines>1.3cm 12cm 19.2cm 12cm</lines>

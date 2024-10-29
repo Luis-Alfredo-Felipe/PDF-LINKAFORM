@@ -1,0 +1,79 @@
+<blockTableStyle id="TableHeader">
+ <blockBackground colorName="#bdbdbd" start="0,0" stop="-1,0"/>
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="imags">
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="datos">
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="TableHeader2">
+ <blockBackground colorName="#bdbdbd" start="0,0" stop="-1,0"/>
+ <lineStyle kind="GRID" colorName="#424242" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="TableFirma">
+ <blockValign value="TOP"/>
+ <lineStyle kind="LINEBELOW" colorName="#424242" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="mtto_header">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="LINEBELOW" colorName="#FF5325" start="0,0" stop="0,0"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="#FF5325" start="1,0" stop="-1,-1"/>
+ <blockBackground colorName="#FF5325"  start="1,0" stop="1,0"/>
+ <blockBackground colorName="#FF5325"  start="3,0" stop="3,0"/>
+ <blockBackground colorName="#FFFFFF"  start="2,0" stop="2,0"/>
+ <blockBackground colorName="#FFFFFF"  start="4,0" stop="4,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="mtto_data">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="#FF5325" start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#FF5325"  start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="1,0" stop="1,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="3,0" stop="3,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="5,0" stop="5,-1"/>
+ <blockBackground colorName="#FF5325"  start="2,0" stop="2,-1"/>
+ <blockBackground colorName="#FF5325"  start="4,0" stop="4,-1"/>
+ <blockBackground colorName="#FFFFFF"  start="6,0" stop="6,-1"/>
+</blockTableStyle>
+
+<blockTableStyle id="red_header">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="#FF5325" start="0,0" stop="-1,-1"/>
+ <blockBackground colorName="#FF5325"  start="0,0" stop="-1,0"/>
+</blockTableStyle>
+
+<blockTableStyle id="reds_header">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="#FF5325" start="0,0" stop="-1,-1"/>
+<!-- <blockBackground colorName="#FF5325"  start="0,0" stop="-1,0"/> -->
+</blockTableStyle>
+
+<blockTableStyle id="mtto_observaciones">
+ <blockValign value="TOP"/>
+ <lineStyle thickness="0.1" kind="GRID" colorName="silver" start="0,0" stop="-1,-1"/>
+</blockTableStyle>
+
+<paraStyle name="data" fontName="Helvetica" fontSize="7.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataC" fontName="Helvetica" fontSize="7.0" leading="7" alignment="CENTER"/>
+<paraStyle name="dataB" fontName="Helvetica-Bold" fontSize="7.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataBB" fontName="Helvetica" fontSize="7.0" leading="7" alignment="LEFT"/>
+<paraStyle name="dataR" fontName="Helvetica" fontSize="7.0" leading="7" alignment="RIGHT"/>
+<paraStyle name="P8L" fontName="Helvetica" fontSize="8.0" leading="10" alignment="center"/>
+<paraStyle name="P1LB" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="center"/>
+
+<paraStyle name="dataF" fontName="Helvetica" fontSize="6.0" leading="7" alignment="LEFT"/>
+<paraStyle name="ingles" fontName="Helvetica" fontSize="5.0" leading="5" alignment="LEFT"/>
+
+<paraStyle name="PWhite" fontName="Helvetica-Bold" fontSize="8.0" leading="10"  alignment="left"/>
+<paraStyle name="PWhiteR" fontName="Helvetica-Bold" fontSize="8.0" leading="10"  alignment="right"/>
+
+<paraStyle name="PWhite2" fontName="Helvetica-Bold" fontSize="8.0" leading="10"  alignment="left"/>
+<paraStyle name="P1L" fontName="Helvetica" fontSize="7.0" leading="7" alignment="LEFT"/>
+<paraStyle name="ParagraphLeft" fontName="Helvetica" fontSize="7.0" leading="8" alignment="LEFT"/>
