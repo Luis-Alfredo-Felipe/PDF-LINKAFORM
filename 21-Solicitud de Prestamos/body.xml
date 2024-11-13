@@ -4,9 +4,8 @@
 {% load custom_tags %}   
 
 <document filename="Solicitud" xmlns:doc="http://namespaces.zope.org/rml/doc">
-<pageInfo pageSize="(500mm,200mm)" doc:example="" />
-  <template  title="Solicitud_Materiales" author="LinkaForm">
-    <pageTemplate id="first">
+  <template  title="Solicitud_Materiales" author="LinkaForm" pageSize="(22cm,34cm)">
+    <pageTemplate id="first" pageSize="(22cm,34cm)">
     <frame id="first" x1="0.2cm" y1="1.3cm" width="200mm" height="260mm"/>
 
       <pageGraphics>
@@ -146,53 +145,6 @@
           {% endfor %}  
           </td>
         </tr>
-    </blockTable>       
-
-    <blockTable colWidths="0.1cm,16.8cm">
-        <tr>
-        <td></td>
-          <td>
-            <blockTable colWidths="15.9cm">
-              <tr>
-                <td><para style="parrafoll">Antes de firmar este documento, compruebe que el contenido que va a firmar es correcto</para></td>
-              </tr>
-            </blockTable>
-          </td>
-        </tr>
-    </blockTable>      
-   
-<spacer length="0.6cm" />
-  <blockTable colWidths="5cm,6cm,5cm" colHeights=".5cm, 5cm, .5cm">
-  <spacer length="0.5cm" />
-    <tr>
-      <td><para style="firma">F.________________________</para></td>
-      <td></td>
-      <td><para style="firma">F.________________________</para></td>
-  </tr>         
-  <tr>
-      <td><para style="firma">FIRMA DEL SOLICITANTE</para></td>
-      <td></td>
-      <td><para style="firma">RECURSOS HUMANOS</para></td>
-    </tr>
-  <tr>
-      <td><para style="firma">EDDY FERNANDO PIRIR PIRIR</para></td>
-      <td></td>
-      <td></td>
-  </tr>  
-  </blockTable>
-  <spacer length="0.5cm" />   
-  <blockTable colWidths="5cm,6cm, 5cm" colHeights=".5cm, 5cm, .5cm">
-  <tr>
-      <td></td>
-      <td><para style="firma">F. ________________________</para></td>
-      <td></td>
-  </tr>     
-  <tr>
-      <td></td>
-      <td><para style="firma">AUTORIZADO POR. (Vo.Bo.)</para></td>
-      <td></td>
-  </tr> 
-  </blockTable>
-
+    </blockTable>         
 </story>
 </document>

@@ -2,12 +2,15 @@
 
 <setFont name="Montserrat-Bold" size="15"/>
 <drawCentredString x="10.5cm" y="26.5cm"> DATOS GENERALES </drawCentredString>
+<lines>7.5cm 26.3cm 13.5cm 26.3cm</lines>
 
+<!-- Línea Horizontal superior -->
 <lines>1.5cm 28.5cm 19.5cm 28.5cm</lines>
 <setFont name="Helvetica-Bold" size="15"/>
-<lines>1.5cm 2.5cm 19.5cm 2.5cm</lines>
+<!-- Línea Horizontal inferior -->
+<lines>1.5cm 1.5cm 19.5cm 1.5cm</lines>
 <setFont name="Helvetica-Bold" size="15"/>
 <!-- Línea vertical izquierda -->
-<lines>1.5cm 2.5cm 1.5cm 28.5cm</lines>
+<lines>1.5cm 1.5cm 1.5cm 28.5cm</lines>
 <!-- Línea vertical derecha -->
-<lines>19.5cm 2.5cm 19.5cm 28.5cm</lines>
+<lines>19.5cm 1.5cm 19.5cm 28.5cm</lines>

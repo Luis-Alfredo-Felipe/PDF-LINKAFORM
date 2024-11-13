@@ -1,0 +1,645 @@
+<?xml version="1.0"?>
+{% load PrintFields %}
+{% load set_var %}
+{% load custom_tags %}
+
+<document filename="Reporte Supervisores" xmlns:doc="http://namespaces.zope.org/rml/doc">
+
+  <pageInfo pageSize="(500mm,200mm)" doc:example="" />
+  <template  title="Gerencia" author="LinkaForm">
+    <pageTemplate id="first">
+      <frame id="first" x1="0.2cm" y1="1.3cm"  width="200mm" height="250mm"/>
+
+      <pageGraphics>
+                 <!-- Cabecera de documento -->
+                <drawRightString x="20.5cm" y="26.2cm"></drawRightString>
+                {% Header company_logo parent user form Template meta %}
+        <!-- Pie del documento -->
+        {% Footer user form Template meta %}
+      </pageGraphics>
+    </pageTemplate>
+
+  </template>
+  <stylesheet>
+     {% autoescape on %}
+      {{ Template.style|safe }}
+    {% endautoescape %}
+  </stylesheet>
+  <story>
+  
+  <spacer length="0.5cm"/>
+    <blockTable style="titulos" colWidths="18cm">
+      <tr>
+        <td><para style="P8L">REPORTE INSTALACIÓN CLIENTE</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable colWidths="0.5cm,2cm,6.5cm,2cm,6.5cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">ID:</para></td>
+        <td><para style="dataBB">{{answers.6723e7877f62ab9626c05bd0}}</para></td>
+        <td><para style="dataB">CLIENTE:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968b}}</para> </td>
+      </tr>
+      <tr>
+        <td></td>      
+        <td><para style="dataB">DIRECCIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968c}}</para></td>
+        <td><para style="dataB">TÉCNICO:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968d}}</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="0.5cm,4cm,6cm,4cm,3cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">FECHA DE INSTALACIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968e}}</para></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </blockTable>
+    
+      {% set photo_01 = ''%}
+      {% set photo_02 = ''%}
+      {% set photo_03 = ''%}
+      {% set photo_04 = ''%}
+
+        {% if answers.6723e82d1d8c0cf27cf144fc.0.file_url %}
+          {% set photo_01 = answers.6723e82d1d8c0cf27cf144fc.0.file_url %}
+        {% endif%}
+        {% if answers.6723e82d1d8c0cf27cf144fd.0.file_url %}
+          {% set photo_02 = answers.6723e82d1d8c0cf27cf144fd.0.file_url %}
+        {% endif%}
+        {% if answers.6723e82d1d8c0cf27cf144fe.0.file_url %}
+          {% set photo_03 = answers.6723e82d1d8c0cf27cf144fe.0.file_url %}
+        {% endif%}
+        {% if answers.6723e82d1d8c0cf27cf144ff.0.file_url %}
+          {% set photo_04 = answers.6723e82d1d8c0cf27cf144ff.0.file_url %}
+        {% endif%}
+
+  <spacer length="0.5cm"/>   
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_01 %} 
+            <td href="{{ photo_01 }}">
+            <imageAndFlowables imageName="{{ photo_01 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_02 %} 
+            <td href="{{ photo_02 }}">
+              <imageAndFlowables imageName="{{ photo_02 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">EQUIPOS CLIENTE PANORÁMICA DE LA INSTALACIÓN</para></td>
+      <td><para style="P1L">ETIQUETADO DE EQUIPOS (ROUTER / MEDIA CONVERT)</para></td>
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm"/>       
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_03 %} 
+            <td href="{{ photo_03 }}">
+            <imageAndFlowables imageName="{{ photo_03 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_04 %} 
+            <td href="{{ photo_04 }}">
+            <imageAndFlowables imageName="{{ photo_04 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+             <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">ETIQUETADO PATCH UTP O CABLE DE RED</para></td>
+      <td><para style="P1L">ETIQUETADO PATCH FIBRA ÓPTICA</para></td>
+      </tr>
+    </blockTable>
+    
+<!--Aca Empieza la Segunda Pagina -->
+      <spacer length="2.4cm"/>
+    <blockTable style="titulos" colWidths="18cm">
+      <tr>
+        <td><para style="P8L">REPORTE INSTALACIÓN CLIENTE</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable colWidths="0.5cm,2cm,6.5cm,2cm,6.5cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">ID:</para></td>
+        <td><para style="dataBB">{{answers.6723e7877f62ab9626c05bd0}}</para></td>
+        <td><para style="dataB">CLIENTE:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968b}}</para> </td>
+      </tr>
+      <tr>
+        <td></td>      
+        <td><para style="dataB">DIRECCIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968c}}</para></td>
+        <td><para style="dataB">TÉCNICO:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968d}}</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="0.5cm,4cm,6cm,4cm,3cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">FECHA DE INSTALACIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968e}}</para></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </blockTable>
+    
+      {% set photo_05 = ''%}
+      {% set photo_06 = ''%}
+      {% set photo_07 = ''%}
+      {% set photo_08 = ''%}
+
+        {% if answers.6723e8bee8a7b3e3cf309654.0.file_url %}
+          {% set photo_05 = answers.6723e8bee8a7b3e3cf309654.0.file_url %}
+        {% endif%}
+        {% if answers.6723e8bee8a7b3e3cf309655.0.file_url %}
+          {% set photo_06 = answers.6723e8bee8a7b3e3cf309655.0.file_url %}
+        {% endif%}
+        {% if answers.6723e8bee8a7b3e3cf309656.0.file_url %}
+          {% set photo_07 = answers.6723e8bee8a7b3e3cf309656.0.file_url %}
+        {% endif%}
+        {% if answers.6723e8bee8a7b3e3cf309657.0.file_url %}
+          {% set photo_08 = answers.6723e8bee8a7b3e3cf309657.0.file_url %}
+        {% endif%}
+
+  <spacer length="0.5cm"/>   
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_05 %} 
+            <td href="{{ photo_05 }}">
+            <imageAndFlowables imageName="{{ photo_05 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_06 %} 
+            <td href="{{ photo_06 }}">
+              <imageAndFlowables imageName="{{ photo_06 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+          <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">ETIQUETADO CABLEADOS DE ENERGÍA</para></td>
+      <td><para style="P1L">ENERGÍA UPS (SI POSEE EL CLIENTE)</para></td>
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm"/>       
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_07 %} 
+            <td href="{{ photo_07 }}">
+            <imageAndFlowables imageName="{{ photo_07 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_08 %} 
+            <td href="{{ photo_08 }}">
+            <imageAndFlowables imageName="{{ photo_08 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">FOTOGRAFIA ADICIONAL 1</para></td>
+      <td><para style="P1L">FOTOGRAFIA ADICIONAL 2</para></td>
+      </tr>
+    </blockTable>
+
+<!--Aca Empieza la Tercera Pagina -->
+      <spacer length="2.4cm"/>
+    <blockTable style="titulos" colWidths="18cm">
+      <tr>
+        <td><para style="P8L">REPORTE INSTALACION NODO</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable colWidths="0.5cm,2cm,6.5cm,2cm,6.5cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">ID:</para></td>
+        <td><para style="dataBB">{{answers.6723e7877f62ab9626c05bd0}}</para></td>
+        <td><para style="dataB">CLIENTE:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968b}}</para> </td>
+      </tr>
+      <tr>
+        <td></td>      
+        <td><para style="dataB">DIRECCIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968c}}</para></td>
+        <td><para style="dataB">TÉCNICO:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968d}}</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="0.5cm,4cm,6cm,4cm,3cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">FECHA DE INSTALACIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968e}}</para></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </blockTable>
+    
+      {% set photo_09 = ''%}
+      {% set photo_10 = ''%}
+      {% set photo_11 = ''%}
+      {% set photo_12 = ''%}
+
+        {% if answers.6723e98311680bf6127e7087.0.file_url %}
+          {% set photo_09 = answers.6723e98311680bf6127e7087.0.file_url %}
+        {% endif%}
+        {% if answers.6723e98311680bf6127e7088.0.file_url %}
+          {% set photo_10 = answers.6723e98311680bf6127e7088.0.file_url %}
+        {% endif%}
+        {% if answers.6723e98311680bf6127e7089.0.file_url %}
+          {% set photo_11 = answers.6723e98311680bf6127e7089.0.file_url %}
+        {% endif%}
+        {% if answers.6723e98311680bf6127e708a.0.file_url %}
+          {% set photo_12 = answers.6723e98311680bf6127e708a.0.file_url %}
+        {% endif%}
+
+  <spacer length="0.5cm"/>   
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_09 %} 
+            <td href="{{ photo_09 }}">
+            <imageAndFlowables imageName="{{ photo_09 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_10 %} 
+            <td href="{{ photo_10 }}">
+              <imageAndFlowables imageName="{{ photo_10 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">EQUIPOS EN RACK FRENTE PANORÁMICA</para></td>
+      <td><para style="P1L">EQUIPOS EN RACK POSTERIOR (PANORÁMICA)</para></td>
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm"/>       
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_11 %} 
+            <td href="{{ photo_11 }}">
+            <imageAndFlowables imageName="{{ photo_11 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_12 %} 
+            <td href="{{ photo_12 }}">
+            <imageAndFlowables imageName="{{ photo_12 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">ETIQUETADO CABLEADO RED EN SWITCH</para></td>
+      <td><para style="P1L">ETIQUETADO EQUIPOS STAND ALONE</para></td>
+      </tr>
+    </blockTable>
+    
+<!--Aca Empieza la Cuarta Pagina -->
+      <spacer length="2.4cm"/>
+    <blockTable style="titulos" colWidths="18cm">
+      <tr>
+        <td><para style="P8L">REPORTE INSTALACION NODO</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable colWidths="0.5cm,2cm,6.5cm,2cm,6.5cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">ID:</para></td>
+        <td><para style="dataBB">{{answers.6723e7877f62ab9626c05bd0}}</para></td>
+        <td><para style="dataB">CLIENTE:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968b}}</para> </td>
+      </tr>
+      <tr>
+        <td></td>      
+        <td><para style="dataB">DIRECCIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968c}}</para></td>
+        <td><para style="dataB">TÉCNICO:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968d}}</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="0.5cm,4cm,6cm,4cm,3cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">FECHA DE INSTALACIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968e}}</para></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </blockTable>
+
+      {% set photo_13 = ''%}
+      {% set photo_14 = ''%}
+      {% set photo_15 = ''%}
+      {% set photo_16 = ''%}
+
+        {% if answers.6723e8bee8a7b3e3cf30965d.0.file_url %}
+          {% set photo_13 = answers.6723e8bee8a7b3e3cf30965d.0.file_url %}
+        {% endif%}
+        {% if answers.6723e8bee8a7b3e3cf30965e.0.file_url %}
+          {% set photo_14 = answers.6723e8bee8a7b3e3cf30965e.0.file_url %}
+        {% endif%}
+        {% if answers.6723e8bee8a7b3e3cf30965f.0.file_url %}
+          {% set photo_15 = answers.6723e8bee8a7b3e3cf30965f.0.file_url %}
+        {% endif%}
+        {% if answers.6723e8bee8a7b3e3cf309660.0.file_url %}
+          {% set photo_16 = answers.6723e8bee8a7b3e3cf309660.0.file_url %}
+        {% endif%}
+
+  <spacer length="0.5cm"/>   
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_13 %} 
+            <td href="{{ photo_13 }}">
+            <imageAndFlowables imageName="{{ photo_13 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_14 %} 
+            <td href="{{ photo_14 }}">
+              <imageAndFlowables imageName="{{ photo_14 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">ETIQUETADO CABLEADO ETHERNET</para></td>
+      <td><para style="P1L">ETIQUETADO CABLEADO FIBRA</para></td>
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm"/>       
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_15 %} 
+            <td href="{{ photo_15 }}">
+            <imageAndFlowables imageName="{{ photo_15 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_16 %} 
+            <td href="{{ photo_16 }}">
+            <imageAndFlowables imageName="{{ photo_16}}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+             <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">CONEXIÓN DE ENERGÍA (STAND ALONE)</para></td>
+      <td><para style="P1L">VIÑETA</para></td>
+      </tr>
+    </blockTable>       
+
+<!--Aca Empieza la Quinta Pagina -->
+      <spacer length="2.4cm"/>
+    <blockTable style="titulos" colWidths="18cm">
+      <tr>
+        <td><para style="P8L">REPORTE PRUEBAS DE SERVICIO EN CLIENTE</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable colWidths="0.5cm,2cm,6.5cm,2cm,6.5cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">ID:</para></td>
+        <td><para style="dataBB">{{answers.6723e7877f62ab9626c05bd0}}</para></td>
+        <td><para style="dataB">CLIENTE:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968b}}</para> </td>
+      </tr>
+      <tr>
+        <td></td>      
+        <td><para style="dataB">DIRECCIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968c}}</para></td>
+        <td><para style="dataB">TÉCNICO:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968d}}</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="0.5cm,4cm,6cm,4cm,3cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">FECHA DE INSTALACIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968e}}</para></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </blockTable>
+
+      {% set photo_17 = ''%}
+      {% set photo_18 = ''%}
+      {% set photo_19 = ''%}
+      {% set photo_20 = ''%}
+
+        {% if answers.6723e9acfd8fccf5577e6ff4.0.file_url %}
+          {% set photo_17 = answers.6723e9acfd8fccf5577e6ff4.0.file_url %}
+        {% endif%}
+        {% if answers.6723e9acfd8fccf5577e6ff5.0.file_url %}
+          {% set photo_18 = answers.6723e9acfd8fccf5577e6ff5.0.file_url %}
+        {% endif%}
+        {% if answers.6723e9acfd8fccf5577e6ff6.0.file_url %}
+          {% set photo_19 = answers.6723e9acfd8fccf5577e6ff6.0.file_url %}
+        {% endif%}
+        {% if answers.6723e9acfd8fccf5577e6ff7.0.file_url %}
+          {% set photo_20 = answers.6723e9acfd8fccf5577e6ff7.0.file_url %}
+        {% endif%}
+
+  <spacer length="0.5cm"/>   
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_17 %} 
+            <td href="{{ photo_17 }}">
+            <imageAndFlowables imageName="{{ photo_17 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_18 %} 
+            <td href="{{ photo_18 }}">
+              <imageAndFlowables imageName="{{ photo_18 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">PING A GATEWAY DE WAN</para></td>
+      <td><para style="P1L">PING A PUNTO CENTRAL (DATOS)</para></td>
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm"/>       
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_19 %} 
+            <td href="{{ photo_19 }}">
+            <imageAndFlowables imageName="{{ photo_19 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_20 %} 
+            <td href="{{ photo_20 }}">
+            <imageAndFlowables imageName="{{ photo_20}}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">PRUEBA DE VELOCIDAD (INTERNET)</para></td>
+      <td><para style="P1L">PRUEBAS CON VEEX CLIENTE (SI FUERA NECESARIO)</para></td>
+      </tr>
+    </blockTable>       
+
+<!--Aca Empieza la Sexta Pagina -->
+      <spacer length="2.4cm"/>
+    <blockTable style="titulos" colWidths="18cm">
+      <tr>
+        <td><para style="P8L">REPORTE PRUEBAS DE SERVICIO EN CLIENTE</para></td>
+      </tr>
+    </blockTable>
+
+  <spacer length="0.5cm"/>
+    <blockTable colWidths="0.5cm,2cm,6.5cm,2cm,6.5cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">ID:</para></td>
+        <td><para style="dataBB">{{answers.6723e7877f62ab9626c05bd0}}</para></td>
+        <td><para style="dataB">CLIENTE:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968b}}</para> </td>
+      </tr>
+      <tr>
+        <td></td>      
+        <td><para style="dataB">DIRECCIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968c}}</para></td>
+        <td><para style="dataB">TÉCNICO:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968d}}</para> </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="0.5cm,4cm,6cm,4cm,3cm">
+      <tr>
+        <td></td>      
+        <td><para style="dataB">FECHA DE INSTALACIÓN:</para></td>
+        <td><para style="dataBB">{{answers.6723e7c0d9f515036c30968e}}</para></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </blockTable>
+
+      {% set photo_21 = ''%}
+      {% set photo_22 = ''%}
+      {% set photo_23 = ''%}
+      {% set photo_24 = ''%}
+
+        {% if answers.6723e9acfd8fccf5577e6ff8.0.file_url %}
+          {% set photo_21 = answers.6723e9acfd8fccf5577e6ff8.0.file_url %}
+        {% endif%}
+        {% if answers.6723e9acfd8fccf5577e6ff9.0.file_url %}
+          {% set photo_22 = answers.6723e9acfd8fccf5577e6ff9.0.file_url %}
+        {% endif%}
+        {% if answers.6723e9acfd8fccf5577e6ffa.0.file_url %}
+          {% set photo_23 = answers.6723e9acfd8fccf5577e6ffa.0.file_url %}
+        {% endif%}
+        {% if answers.6723e9acfd8fccf5577e6ffb.0.file_url %}
+          {% set photo_24 = answers.6723e9acfd8fccf5577e6ffb.0.file_url %}
+        {% endif%}
+
+  <spacer length="0.5cm"/>   
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_21 %} 
+            <td href="{{ photo_21 }}">
+            <imageAndFlowables imageName="{{ photo_21 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_22 %} 
+            <td href="{{ photo_22 }}">
+              <imageAndFlowables imageName="{{ photo_22 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">PRUEBAS CON VEEX NODO REMOTO CLARO (SI FUERA NECESARIO)</para></td>
+      <td><para style="P1L">FOTOGRAFIA ADICIONAL 1</para></td>
+      </tr>
+    </blockTable>
+    
+  <spacer length="0.5cm"/>       
+    <blockTable style="mtto_datalll" colWidths="8.5cm,8.5cm">
+      <tr>
+          {% if photo_23 %} 
+            <td href="{{ photo_23 }}">
+            <imageAndFlowables imageName="{{ photo_23 }}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+            <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td> 
+          {% endif %}
+          {% if photo_24 %} 
+            <td href="{{ photo_24 }}">
+            <imageAndFlowables imageName="{{ photo_24}}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
+          {% else %}
+             <td><imageAndFlowables imageName="https://f001.backblazeb2.com/file/app-linkaform/public-client-8191/111665/654d4d7208f1a8d24d97559c/672a54f3000e6aeef1d4008e.png" imageWidth="8cm" imageHeight="8cm"/> </td>
+          {% endif %}
+      </tr>
+    </blockTable>
+    <blockTable style="mtto_datalV" colWidths="8.5cm,8.5cm">
+      <tr>
+      <td><para style="P1L">FOTOGRAFIA ADICIONAL 2</para></td>
+      <td><para style="P1L">FOTOGRAFIA ADICIONAL 3</para></td>
+      </tr>
+    </blockTable>   
+       
+    {% autoescape on %}
+    {{ Template.style|safe }}
+{% endautoescape %}
+  </story>
+</document>

@@ -33,16 +33,24 @@
         {% endautoescape %}
     </stylesheet>
     <story>
- 
-  <blockTable colWidths="4cm,2cm,4cm,2cm,4cm,2cm">
+   <spacer length="1cm" />
+    <blockTable colWidths="4cm,6cm,4cm,4cm" style="table_encabezado">
+        <tr>
+          <td><para style="Encabezados">Tecnico: </para></td>
+          <td><para style="Encabezados">Area: </para></td>
+          <td><para style="Encabezados">Fecha: </para></td>
+          <td></td>
+        </tr> 
+    </blockTable>
+    <blockTable colWidths="4cm,6cm,4cm,4cm" style="table_contenido">
+    {% for record_mult in answers_list %}      
     <tr>
-      <td><para style="datosTitulo">TRANSFORMETAL: </para></td>
-      <td><para style="datos"> {% for select in answers.64e7dc18e8fae6a3fd0baead.64e7dc18e8fae6a3fd0baeae %}{{ select }}{% endfor %}</para></td>
-      <td><para style="datosTitulo">MES: </para></td>
-      <td><para style="datos"> {% for select in answers.601c05614cdc5855852cd3fc.601c05614cdc5855852cd3fe %}{{ select }}{% endfor %}</para></td>
-      <td><para style="datosTitulo">QUINCENA: </para></td>
-      <td><para style="datos"> {% for select in answers.6512f48e7139128666a5163e %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datos"> {% for select in record_mult.answers.64763296b7779d1897b2e68c.64763296b7779d1897b2e68d %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datos"> {% for select in record_mult.answers.64763296b7779d1897b2e68c.6476309fcc05438165b2e7b3 %}{{ select }}{% endfor %}</para></td>
+      <td><para style="datos"> {% for select in record_mult.answers.64e3797b76f080fae30baf3c %}{{ select }}{% endfor %}</para></td>
+      <td></td>
     </tr> 
+    {% endfor %}    
   </blockTable>
 
     {% for record_multi in answers_list %}

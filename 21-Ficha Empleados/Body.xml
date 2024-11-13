@@ -10,8 +10,8 @@
         <registerTTFont faceName="Montserrat-BoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-BoldItalic.ttf" />
         <registerTTFont faceName="Montserrat-SemiBoldItalic" fileName="/srv/backend.linkaform.com/infosync-api/backend/staticfiles/fonts/Montserrat-SemiBoldItalic.ttf" />
     </docinit>
-    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,27.5cm)">
-        <pageTemplate id="first" pageSize="(21cm,27.5cm)">
+    <template  title="Selecom" author="LinkaForm" pageSize="(21cm,34cm)">
+        <pageTemplate id="first" pageSize="(21cm,34cm)">
             <frame id="first"    x1="1.5cm"   y1="1.5cm" width="18cm"   height="24.5cm"/>
             <pageGraphics>
                 <setFont name="Montserrat-Regular" size="7.5"/>
@@ -299,7 +299,7 @@
         </blockTable>
 
         <spacer length="0.2cm"/>
-        <blockTable colWidths="0.4cm,8cm,8cm,1cm" style="parrafo">  
+        <blockTable colWidths="0.4cm,6cm,10cm,1cm" style="parrafo">  
             <tr>
                 <td></td>  
                 <td><para style="text1"><b>Institucion/Universidad de Estudios:</b> </para></td>
@@ -319,10 +319,10 @@
         </blockTable>
 
         <spacer length="0.2cm"/>
-        <blockTable colWidths="0.4cm,11.2cm,4.8cm,1cm" style="parrafo">  
+        <blockTable colWidths="0.4cm,6cm,10cm,1cm" style="parrafo">  
             <tr>
                 <td></td>  
-                <td><para style="text1"><b>Accidentes/Incapacidad/viaje/trabajo, entregar cheque a :</b> </para></td>
+                <td><para style="text1"><b>Accidentes, Incapacidad, viaje, trabajo, entregar cheque a :</b> </para></td>
                 <td><para style="text2"> {{answers.66158101a1649c0096d09c05}}</para></td>
                 <td></td>   
             </tr> 

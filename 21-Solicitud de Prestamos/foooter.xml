@@ -1,1 +1,21 @@
 <lineMode width="0.1"/>
+<fill color="#333333"/>
+<setFont name="Helvetica-Bold" size="8.5"/>
+<lines>.6cm 1.5cm 28.7cm 1.5cm</lines>
+
+<setFont name="Helvetica-Bold" size="8"/>
+<drawCentredString x="10.5cm" y="9.5cm">Antes de firmar este documento, compruebe que el contenido que va a firmar es correcto</drawCentredString>
+
+<drawCentredString x="10.5cm" y="8.5cm">Por este medio manifiesto mi consentimiento y autorización para que se realicen descuentos en mi salario</drawCentredString>
+<drawCentredString x="10.5cm" y="8cm">quincenal correspondientes al pago del presente documento en concepto de préstamo/anticipo sobre sueldo </drawCentredString>
+<drawCentredString x="10.5cm" y="7.5cm">reposición por daño o descuido. Lo cual está descrito en la Cláusula Decima Primera del Contrato de Trabajo </drawCentredString>
+
+<setFont name="Helvetica-Bold" size="9"/>
+<drawCentredString x="5cm" y="5.5cm">F._______________________</drawCentredString>
+<drawCentredString x="5cm" y="5cm">FIRMA DE SOLICITANTE</drawCentredString>
+<drawCentredString x="5cm" y="4.5cm">EDDY FERNANDO PIRIR PIRIR</drawCentredString>
+<drawCentredString x="15cm" y="5.5cm">F._______________________</drawCentredString>
+<drawCentredString x="15cm" y="5cm">RECURSOS HUMANOS</drawCentredString>
+
+<drawCentredString x="10cm" y="2.5cm">F.________________________</drawCentredString>
+<drawCentredString x="10cm" y="2cm">AUTORIZADO POR (Vo. Bo.)</drawCentredString>

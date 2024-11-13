@@ -182,29 +182,34 @@
           {% set photo_04 = answers.666fb7de0ed14f2e841e2016.0.file_url %}
         {% endif%}
 
-    <blockTable style="mtto_datalll" colWidths="4.5cm,4.5cm,4.5cm,4.5cm">
+    <blockTable style="mtto_datalll" colWidths="9cm,9cm">
       <tr>
           {% if photo_01 %} 
             <td href="{{ photo_01 }}">
-              <imageAndFlowables imageName="{% get_thumbnail photo_01  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+              <imageAndFlowables imageName="{% get_thumbnail photo_01  %}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
           {% else %}
             <td><para style="Header_NO_PHOTO"> No hay Fotografia de Sitio Cargada....!</para> </td> 
           {% endif %}
           {% if photo_02 %} 
             <td href="{{ photo_02 }}">
-              <imageAndFlowables imageName="{% get_thumbnail photo_02  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+              <imageAndFlowables imageName="{% get_thumbnail photo_02  %}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
           {% else %}
             <td><para style="Header_NO_PHOTO"> No hay Fotografia de Supervisor Cargada....!</para> </td> 
           {% endif %}
+      </tr>
+    </blockTable>
+    
+        <blockTable style="mtto_datalll" colWidths="9cm,9cm">
+      <tr>
           {% if photo_03 %} 
             <td href="{{ photo_03 }}">
-              <imageAndFlowables imageName="{% get_thumbnail photo_03  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+              <imageAndFlowables imageName="{% get_thumbnail photo_03  %}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
           {% else %}
             <td><para style="Header_NO_PHOTO"> No hay Fotografia de Contrata Cargada....!</para> </td> 
           {% endif %}
           {% if photo_04 %} 
             <td href="{{ photo_04 }}">
-              <imageAndFlowables imageName="{% get_thumbnail photo_04  %}" imageWidth="6cm" imageHeight="5cm" imageSide="left"/> </td>
+              <imageAndFlowables imageName="{% get_thumbnail photo_04  %}" imageWidth="8cm" imageHeight="8cm" imageSide="left"/> </td>
           {% else %}
             <td><para style="Header_NO_PHOTO"> No se Utilizo Vehiculo Alterno....!</para> </td> 
           {% endif %}
